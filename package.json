@@ -8,8 +8,8 @@
 		"start": "node dist/index.js",
 		"dev": "ts-node src/index.ts",
 		"test": "jest",
-		"setup": "node setup.js",
-		"test-client": "node test-client.js"
+		"build:prod": "ts-node build-production.ts",
+		"appium": "ts-node start-appium.ts"
 	},
 	"dependencies": {
 		"appium": "^2.2.3",
