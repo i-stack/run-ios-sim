@@ -14,8 +14,21 @@ export interface AppiumConfig {
 }
 
 export interface TestCommand {
-	type: 'register' | 'login' | 'message' | 'custom';
+	type: 'register' | 'login' | 'message' | 'custom' | 'start_test' | 'add_device';
 	deviceId: string;
+	parameters?: Record<string, any>;
+}
+
+export interface DeviceConfigCommand {
+	type: 'add_device';
+	deviceId: string;
+	deviceConfig: DeviceConfig;
+}
+
+export interface StartTestCommand {
+	type: 'start_test';
+	devices: DeviceConfig[];
+	testType: 'register' | 'login' | 'message' | 'custom';
 	parameters?: Record<string, any>;
 }
 
@@ -39,8 +52,8 @@ export interface ApiResponse {
 }
 
 export interface WebSocketMessage {
-	type: 'command' | 'status' | 'result';
-	data: TestCommand | TestResult | any;
+	type: 'command' | 'status' | 'result' | 'device_config' | 'start_test';
+	data: TestCommand | TestResult | DeviceConfigCommand | StartTestCommand | any;
 	timestamp: string;
 	messageId: string;
 } 

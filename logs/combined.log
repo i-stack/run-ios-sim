@@ -1,0 +1,4 @@
+{"level":"info","message":"New WebSocket client connected","service":"WebSocketService","timestamp":"2025-07-31T07:04:26.706Z"}
+{"level":"info","message":"WebSocket client disconnected","service":"WebSocketService","timestamp":"2025-07-31T07:08:32.145Z"}
+{"level":"info","message":"Shutting down Appium Automation Server...","service":"AppiumAutomationServer","timestamp":"2025-07-31T08:30:04.184Z"}
+{"level":"info","message":"WebSocket server closed","service":"WebSocketService","timestamp":"2025-07-31T08:30:04.186Z"}

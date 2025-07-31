@@ -7,12 +7,14 @@
 		"build": "tsc",
 		"start": "node dist/index.js",
 		"dev": "ts-node src/index.ts",
+		"websocket": "ts-node src/index.ts",
 		"test": "jest",
 		"build:prod": "ts-node build-production.ts",
-		"appium": "ts-node start-appium.ts",
 		"multi-test": "ts-node multi-device-test.ts",
 		"remote-test": "ts-node remote-connection-test.ts",
-		"non-jailbroken": "ts-node non-jailbroken-solution.ts"
+		"non-jailbroken": "ts-node non-jailbroken-solution.ts",
+		"appium": "ts-node start-appium.ts",
+		"appium:start": "appium server --port 4723 --use-plugins=inspector --allow-cors"
 	},
 	"dependencies": {
 		"appium": "^2.2.3",

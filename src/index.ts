@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import { WebSocketService } from './services/websocket.service';
 import { AppiumService } from './services/appium.service';
 import { Logger } from './utils/logger';
-import { TestCommand, TestResult, WebSocketMessage } from './types';
+import { TestCommand, TestResult, WebSocketMessage, DeviceConfigCommand, StartTestCommand } from './types';
 
 dotenv.config();
 
@@ -24,6 +24,8 @@ class AppiumAutomationServer {
 	private initialize(): void {
 		this.logger.info('Initializing Appium Automation Server...');
 		this.wsService.registerMessageHandler('command', this.handleCommand.bind(this));
+		this.wsService.registerMessageHandler('device_config', this.handleDeviceConfig.bind(this));
+		this.wsService.registerMessageHandler('start_test', this.handleStartTest.bind(this));
 		this.logger.info('Appium Automation Server initialized successfully');
 	}
 
@@ -72,6 +74,126 @@ class AppiumAutomationServer {
 			this.wsService.broadcast({
 				type: 'result',
 				data: errorResult,
+				timestamp: new Date().toISOString(),
+				messageId: message.messageId
+			});
+		}
+	}
+
+	private async handleDeviceConfig(message: WebSocketMessage): Promise<void> {
+		try {
+			const deviceConfig = message.data as DeviceConfigCommand;
+			this.logger.info(`Received device config for device: ${deviceConfig.deviceId}`);
+			
+			// 添加设备配置到Appium配置管理器
+			const configManager = this.appiumService.getConfigManager();
+			configManager.addDeviceConfig(deviceConfig.deviceId, deviceConfig.deviceConfig);
+			
+			this.logger.info(`Device config added successfully for device: ${deviceConfig.deviceId}`);
+			
+			// 发送成功响应
+			this.wsService.broadcast({
+				type: 'status',
+				data: { 
+					status: 'success', 
+					message: `Device config added for device: ${deviceConfig.deviceId}`,
+					deviceId: deviceConfig.deviceId
+				},
+				timestamp: new Date().toISOString(),
+				messageId: message.messageId
+			});
+		} catch (error) {
+			this.logger.error('Error handling device config:', error);
+			this.wsService.broadcast({
+				type: 'status',
+				data: { 
+					status: 'error', 
+					error: error instanceof Error ? error.message : String(error)
+				},
+				timestamp: new Date().toISOString(),
+				messageId: message.messageId
+			});
+		}
+	}
+
+	private async handleStartTest(message: WebSocketMessage): Promise<void> {
+		try {
+			const startTestCommand = message.data as StartTestCommand;
+			this.logger.info(`Received start test command for ${startTestCommand.devices.length} devices`);
+			
+			// 首先添加所有设备配置
+			const configManager = this.appiumService.getConfigManager();
+			for (const deviceConfig of startTestCommand.devices) {
+				configManager.addDeviceConfig(deviceConfig.udid, deviceConfig);
+			}
+			
+			// 为每个设备执行测试
+			const results: TestResult[] = [];
+			for (const deviceConfig of startTestCommand.devices) {
+				try {
+					const command: TestCommand = {
+						type: startTestCommand.testType,
+						deviceId: deviceConfig.udid,
+						parameters: startTestCommand.parameters
+					};
+					
+					let result: TestResult;
+					switch (startTestCommand.testType) {
+						case 'register':
+							result = await this.handleRegistrationCommand(command);
+							break;
+						case 'login':
+							result = await this.handleLoginCommand(command);
+							break;
+						case 'message':
+							result = await this.handleMessageCommand(command);
+							break;
+						case 'custom':
+							result = await this.handleCustomCommand(command);
+							break;
+						default:
+							result = {
+								success: false,
+								deviceId: deviceConfig.udid,
+								testType: startTestCommand.testType,
+								duration: 0,
+								error: `Unknown test type: ${startTestCommand.testType}`
+							};
+					}
+					results.push(result);
+				} catch (error) {
+					results.push({
+						success: false,
+						deviceId: deviceConfig.udid,
+						testType: startTestCommand.testType,
+						duration: 0,
+						error: error instanceof Error ? error.message : String(error)
+					});
+				}
+			}
+			
+			// 发送批量测试结果
+			this.wsService.broadcast({
+				type: 'result',
+				data: {
+					type: 'batch_test_result',
+					results,
+					totalDevices: startTestCommand.devices.length,
+					successfulTests: results.filter(r => r.success).length,
+					failedTests: results.filter(r => !r.success).length
+				},
+				timestamp: new Date().toISOString(),
+				messageId: message.messageId
+			});
+			
+		} catch (error) {
+			this.logger.error('Error handling start test command:', error);
+			this.wsService.broadcast({
+				type: 'status',
+				data: { 
+					status: 'error', 
+					error: error instanceof Error ? error.message : String(error)
+				},
 				timestamp: new Date().toISOString(),
 				messageId: message.messageId
 			});
