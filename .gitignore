@@ -6,3 +6,6 @@ logs/
 api-responses/
 test-data/
 mitmproxy/
+docs/
+scripts/
+tests/
