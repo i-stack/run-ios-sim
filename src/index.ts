@@ -4,115 +4,99 @@ import { AppiumService } from './services/appium.service';
 import { Logger } from './utils/logger';
 import { TestCommand, TestResult, WebSocketMessage } from './types';
 
-// 加载环境变量
 dotenv.config();
 
 class AppiumAutomationServer {
-  private wsService: WebSocketService;
-  private appiumService: AppiumService;
-  private logger: Logger;
+	private wsService: WebSocketService;
+	private appiumService: AppiumService;
+	private logger: Logger;
 
-  constructor() {
-    this.logger = new Logger('AppiumAutomationServer');
-    this.wsService = new WebSocketService(
-      parseInt(process.env.WS_PORT || '8080')
-    );
-    this.appiumService = new AppiumService();
-    
-    this.initialize();
-  }
+	constructor() {
+		this.logger = new Logger('AppiumAutomationServer');
+		this.wsService = new WebSocketService(
+			parseInt(process.env.WS_PORT || '8080')
+		);
+		this.appiumService = new AppiumService();
+		
+		this.initialize();
+	}
 
-  private initialize(): void {
-    this.logger.info('Initializing Appium Automation Server...');
+	private initialize(): void {
+		this.logger.info('Initializing Appium Automation Server...');
+		this.wsService.registerMessageHandler('command', this.handleCommand.bind(this));
+		this.logger.info('Appium Automation Server initialized successfully');
+	}
 
-    // 注册WebSocket消息处理器
-    this.wsService.registerMessageHandler('command', this.handleCommand.bind(this));
-    
-    this.logger.info('Appium Automation Server initialized successfully');
-  }
+	private async handleCommand(message: WebSocketMessage): Promise<void> {
+		try {
+			const command = message.data as TestCommand;
+			this.logger.info(`Received command: ${command.type} for device: ${command.deviceId}`);
+			let result: TestResult;
+			switch (command.type) {
+				case 'register':
+					result = await this.handleRegistrationCommand(command);
+					break;
+				case 'login':
+					result = await this.handleLoginCommand(command);
+					break;
+				case 'message':
+					result = await this.handleMessageCommand(command);
+					break;
+				case 'custom':
+					result = await this.handleCustomCommand(command);
+					break;
+				default:
+					result = {
+						success: false,
+						deviceId: command.deviceId,
+						testType: command.type,
+						duration: 0,
+						error: `Unknown command type: ${command.type}`
+					};
+			}
+			this.wsService.broadcast({
+				type: 'result',
+				data: result,
+				timestamp: new Date().toISOString(),
+				messageId: message.messageId
+			});
+		} catch (error) {
+			this.logger.error('Error handling command:', error);
+			const errorResult: TestResult = {
+				success: false,
+				deviceId: (message.data as TestCommand).deviceId,
+				testType: (message.data as TestCommand).type,
+				duration: 0,
+				error: error instanceof Error ? error.message : String(error)
+			};
+			this.wsService.broadcast({
+				type: 'result',
+				data: errorResult,
+				timestamp: new Date().toISOString(),
+				messageId: message.messageId
+			});
+		}
+	}
 
-  private async handleCommand(message: WebSocketMessage): Promise<void> {
-    try {
-      const command = message.data as TestCommand;
-      this.logger.info(`Received command: ${command.type} for device: ${command.deviceId}`);
+	private async handleRegistrationCommand(command: TestCommand): Promise<TestResult> {
+		const phoneNumber = command.parameters?.phoneNumber;
+		if (!phoneNumber) {
+			throw new Error('Phone number is required for registration');
+		}
+		return await this.appiumService.performViberRegistration(command.deviceId, phoneNumber);
+	}
 
-      let result: TestResult;
-
-      switch (command.type) {
-        case 'register':
-          result = await this.handleRegistrationCommand(command);
-          break;
-        case 'login':
-          result = await this.handleLoginCommand(command);
-          break;
-        case 'message':
-          result = await this.handleMessageCommand(command);
-          break;
-        case 'custom':
-          result = await this.handleCustomCommand(command);
-          break;
-        default:
-          result = {
-            success: false,
-            deviceId: command.deviceId,
-            testType: command.type,
-            duration: 0,
-            error: `Unknown command type: ${command.type}`
-          };
-      }
-
-      // 发送结果回客户端
-      this.wsService.broadcast({
-        type: 'result',
-        data: result,
-        timestamp: new Date().toISOString(),
-        messageId: message.messageId
-      });
-
-    } catch (error) {
-      this.logger.error('Error handling command:', error);
-      
-      const errorResult: TestResult = {
-        success: false,
-        deviceId: (message.data as TestCommand).deviceId,
-        testType: (message.data as TestCommand).type,
-        duration: 0,
-        error: error instanceof Error ? error.message : String(error)
-      };
-
-      this.wsService.broadcast({
-        type: 'result',
-        data: errorResult,
-        timestamp: new Date().toISOString(),
-        messageId: message.messageId
-      });
-    }
-  }
-
-  private async handleRegistrationCommand(command: TestCommand): Promise<TestResult> {
-    const phoneNumber = command.parameters?.phoneNumber;
-    if (!phoneNumber) {
-      throw new Error('Phone number is required for registration');
-    }
-
-    return await this.appiumService.performViberRegistration(command.deviceId, phoneNumber);
-  }
-
-  private async handleLoginCommand(command: TestCommand): Promise<TestResult> {
-    // TODO: 实现登录功能
-    const startTime = Date.now();
-    
-    // 这里添加登录逻辑
-    await new Promise(resolve => setTimeout(resolve, 2000)); // 模拟登录过程
-    
-    return {
-      success: true,
-      deviceId: command.deviceId,
-      testType: 'login',
-      duration: Date.now() - startTime,
-      data: { message: 'Login functionality not implemented yet' }
-    };
-  }
+	private async handleLoginCommand(command: TestCommand): Promise<TestResult> {
+		const startTime = Date.now();
+		await new Promise(resolve => setTimeout(resolve, 2000)); // 模拟登录过程
+		return {
+			success: true,
+			deviceId: command.deviceId,
+			testType: 'login',
+			duration: Date.now() - startTime,
+			data: { message: 'Login functionality not implemented yet' }
+		};
+	}
 
   private async handleMessageCommand(command: TestCommand): Promise<TestResult> {
     // TODO: 实现消息发送功能
@@ -159,29 +143,26 @@ class AppiumAutomationServer {
   }
 }
 
-// 启动服务器
 const server = new AppiumAutomationServer();
 
-// 处理进程退出信号
 process.on('SIGINT', async () => {
-  console.log('\nReceived SIGINT, shutting down gracefully...');
-  await server.shutdown();
-  process.exit(0);
+	console.log('\nReceived SIGINT, shutting down gracefully...');
+	await server.shutdown();
+	process.exit(0);
 });
 
 process.on('SIGTERM', async () => {
-  console.log('\nReceived SIGTERM, shutting down gracefully...');
-  await server.shutdown();
-  process.exit(0);
+	console.log('\nReceived SIGTERM, shutting down gracefully...');
+	await server.shutdown();
+	process.exit(0);
 });
 
-// 处理未捕获的异常
 process.on('uncaughtException', (error) => {
-  console.error('Uncaught Exception:', error);
-  process.exit(1);
+	console.error('Uncaught Exception:', error);
+	process.exit(1);
 });
 
 process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-  process.exit(1);
+	console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+	process.exit(1);
 }); 
