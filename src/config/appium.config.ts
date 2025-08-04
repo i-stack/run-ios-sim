@@ -69,6 +69,9 @@ export class AppiumConfigManager {
 
     public async detectAndConfigureDevices(): Promise<void> {
         try {
+            // 清理现有配置
+            this.deviceConfigs.clear();
+            
             const { exec } = require('child_process');
             const util = require('util');
             const execAsync = util.promisify(exec);
@@ -91,14 +94,14 @@ export class AppiumConfigManager {
                             deviceConfig: {
                                 udid: deviceId,
                                 deviceName: deviceName,
-                                platformVersion: '15.0', // Default version
+                                platformVersion: '18.5', // Updated for iPhone 16 Pro
                                 bundleId: process.env.VIBER_BUNDLE_ID || 'com.viber'
                             },
                             capabilities: {
                                 platformName: 'iOS',
                                 'appium:automationName': 'XCUITest',
                                 'appium:deviceName': deviceName,
-                                'appium:platformVersion': '15.0',
+                                'appium:platformVersion': '18.5',
                                 'appium:bundleId': process.env.VIBER_BUNDLE_ID || 'com.viber',
                                 'appium:udid': deviceId,
                                 'appium:noReset': true,

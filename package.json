@@ -19,7 +19,8 @@
 		"node-fetch": "^3.3.2",
 		"webdriverio": "^9.18.4",
 		"winston": "^3.17.0",
-		"ws": "^8.18.3"
+		"ws": "^8.18.3",
+		"dotenv": "^17.2.1"
 	},
 	"devDependencies": {
 		"@types/cors": "^2.8.19",

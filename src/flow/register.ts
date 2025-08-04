@@ -60,7 +60,7 @@ async function register(driver: WebdriverIO.Browser, deviceId: string) {
 		switch (currentPage) {
 			case PageTypeEnum.HOME:
 				await driver.pause(1000);
-			
+				await pageConfig.action(driver);
 				break;
 			case PageTypeEnum.LOGIN:
 				break;
@@ -110,8 +110,7 @@ async function restartApp(driver: WebdriverIO.Browser, deviceId: string) {
 }
 
 if (require.main === module) {
-    // Use the first available device automatically
-    startRegister().catch(error => {
+    startRegister('2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6').catch(error => {
         logger.error(`Failed to start registration: ${error}`);
         process.exit(1);
     });

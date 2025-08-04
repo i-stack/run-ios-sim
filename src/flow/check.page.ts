@@ -103,7 +103,7 @@ export const PAGE_CONFIG: PageConfigMap = {
             }
         },
         action: async (driver: WebdriverIO.Browser): Promise<boolean> => {
-            return await homePageButtonClick(driver);
+            return await reinstallViber(driver);
         }
     },
     [PageTypeEnum.PHONE_NUMBER]: {
@@ -207,88 +207,136 @@ export async function phoneNumberPageButtonClick(driver: any, phoneNumber: strin
     }
 }
 
-/**
- * Dismiss popup by clicking at coordinates
- * @param x X coordinate (default: 40)
- * @param y Y coordinate (default: 770)
- * @returns Promise<void>
- */
-// async function dismissPopup(x: number = 40, y: number = 770): Promise<void> {
-//     logger.info(`Attempting to dismiss popup at coordinates (${x}, ${y})`);
-//     await clickByCoordinates(x, y);
-//     logger.info('Popup dismissed successfully');
-// }
+async function reinstallViber(driver: WebdriverIO.Browser) {
+    try {
+        logger.info('开始重新安装 Viber...');
+        logger.info('终止 Viber 应用...');
+        await driver.terminateApp('com.viber', { force: true });
+        await driver.pause(2000);
+        logger.info('卸载 Viber 应用...');
+        try {
+            await driver.executeScript('mobile: shell', ['xcrun simctl uninstall booted com.viber']);
+            logger.info('使用 simctl 卸载 Viber');
+        } catch (error) {
+            logger.info('simctl 卸载失败，尝试手动卸载...');
+            try {
+                const viberIcon = await driver.$('~Viber');
+                if (await viberIcon.isDisplayed()) {
+                    const location = await viberIcon.getLocation();
+                    const size = await viberIcon.getSize();
+                    await driver.touchAction([
+                        { action: 'longPress', x: location.x + size.width/2, y: location.y + size.height/2 },
+                        { action: 'wait', ms: 1000 },
+                        { action: 'release' }
+                    ]);
+                    await driver.pause(2000);
+                    const deleteButton = await driver.$('~删除应用');
+                    if (await deleteButton.isDisplayed()) {
+                        await deleteButton.click();
+                        await driver.pause(1000);
+                        const confirmDelete = await driver.$('~删除');
+                        if (await confirmDelete.isDisplayed()) {
+                            await confirmDelete.click();
+                            await driver.pause(3000);
+                            logger.info('Viber 应用已手动卸载');
+                        }
+                    }
+                }
+            } catch (manualError) {
+                logger.warn('手动卸载也失败，继续执行下载流程...');
+            }
+        }
+        
+        logger.info('打开 App Store...');
+        await driver.activateApp('com.apple.AppStore');
+        await driver.pause(3000);
+        
+        logger.info('搜索 Viber...');
+        
+        let searchTab = null;
+        try {
+            searchTab = await findByButton(driver, "UIA.AppStore.TabBar.search");
+            if (searchTab && await searchTab.isExisting()) {
+                await searchTab.click();
+                await driver.pause(1000);
+            }
+        } catch (error) {
+            logger.info('未找到搜索标签，尝试其他方式...');
+        }
+    
+        try {
+            const searchField = await findByTextFieldWithValue(driver, "游戏、App、故事等");
+            if (searchField && await searchField.isExisting()) {
+                await searchField.click();
+                await searchField.setValue('Rakuten Viber Messenger');
+                await driver.pause(2000);
 
-// /**
-//  * Click by coordinates
-//  * @param x X coordinate
-//  * @param y Y coordinate
-//  * @param duration Click duration in milliseconds (default: 100)
-//  * @returns Promise<boolean>
-//  */
-// async function clickByCoordinates(x: number, y: number, duration: number = 100): Promise<boolean> {
-//     try {
-//         logger.info(`Attempting to click at coordinates (${x}, ${y}) with duration ${duration}ms`);
-//         const sessionId = await getSessionId();
-//         const { hostname, port } = (new AppiumService()).getConfig();
-//         const response = await axios.post(`http://${hostname}:${port}/session/${sessionId}/actions`, {
-//             actions: [{
-//                 type: 'pointer',
-//                 id: 'finger1',
-//                 parameters: { pointerType: 'touch' },
-//                 actions: [
-//                     { type: 'pointerMove', duration: 0, x, y },
-//                     { type: 'pointerDown', button: 0 },
-//                     { type: 'pause', duration },
-//                     { type: 'pointerUp', button: 0 }
-//                 ]}
-//             ]
-//         });
-//         if (response.status === 200) {
-//             logger.info(`Successfully clicked at coordinates (${x}, ${y})`);
-//         }
-//         return true;
-//     } catch (error: any) {
-//         logger.error(`Failed to click at coordinates (${x}, ${y}): ${error.message}`);
-//         return true;
-//     }
-// }
+                // 输入后需要点击键盘上的 search 按钮进行搜索
+                const searchButton = await findByButton(driver, "Search");
+                if (searchButton && await searchButton.isExisting()) {
+                    await searchButton.click();
+                }
+                await driver.pause(2000);
 
-// /**
-//  * Hide keyboard
-//  * @returns Promise<boolean>
-//  */
-// async function hideKeyboard(): Promise<boolean> {
-//     const sessionId = await getSessionId();
-//     if (!sessionId) {
-//         return true;
-//     }
-//     const { hostname, port } = (new AppiumService()).getConfig();
-//     try {
-//         await axios.post(`http://${hostname}:${port}/session/${sessionId}/appium/device/hide_keyboard`);
-//         logger.info('Keyboard hidden successfully using hide_keyboard command');
-//         return true;
-//     } catch (error) {
-//         logger.warn('hide_keyboard command failed, trying alternative methods');
-//         return true;
-//     }    
-// }
-
-// /**
-//  * Get current session ID
-//  * @returns Promise<string> Session ID
-//  */
-// async function getSessionId(): Promise<string> {
-//     try {
-//         const { hostname, port } = (new AppiumService()).getConfig();
-//         const response = await axios.get(`http://${hostname}:${port}/sessions`);
-//         const sessions = response.data.value;
-//         if (sessions && sessions.length > 0) {
-//             return sessions[0].id;
-//         }
-//         throw new Error('No active session found');
-//     } catch (error: any) {
-//         logger.error(`Failed to get session ID: ${error.message}`);
-//         throw error;
-//     }
-// } 
+                // 搜索结果中找到 Viber 应用
+            }
+        } catch (error) {
+            logger.info('搜索功能不可用，尝试直接查找 Viber 应用...');
+        }
+        
+        logger.info('开始下载 Viber...');
+        const viberApp = await findByButton(driver, "Rakuten Viber Messenger");
+        if (viberApp && await viberApp.isExisting()) {
+            await viberApp.click();
+            await driver.pause(2000);
+            const downloadButton = await findByButton(driver, "UIA.AppStore.OfferButton");
+            if (downloadButton && await downloadButton.isExisting()) {
+                await downloadButton.click();
+                await driver.pause(1000);
+                
+                const passwordField = await driver.$('~密码');
+                if (await passwordField.isDisplayed()) {
+                    const applePassword = process.env.APPLE_ID_PASSWORD;
+                    if (applePassword) {
+                        await passwordField.setValue(applePassword);
+                        await driver.pause(1000);
+                        
+                        const okButton = await driver.$('~好') || await driver.$('~确定');
+                        if (await okButton.isDisplayed()) {
+                            await okButton.click();
+                        }
+                    } else {
+                        logger.warn('需要 Apple ID 密码，请设置 APPLE_ID_PASSWORD 环境变量');
+                    }
+                }
+                
+                logger.info('等待 Viber 下载完成...');
+                let downloadComplete = false;
+                let waitTime = 0;
+                const maxWaitTime = 300000; 
+                
+                while (!downloadComplete && waitTime < maxWaitTime) {
+                    await driver.pause(5000);
+                    waitTime += 5000;
+                    const openButton = await driver.$('~打开');
+                    if (await openButton.isDisplayed()) {
+                        downloadComplete = true;
+                        logger.info('Viber 下载完成');
+                    }
+                }
+                if (!downloadComplete) {
+                    throw new Error('Viber 下载超时');
+                }
+            }
+        }
+        
+        logger.info('打开 Viber...');
+        await driver.activateApp('com.viber');
+        await driver.pause(5000);
+        logger.info('Viber 重新安装完成');
+        return true;
+    } catch (error) {
+        logger.error(`重新安装 Viber 失败: ${error instanceof Error ? error.message : String(error)}`);
+        return false;
+    }
+}
