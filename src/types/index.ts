@@ -10,22 +10,7 @@ export interface AppiumConfig {
 	host: string;
 	port: number;
 	deviceConfig: DeviceConfig;
-	capabilities: any;
-}
-
-export interface TestCommand {
-	type: 'register' | 'login' | 'message' | 'custom';
-	deviceId: string;
-	parameters?: Record<string, any>;
-}
-
-export interface TestResult {
-	success: boolean;
-	deviceId: string;
-	testType: string;
-	duration: number;
-	error?: string;
-	data?: any;
+	capabilities: WebdriverIO.Capabilities;
 }
 
 export interface ApiResponse {
@@ -40,7 +25,7 @@ export interface ApiResponse {
 
 export interface WebSocketMessage {
 	type: 'command' | 'status' | 'result';
-	data: TestCommand | TestResult | any;
+	data: any;
 	timestamp: string;
 	messageId: string;
 } 

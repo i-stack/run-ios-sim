@@ -96,13 +96,13 @@ async function findElementByType(driver: any, text: string, type: ElementType): 
 export const PAGE_CONFIG: PageConfigMap = {
     [PageTypeEnum.HOME]: {
         features: {
-            texts: ['欢迎使用 WhatsApp', '你使用 WhatsApp 服务的亲朋好友', '隐私政策', '服务条款'],
+            texts: ['标签页栏'],
             uniqueElement: {
-                text: '欢迎使用 WhatsApp',
-                type: 'STATIC_TEXT'
+                text: '标签页栏',
+                type: 'TAB_BAR'
             }
         },
-        action: async (driver: any): Promise<boolean> => {
+        action: async (driver: WebdriverIO.Browser): Promise<boolean> => {
             return await homePageButtonClick(driver);
         }
     },
@@ -171,28 +171,10 @@ export async function getCurrentPage(driver: any): Promise<PageType> {
  * @param maxRetries Maximum number of retries
  * @returns Promise<boolean>
  */
-export async function homePageButtonClick(driver: any, maxRetries: number = MAX_RETRIES): Promise<boolean> {
-    let retries = 0;
-    while (retries < maxRetries) {
-        try {
-            let agreeButton = await findByButton(driver, "同意并继续");
-            if (!agreeButton) {
-                agreeButton = await driver.$(`//XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]`);
-            }
-            if (agreeButton && await agreeButton.isExisting()) {
-                await agreeButton.click();
-                logger.info("点击同意并继续按钮");
-                return true;
-            }
-            retries++;
-            await driver.pause(RETRY_DELAY);
-        } catch (error) {
-            logger.error(`点击同意并继续按钮失败: ${error}`);
-            retries++;
-            await driver.pause(RETRY_DELAY);
-        }
-    }
-    return false;
+export async function homePageButtonClick(driver: WebdriverIO.Browser): Promise<boolean> {
+    let tabBar = await findByTabBar(driver, "标签页栏");
+    if (!tabBar?.isExisting()) return false;
+    return true;
 }
 
 /**
