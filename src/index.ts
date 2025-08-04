@@ -1,31 +1,65 @@
-import dotenv from 'dotenv';
 import { WebSocketService } from './services/websocket.service';
 import { AppiumService } from './services/appium.service';
 import { Logger } from './utils/logger';
 import { TestCommand, TestResult, WebSocketMessage } from './types';
 
-dotenv.config();
-
 class AppiumAutomationServer {
+	private logger: Logger;
 	private wsService: WebSocketService;
 	private appiumService: AppiumService;
-	private logger: Logger;
 
 	constructor() {
 		this.logger = new Logger('AppiumAutomationServer');
-		this.wsService = new WebSocketService(
-			parseInt(process.env.WS_PORT || '8080')
-		);
+		this.wsService = new WebSocketService();
 		this.appiumService = new AppiumService();
-		
-		this.initialize();
+		this.setupWebSocket();
 	}
 
-	private initialize(): void {
-		this.logger.info('Initializing Appium Automation Server...');
-		this.wsService.registerMessageHandler('command', this.handleCommand.bind(this));
-		this.logger.info('Appium Automation Server initialized successfully');
-	}
+	private async setupWebSocket() {
+        this.wsService.on('message', async (message) => {
+            switch (message.type) {
+                case 'REGISTER_SERVER':
+                    this.logger.info(`Received server registration: ${JSON.stringify(message.params)}`);
+                    
+                    break
+                case 'START_TEST':
+                    this.logger.info(`Received start test command: ${JSON.stringify(message.params)}`);
+                    if (message.params && message.params.deviceIds) {
+                        
+                    }
+                    break;
+                case 'STOP_TEST':
+                    this.logger.info('Received stop test command');
+                    
+                    break;
+                case 'GET_STATUS':
+                    this.logger.info('Received status request');
+                    break;
+                default:
+                    this.logger.warn(`Unknown message type: ${message.type}`);
+            }
+        });
+
+        this.wsService.on('connected', () => {
+            this.logger.info('Connected to WebSocket server');
+        });
+
+        this.wsService.on('disconnected', () => {
+            this.logger.info('Disconnected from WebSocket server');
+        });
+
+        this.wsService.on('error', (error) => {
+            this.logger.error(`WebSocket error: ${error}`);
+        });
+    }
+
+    start() {
+        this.wsService.connect();
+    }
+
+    stop() {
+        this.wsService.disconnect();
+    }
 
 	private async handleCommand(message: WebSocketMessage): Promise<void> {
 		try {

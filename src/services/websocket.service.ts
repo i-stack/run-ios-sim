@@ -1,106 +1,98 @@
 import WebSocket from 'ws';
-import { WebSocketMessage } from '../types';
+import { EnvConfig } from '../env';
+import { EventEmitter } from 'events';
 import { Logger } from '../utils/logger';
 
-export class WebSocketService {
-  private wss: WebSocket.Server;
-  private clients: Set<WebSocket> = new Set();
-  private logger: Logger;
-  private messageHandlers: Map<string, (message: WebSocketMessage) => void> = new Map();
+export class WebSocketService extends EventEmitter {
+    private logger: Logger;
+    private ws: WebSocket | null;
+    private url: string;
+    private reconnectInterval: number;
+    private maxReconnectAttempts: number;
+    private reconnectAttempts: number;
+    private isConnected: boolean;
 
-  constructor(port: number = 8080) {
-    this.logger = new Logger('WebSocketService');
-    this.wss = new WebSocket.Server({ port });
-    this.initialize();
-  }
+    constructor(url = EnvConfig.websocketUrl(), reconnectInterval = 5000, maxReconnectAttempts = 5) {
+        super();
+        this.logger = new Logger('WebSocketService');
+        this.ws = null;
+        this.url = url;
+        this.reconnectInterval = reconnectInterval;
+        this.maxReconnectAttempts = maxReconnectAttempts;
+        this.reconnectAttempts = 0;
+        this.isConnected = false;
+    }
 
-  private initialize(): void {
-    this.wss.on('connection', (ws: WebSocket) => {
-      this.logger.info('New WebSocket client connected');
-      this.clients.add(ws);
-
-      ws.on('message', (data: WebSocket.Data) => {
+    connect() {
         try {
-          const message: WebSocketMessage = JSON.parse(data.toString());
-          this.handleMessage(message, ws);
+            this.ws = new WebSocket(this.url);
+            this.ws.on('open', () => {
+                this.isConnected = true;
+                this.reconnectAttempts = 0;
+                this.logger.info('WebSocket connected successfully');
+                this.emit('connected');
+            });
+
+            this.ws.on('message', (data: WebSocket.Data) => {
+                try {
+                    const message = JSON.parse(data.toString());
+                    this.emit('message', message);
+                } catch (error) {
+                    this.logger.error(`Error parsing WebSocket message: ${error}`);
+                }
+            });
+
+            this.ws.on('close', () => {
+                this.isConnected = false;
+                this.logger.info('WebSocket connection closed');
+                this.emit('disconnected');
+                this.reconnect();
+            });
+
+            this.ws.on('error', (error: Error) => {
+                this.logger.error(`WebSocket error: ${error}`);
+                this.emit('error', error);
+            });
         } catch (error) {
-          this.logger.error('Failed to parse WebSocket message:', error);
-          this.sendError(ws, 'Invalid message format');
+            this.logger.error(`Error creating WebSocket connection: ${error}`);
+            this.reconnect();
         }
-      });
-
-      ws.on('close', () => {
-        this.logger.info('WebSocket client disconnected');
-        this.clients.delete(ws);
-      });
-
-      ws.on('error', (error) => {
-        this.logger.error('WebSocket error:', error);
-        this.clients.delete(ws);
-      });
-
-      // 发送连接确认消息
-      this.sendMessage(ws, {
-        type: 'status',
-        data: { status: 'connected', message: 'WebSocket server ready' },
-        timestamp: new Date().toISOString(),
-        messageId: this.generateMessageId()
-      });
-    });
-
-    this.logger.info(`WebSocket server started on port ${this.wss.options.port}`);
-  }
-
-  private handleMessage(message: WebSocketMessage, ws: WebSocket): void {
-    this.logger.info(`Received message: ${message.type}`, message);
-
-    const handler = this.messageHandlers.get(message.type);
-    if (handler) {
-      handler(message);
-    } else {
-      this.logger.warn(`No handler found for message type: ${message.type}`);
-      this.sendError(ws, `Unknown message type: ${message.type}`);
     }
-  }
 
-  public registerMessageHandler(type: string, handler: (message: WebSocketMessage) => void): void {
-    this.messageHandlers.set(type, handler);
-  }
-
-  public broadcast(message: WebSocketMessage): void {
-    const messageStr = JSON.stringify(message);
-    this.clients.forEach((client) => {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(messageStr);
-      }
-    });
-  }
-
-  public sendMessage(ws: WebSocket, message: WebSocketMessage): void {
-    if (ws.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify(message));
+    reconnect() {
+        if (this.reconnectAttempts < this.maxReconnectAttempts) {
+            this.reconnectAttempts++;
+            this.logger.info(`Attempting to reconnect (${this.reconnectAttempts}/${this.maxReconnectAttempts})...`);
+            setTimeout(() => this.connect(), this.reconnectInterval);
+        } else {
+            this.logger.error('Max reconnection attempts reached');
+            this.emit('maxReconnectAttemptsReached');
+        }
     }
-  }
 
-  private sendError(ws: WebSocket, error: string): void {
-    this.sendMessage(ws, {
-      type: 'status',
-      data: { status: 'error', error },
-      timestamp: new Date().toISOString(),
-      messageId: this.generateMessageId()
-    });
-  }
+    send(data: any) {
+        if (this.ws && this.isConnected) {
+            try {
+                const message = JSON.stringify(data);
+                this.ws.send(message);
+            } catch (error) {
+                this.logger.error(`Error sending WebSocket message: ${error}`);
+                this.emit('error', error);
+            }
+        } else {
+            this.logger.warn('WebSocket is not connected');
+        }
+    }
 
-  private generateMessageId(): string {
-    return `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-  }
+    disconnect() {
+        if (this.ws) {
+            this.ws.close();
+            this.ws = null;
+            this.isConnected = false;
+        }
+    }
 
-  public getConnectedClientsCount(): number {
-    return this.clients.size;
-  }
-
-  public close(): void {
-    this.wss.close();
-    this.logger.info('WebSocket server closed');
-  }
+    isConnectionActive() {
+        return this.isConnected;
+    }
 } 
