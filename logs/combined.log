@@ -99,3 +99,890 @@
 {"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone7p","appium:noReset":true,"appium:platformVersion":"15.8.2","appium:udid":"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"iPhone7p","platformVersion":"15.8.2","udid":"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6"},"host":"localhost","level":"info","message":"Initializing Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","port":4723,"service":"AppiumService","timestamp":"2025-08-04T08:35:49.393Z"}
 {"level":"info","message":"Appium driver initialized successfully for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","service":"AppiumService","timestamp":"2025-08-04T08:36:13.641Z"}
 {"level":"error","message":"WebDriver session error: unknown error: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: socket hang up when running \"source\" with method \"GET\"","service":"CheckPage","timestamp":"2025-08-04T08:36:26.113Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:autoGrantPermissions":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone7p","appium:fullReset":false,"appium:launchTimeout":60000,"appium:newCommandTimeout":180,"appium:noReset":true,"appium:platformVersion":"15.8.2","appium:shouldTerminateApp":true,"appium:udid":"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","appium:webDriverAgentUrl":"http://localhost:4723","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"connectionRetryCount":10,"connectionRetryTimeout":60000,"hostname":"localhost","level":"info","message":"Initializing remote Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","path":"/","port":4723,"service":"AppiumService","timestamp":"2025-08-04T08:41:51.715Z","waitforInterval":1000,"waitforTimeout":30000}
+{"level":"error","message":"Failed to initialize Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6 WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unable to start WebDriverAgent session. Original error: All non-standard capabilities should have a vendor prefix. The following capabilities did not have one: bundleId,arguments,environment,eventloopIdleDelaySec,shouldWaitForQuiescence,shouldUseTestManagerForVisibilityDetection,maxTypingFrequency,shouldUseSingletonTestManager,shouldTerminateApp,forceAppLaunch,useNativeCachingStrategy,forceSimulatorSoftwareKeyboardPresence,defaultAlertAction when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone7p\",\"appium:platformVersion\":\"15.8.2\",\"appium:udid\":\"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:webDriverAgentUrl\":\"http://localhost:4723\",\"appium:autoGrantPermissions\":true,\"appium:fullReset\":false,\"appium:newCommandTimeout\":180,\"appium:launchTimeout\":60000,\"appium:shouldTerminateApp\":true},\"firstMatch\":[{}]}}\"","service":"AppiumService","stack":"Error: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unable to start WebDriverAgent session. Original error: All non-standard capabilities should have a vendor prefix. The following capabilities did not have one: bundleId,arguments,environment,eventloopIdleDelaySec,shouldWaitForQuiescence,shouldUseTestManagerForVisibilityDetection,maxTypingFrequency,shouldUseSingletonTestManager,shouldTerminateApp,forceAppLaunch,useNativeCachingStrategy,forceSimulatorSoftwareKeyboardPresence,defaultAlertAction when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone7p\",\"appium:platformVersion\":\"15.8.2\",\"appium:udid\":\"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:webDriverAgentUrl\":\"http://localhost:4723\",\"appium:autoGrantPermissions\":true,\"appium:fullReset\":false,\"appium:newCommandTimeout\":180,\"appium:launchTimeout\":60000,\"appium:shouldTerminateApp\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:98:28)\n    at async startRegister (/Users/song/Desktop/nodejs/viber/viber/src/flow/register.ts:24:18)","timestamp":"2025-08-04T08:42:52.024Z"}
+{"level":"error","message":"startRegister error: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unable to start WebDriverAgent session. Original error: All non-standard capabilities should have a vendor prefix. The following capabilities did not have one: bundleId,arguments,environment,eventloopIdleDelaySec,shouldWaitForQuiescence,shouldUseTestManagerForVisibilityDetection,maxTypingFrequency,shouldUseSingletonTestManager,shouldTerminateApp,forceAppLaunch,useNativeCachingStrategy,forceSimulatorSoftwareKeyboardPresence,defaultAlertAction when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone7p\",\"appium:platformVersion\":\"15.8.2\",\"appium:udid\":\"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:webDriverAgentUrl\":\"http://localhost:4723\",\"appium:autoGrantPermissions\":true,\"appium:fullReset\":false,\"appium:newCommandTimeout\":180,\"appium:launchTimeout\":60000,\"appium:shouldTerminateApp\":true},\"firstMatch\":[{}]}}\"","service":"Register","timestamp":"2025-08-04T08:42:52.026Z"}
+{"level":"info","message":"=== 网络设备扫描 ===","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:54:10.684Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:54:10.696Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:54:10.696Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:54:10.703Z"}
+{"level":"info","message":"Starting automatic device discovery...","service":"Network","timestamp":"2025-08-04T08:54:10.703Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:54:10.711Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:54:10.711Z"}
+{"level":"info","message":"Current device IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:54:10.711Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:54:10.719Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:54:10.720Z"}
+{"level":"info","message":"Scanning network segment: 192.168.0.0/24","service":"Network","timestamp":"2025-08-04T08:54:10.720Z"}
+{"cmd":"nmap -sn 192.168.0.0/24","code":127,"killed":false,"level":"error","message":"Failed to scan iOS devices: Command failed: nmap -sn 192.168.0.0/24\n/bin/sh: nmap: command not found\n","service":"Network","signal":null,"stack":"Error: Command failed: nmap -sn 192.168.0.0/24\n/bin/sh: nmap: command not found\n\n    at genericNodeError (node:internal/errors:983:15)\n    at wrappedFn (node:internal/errors:537:14)\n    at ChildProcess.exithandler (node:child_process:417:12)\n    at ChildProcess.emit (node:events:507:28)\n    at ChildProcess.emit (node:domain:489:12)\n    at maybeClose (node:internal/child_process:1101:16)\n    at Socket.<anonymous> (node:internal/child_process:457:11)\n    at Socket.emit (node:events:507:28)\n    at Socket.emit (node:domain:489:12)\n    at Pipe.<anonymous> (node:net:346:12)","stderr":"/bin/sh: nmap: command not found\n","stdout":"","timestamp":"2025-08-04T08:54:10.726Z"}
+{"level":"info","message":"当前设备信息:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:54:10.726Z"}
+{"level":"info","message":"Auto-discovery completed. Found 0 valid devices","service":"Network","timestamp":"2025-08-04T08:54:10.726Z"}
+{"level":"info","message":"  IP地址: 192.168.0.123","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:54:10.726Z"}
+{"level":"info","message":"网络接口:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:54:10.726Z"}
+{"level":"info","message":"  - en0: 192.168.0.123 (wifi)","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:54:10.726Z"}
+{"level":"info","message":"  - utun7: 198.18.0.1 (unknown)","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:54:10.726Z"}
+{"level":"info","message":"网络中的设备:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:54:10.727Z"}
+{"level":"info","message":"  未发现任何设备","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:54:10.727Z"}
+{"level":"info","message":"=== 网络设备扫描 ===","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:55:33.832Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:55:33.843Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:55:33.843Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:55:33.850Z"}
+{"level":"info","message":"Starting automatic device discovery...","service":"Network","timestamp":"2025-08-04T08:55:33.850Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:55:33.856Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:55:33.856Z"}
+{"level":"info","message":"Current device IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:55:33.856Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:55:33.863Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:55:33.863Z"}
+{"level":"info","message":"Scanning network segment: 192.168.0.0/24","service":"Network","timestamp":"2025-08-04T08:55:33.863Z"}
+{"level":"warn","message":"nmap not available, using manual IP range scanning","service":"Network","timestamp":"2025-08-04T08:55:33.866Z"}
+{"level":"info","message":"Found 0 potential iOS devices:","service":"Network","timestamp":"2025-08-04T08:55:38.871Z"}
+{"level":"info","message":"当前设备信息:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:55:38.871Z"}
+{"level":"info","message":"Auto-discovery completed. Found 0 valid devices","service":"Network","timestamp":"2025-08-04T08:55:38.871Z"}
+{"level":"info","message":"  IP地址: 192.168.0.123","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:55:38.872Z"}
+{"level":"info","message":"网络接口:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:55:38.872Z"}
+{"level":"info","message":"  - en0: 192.168.0.123 (wifi)","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:55:38.872Z"}
+{"level":"info","message":"  - utun7: 198.18.0.1 (unknown)","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:55:38.872Z"}
+{"level":"info","message":"网络中的设备:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:55:38.872Z"}
+{"level":"info","message":"  未发现任何设备","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:55:38.872Z"}
+{"level":"info","message":"自动IP检测工具","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.404Z"}
+{"level":"info","message":"","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.406Z"}
+{"level":"info","message":"用法:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.406Z"}
+{"level":"info","message":"  npx ts-node auto-ip-discovery.ts demo    # 完整演示","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.406Z"}
+{"level":"info","message":"  npx ts-node auto-ip-discovery.ts scan    # 扫描网络设备","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.406Z"}
+{"level":"info","message":"  npx ts-node auto-ip-discovery.ts test <ip>  # 测试特定设备","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.406Z"}
+{"level":"info","message":"","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.406Z"}
+{"level":"info","message":"示例:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.407Z"}
+{"level":"info","message":"  npx ts-node auto-ip-discovery.ts test 192.168.1.100","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:58:25.407Z"}
+{"level":"info","message":"=== 网络设备扫描 ===","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:59:02.077Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:59:02.088Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:59:02.088Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:59:02.096Z"}
+{"level":"info","message":"Starting automatic device discovery...","service":"Network","timestamp":"2025-08-04T08:59:02.096Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:59:02.103Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:59:02.104Z"}
+{"level":"info","message":"Current device IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:59:02.104Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T08:59:02.112Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T08:59:02.112Z"}
+{"level":"info","message":"Scanning network segment: 192.168.0.0/24","service":"Network","timestamp":"2025-08-04T08:59:02.112Z"}
+{"level":"warn","message":"nmap not available, using manual IP range scanning","service":"Network","timestamp":"2025-08-04T08:59:02.117Z"}
+{"level":"info","message":"Found 0 potential iOS devices:","service":"Network","timestamp":"2025-08-04T08:59:07.122Z"}
+{"level":"info","message":"当前设备信息:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:59:07.123Z"}
+{"level":"info","message":"Auto-discovery completed. Found 0 valid devices","service":"Network","timestamp":"2025-08-04T08:59:07.123Z"}
+{"level":"info","message":"  IP地址: 192.168.0.123","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:59:07.123Z"}
+{"level":"info","message":"网络接口:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:59:07.123Z"}
+{"level":"info","message":"  - en0: 192.168.0.123 (wifi)","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:59:07.123Z"}
+{"level":"info","message":"  - utun7: 198.18.0.1 (unknown)","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:59:07.124Z"}
+{"level":"info","message":"网络中的设备:","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:59:07.124Z"}
+{"level":"info","message":"  未发现任何设备","service":"AutoIPDiscovery","timestamp":"2025-08-04T08:59:07.124Z"}
+{"level":"info","message":"=== 网络设备扫描 ===","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:10.981Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:02:10.991Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:02:10.991Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:02:10.997Z"}
+{"level":"info","message":"Starting automatic device discovery...","service":"Network","timestamp":"2025-08-04T09:02:10.998Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:02:11.005Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:02:11.005Z"}
+{"level":"info","message":"Current device IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:02:11.005Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:02:11.013Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:02:11.013Z"}
+{"level":"info","message":"Scanning network segment: 192.168.0.0/24","service":"Network","timestamp":"2025-08-04T09:02:11.013Z"}
+{"level":"warn","message":"nmap not available, using manual IP range scanning","service":"Network","timestamp":"2025-08-04T09:02:11.018Z"}
+{"level":"info","message":"Found 0 potential iOS devices:","service":"Network","timestamp":"2025-08-04T09:02:16.023Z"}
+{"level":"info","message":"当前设备信息:","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:16.024Z"}
+{"level":"info","message":"Auto-discovery completed. Found 0 valid devices","service":"Network","timestamp":"2025-08-04T09:02:16.024Z"}
+{"level":"info","message":"  IP地址: 192.168.0.123","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:16.024Z"}
+{"level":"info","message":"网络接口:","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:16.024Z"}
+{"level":"info","message":"  - en0: 192.168.0.123 (wifi)","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:16.025Z"}
+{"level":"info","message":"  - utun7: 198.18.0.1 (unknown)","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:16.025Z"}
+{"level":"info","message":"网络中的设备:","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:16.025Z"}
+{"level":"info","message":"  未发现任何设备","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:16.025Z"}
+{"level":"info","message":"=== 网络设备扫描 ===","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:02:41.406Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:02:41.416Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:02:41.416Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:02:41.423Z"}
+{"level":"info","message":"Starting automatic device discovery...","service":"Network","timestamp":"2025-08-04T09:02:41.424Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:02:41.431Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:02:41.431Z"}
+{"level":"info","message":"Current device IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:02:41.431Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:02:41.439Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:02:41.440Z"}
+{"level":"info","message":"Scanning network segment: 192.168.0.0/24","service":"Network","timestamp":"2025-08-04T09:02:41.440Z"}
+{"level":"warn","message":"nmap not available, using manual IP range scanning","service":"Network","timestamp":"2025-08-04T09:02:41.444Z"}
+{"level":"info","message":"Found 0 potential iOS devices:","service":"Network","timestamp":"2025-08-04T09:02:46.449Z"}
+{"level":"info","message":"=== 网络设备扫描 ===","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:07:20.654Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:20.664Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:20.665Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:20.672Z"}
+{"level":"info","message":"Starting automatic device discovery...","service":"Network","timestamp":"2025-08-04T09:07:20.672Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:20.679Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:20.680Z"}
+{"level":"info","message":"Current device IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:20.680Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:20.687Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:20.687Z"}
+{"level":"info","message":"Scanning network segment: 192.168.0.0/24","service":"Network","timestamp":"2025-08-04T09:07:20.688Z"}
+{"level":"warn","message":"nmap not available, using manual IP range scanning","service":"Network","timestamp":"2025-08-04T09:07:20.692Z"}
+{"level":"info","message":"Found 0 potential iOS devices:","service":"Network","timestamp":"2025-08-04T09:07:25.697Z"}
+{"level":"info","message":"=== IP地址检测调试 ===","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.150Z"}
+{"level":"info","message":"1. 获取所有可用的IP地址...","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.152Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:27.170Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:27.171Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:27.178Z"}
+{"level":"info","message":"scutil 检测结果:","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.178Z"}
+{"level":"info","message":"  ✗ 未检测到","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.178Z"}
+{"level":"info","message":"ifconfig 检测结果:","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.178Z"}
+{"level":"info","message":"  ✓ 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.178Z"}
+{"level":"info","message":"所有网络接口:","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.179Z"}
+{"level":"info","message":"  ✓ en0: 192.168.0.123 (wifi)","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.179Z"}
+{"level":"info","message":"  ✓ utun7: 198.18.0.1 (unknown)","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.179Z"}
+{"level":"info","message":"2. 比较不同的检测方法...","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.179Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:27.187Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:27.187Z"}
+{"level":"info","message":"Falling back to ifconfig method","service":"Network","timestamp":"2025-08-04T09:07:27.195Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:27.203Z"}
+{"level":"info","message":"方法1 (getCurrentDeviceIP):","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.203Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:27.203Z"}
+{"level":"info","message":"方法2 (getMatchingDeviceIP):","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.203Z"}
+{"level":"info","message":"✓ 两种方法返回相同的IP地址","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.203Z"}
+{"level":"info","message":"3. 检查网络连接...","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.203Z"}
+{"level":"info","message":"网络段: 192.168.0.0/24","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.203Z"}
+{"level":"info","message":"测试网络连接:","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.203Z"}
+{"level":"info","message":"  ✗ 192.168.0.1:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.211Z"}
+{"level":"info","message":"  ✗ 192.168.0.2:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.212Z"}
+{"level":"info","message":"  ✗ 192.168.0.10:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.213Z"}
+{"level":"info","message":"  ✗ 192.168.0.100:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.214Z"}
+{"level":"info","message":"  ✗ 192.168.0.101:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.215Z"}
+{"level":"info","message":"  ✗ 192.168.0.254:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.215Z"}
+{"level":"info","message":"4. 建议...","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.215Z"}
+{"level":"info","message":"✓ IP地址检测正常","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.215Z"}
+{"level":"info","message":"当前检测到的IP地址: 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:27.215Z"}
+{"level":"info","message":"=== IP地址检测调试 ===","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.272Z"}
+{"level":"info","message":"1. 获取所有可用的IP地址...","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.274Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:55.290Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:55.290Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:55.297Z"}
+{"level":"info","message":"scutil 检测结果:","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.297Z"}
+{"level":"info","message":"  ✗ 未检测到","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.297Z"}
+{"level":"info","message":"ifconfig 检测结果:","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.297Z"}
+{"level":"info","message":"  ✓ 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.297Z"}
+{"level":"info","message":"所有网络接口:","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.298Z"}
+{"level":"info","message":"  ✓ en0: 192.168.0.123 (wifi)","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.298Z"}
+{"level":"info","message":"  ✓ utun7: 198.18.0.1 (unknown)","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.298Z"}
+{"level":"info","message":"2. 比较不同的检测方法...","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.298Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:55.304Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:55.304Z"}
+{"level":"info","message":"Falling back to ifconfig method","service":"Network","timestamp":"2025-08-04T09:07:55.311Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:07:55.317Z"}
+{"level":"info","message":"方法1 (getCurrentDeviceIP):","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.317Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:07:55.317Z"}
+{"level":"info","message":"方法2 (getMatchingDeviceIP):","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.318Z"}
+{"level":"info","message":"✓ 两种方法返回相同的IP地址","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.318Z"}
+{"level":"info","message":"3. 检查网络连接...","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.318Z"}
+{"level":"info","message":"网络段: 192.168.0.0/24","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.318Z"}
+{"level":"info","message":"测试网络连接:","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.318Z"}
+{"level":"info","message":"  ✗ 192.168.0.1:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:55.326Z"}
+{"level":"info","message":"  ✗ 192.168.0.2:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:57.327Z"}
+{"level":"info","message":"  ✗ 192.168.0.10:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:07:59.329Z"}
+{"level":"info","message":"  ✗ 192.168.0.100:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:01.330Z"}
+{"level":"info","message":"  ✗ 192.168.0.101:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:03.331Z"}
+{"level":"info","message":"  ✗ 192.168.0.254:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:05.333Z"}
+{"level":"info","message":"4. 建议...","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:05.333Z"}
+{"level":"info","message":"✓ IP地址检测正常","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:05.333Z"}
+{"level":"info","message":"当前检测到的IP地址: 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:05.333Z"}
+{"level":"info","message":"=== IP地址检测调试 ===","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.202Z"}
+{"level":"info","message":"1. 获取所有可用的IP地址...","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.204Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:08:41.219Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:08:41.219Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:08:41.225Z"}
+{"level":"info","message":"scutil 检测结果:","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.225Z"}
+{"level":"info","message":"  ✗ 未检测到","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.225Z"}
+{"level":"info","message":"ifconfig 检测结果:","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.226Z"}
+{"level":"info","message":"  ✓ 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.226Z"}
+{"level":"info","message":"所有网络接口:","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.226Z"}
+{"level":"info","message":"  ✓ en0: 192.168.0.123 (wifi)","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.226Z"}
+{"level":"info","message":"  ✓ utun7: 198.18.0.1 (unknown)","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.226Z"}
+{"level":"info","message":"2. 比较不同的检测方法...","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.226Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:08:41.232Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:08:41.232Z"}
+{"level":"info","message":"Found matching WiFi IP from scutil: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:08:41.238Z"}
+{"level":"info","message":"方法1 (getCurrentDeviceIP):","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.238Z"}
+{"level":"info","message":"方法2 (getMatchingDeviceIP):","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.238Z"}
+{"level":"info","message":"✓ 两种方法返回相同的IP地址","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.238Z"}
+{"level":"info","message":"3. 检查网络连接...","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.238Z"}
+{"level":"info","message":"网络段: 192.168.0.0/24","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.238Z"}
+{"level":"info","message":"测试网络连接:","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.238Z"}
+{"level":"info","message":"  ✗ 192.168.0.1:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:41.256Z"}
+{"level":"info","message":"  ✗ 192.168.0.2:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:43.257Z"}
+{"level":"info","message":"  ✗ 192.168.0.10:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:45.258Z"}
+{"level":"info","message":"  ✗ 192.168.0.100:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:47.260Z"}
+{"level":"info","message":"  ✗ 192.168.0.101:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:49.262Z"}
+{"level":"info","message":"  ✗ 192.168.0.254:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:51.264Z"}
+{"level":"info","message":"4. 建议...","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:51.265Z"}
+{"level":"info","message":"✓ IP地址检测正常","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:51.265Z"}
+{"level":"info","message":"当前检测到的IP地址: 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:08:51.265Z"}
+{"level":"info","message":"=== 与iOS设备IP比较 ===","service":"DebugIPDetection","timestamp":"2025-08-04T09:09:08.807Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:09:08.823Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:09:08.824Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:09:08.830Z"}
+{"level":"info","message":"请检查iOS设备上的WiFi设置，然后告诉我显示的IP地址","service":"DebugIPDetection","timestamp":"2025-08-04T09:09:08.830Z"}
+{"level":"info","message":"","service":"DebugIPDetection","timestamp":"2025-08-04T09:09:08.830Z"}
+{"level":"info","message":"当前检测到的IP地址:","service":"DebugIPDetection","timestamp":"2025-08-04T09:09:08.830Z"}
+{"level":"info","message":"  scutil: 未检测到","service":"DebugIPDetection","timestamp":"2025-08-04T09:09:08.830Z"}
+{"level":"info","message":"  ifconfig: 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:09:08.830Z"}
+{"level":"info","message":"","service":"DebugIPDetection","timestamp":"2025-08-04T09:09:08.830Z"}
+{"level":"info","message":"如果iOS设备显示的IP地址与上述不同，请告诉我正确的IP地址","service":"DebugIPDetection","timestamp":"2025-08-04T09:09:08.830Z"}
+{"level":"info","message":"=== 网络设备扫描 ===","service":"AutoIPDiscovery","timestamp":"2025-08-04T09:12:39.406Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:12:39.416Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:12:39.417Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:12:39.424Z"}
+{"level":"info","message":"Starting automatic device discovery...","service":"Network","timestamp":"2025-08-04T09:12:39.424Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:12:39.431Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:12:39.432Z"}
+{"level":"info","message":"Current device IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:12:39.432Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:12:39.439Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:12:39.440Z"}
+{"level":"info","message":"Mac IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:12:39.551Z"}
+{"level":"info","message":"iOS IP: null","service":"Network","timestamp":"2025-08-04T09:12:39.551Z"}
+{"level":"info","message":"Scanning network segment: 192.168.0.0/24","service":"Network","timestamp":"2025-08-04T09:12:39.552Z"}
+{"level":"warn","message":"nmap not available, using manual IP range scanning","service":"Network","timestamp":"2025-08-04T09:12:39.556Z"}
+{"level":"info","message":"Found 0 potential iOS devices:","service":"Network","timestamp":"2025-08-04T09:12:44.559Z"}
+{"level":"info","message":"IP地址检测调试工具","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.357Z"}
+{"level":"info","message":"","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.359Z"}
+{"level":"info","message":"用法:","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.359Z"}
+{"level":"info","message":"  npx ts-node debug-ip-detection.ts debug    # 完整调试","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.359Z"}
+{"level":"info","message":"  npx ts-node debug-ip-detection.ts compare  # 与iOS设备比较","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.360Z"}
+{"level":"info","message":"","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.360Z"}
+{"level":"info","message":"注意:","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.360Z"}
+{"level":"info","message":"  - 确保iOS设备与Mac在同一WiFi网络","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.360Z"}
+{"level":"info","message":"  - 检查iOS设备上的WiFi设置","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.360Z"}
+{"level":"info","message":"  - 比较IP地址是否匹配","service":"DebugIPDetection","timestamp":"2025-08-04T09:14:51.361Z"}
+{"level":"info","message":"=== IP地址检测调试 ===","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.918Z"}
+{"level":"info","message":"1. 获取所有可用的IP地址...","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.920Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:15:18.936Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:15:18.937Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:15:18.944Z"}
+{"level":"info","message":"scutil 检测结果:","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.944Z"}
+{"level":"info","message":"  ✗ 未检测到","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.945Z"}
+{"level":"info","message":"ifconfig 检测结果:","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.945Z"}
+{"level":"info","message":"  ✓ 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.945Z"}
+{"level":"info","message":"所有网络接口:","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.945Z"}
+{"level":"info","message":"  ✓ en0: 192.168.0.123 (wifi)","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.945Z"}
+{"level":"info","message":"  ✓ utun7: 198.18.0.1 (unknown)","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.946Z"}
+{"level":"info","message":"2. 比较不同的检测方法...","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.946Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:15:18.952Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:15:18.952Z"}
+{"level":"info","message":"Found matching WiFi IP from scutil: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:15:18.960Z"}
+{"level":"info","message":"方法1 (getCurrentDeviceIP):","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.961Z"}
+{"level":"info","message":"方法2 (getMatchingDeviceIP):","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.961Z"}
+{"level":"info","message":"✓ 两种方法返回相同的IP地址","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.961Z"}
+{"level":"info","message":"3. 检查网络连接...","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.961Z"}
+{"level":"info","message":"网络段: 192.168.0.0/24","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.961Z"}
+{"level":"info","message":"测试网络连接:","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.961Z"}
+{"level":"info","message":"  ✗ 192.168.0.1:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:18.973Z"}
+{"level":"info","message":"  ✗ 192.168.0.2:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:20.975Z"}
+{"level":"info","message":"  ✗ 192.168.0.10:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:22.978Z"}
+{"level":"info","message":"  ✗ 192.168.0.100:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:24.981Z"}
+{"level":"info","message":"  ✗ 192.168.0.101:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:26.985Z"}
+{"level":"info","message":"  ✗ 192.168.0.254:4723 - 连接失败","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:28.988Z"}
+{"level":"info","message":"4. 建议...","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:28.990Z"}
+{"level":"info","message":"✓ IP地址检测正常","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:28.991Z"}
+{"level":"info","message":"当前检测到的IP地址: 192.168.0.123","service":"DebugIPDetection","timestamp":"2025-08-04T09:15:28.992Z"}
+{"level":"info","message":"=== 扫描网络中的iOS设备 ===","service":"DetectIOSIP","timestamp":"2025-08-04T09:18:55.771Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:18:55.781Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:18:55.781Z"}
+{"level":"info","message":"Mac IP: 192.168.0.123","service":"DetectIOSIP","timestamp":"2025-08-04T09:18:55.870Z"}
+{"level":"info","message":"网络段: 192.168.0","service":"DetectIOSIP","timestamp":"2025-08-04T09:18:55.870Z"}
+{"level":"info","message":"扫描结果:","service":"DetectIOSIP","timestamp":"2025-08-04T09:18:55.870Z"}
+{"cause":{"address":"192.168.0.186","code":"ECONNREFUSED","errno":-61,"port":4723,"syscall":"connect"},"level":"error","message":"Failed to connect to remote Appium server at 192.168.0.186:4723 fetch failed","service":"AppiumService","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AppiumService.testRemoteConnection (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:300:30)\n    at async scanNetworkForIOSDevices (/Users/song/Desktop/nodejs/viber/viber/detect-ios-ip.ts:109:42)","timestamp":"2025-08-04T09:18:55.884Z"}
+{"level":"info","message":"  ✗ 192.168.0.186 - 不可访问","service":"DetectIOSIP","timestamp":"2025-08-04T09:18:55.884Z"}
+{"cause":{"address":"192.168.0.1","code":"ECONNREFUSED","errno":-61,"port":4723,"syscall":"connect"},"level":"error","message":"Failed to connect to remote Appium server at 192.168.0.1:4723 fetch failed","service":"AppiumService","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AppiumService.testRemoteConnection (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:300:30)\n    at async scanNetworkForIOSDevices (/Users/song/Desktop/nodejs/viber/viber/detect-ios-ip.ts:109:42)","timestamp":"2025-08-04T09:18:55.890Z"}
+{"level":"info","message":"  ✗ 192.168.0.1 - 不可访问","service":"DetectIOSIP","timestamp":"2025-08-04T09:18:55.891Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"Failed to connect to remote Appium server at 192.168.0.2:4723 fetch failed","service":"AppiumService","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AppiumService.testRemoteConnection (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:300:30)\n    at async scanNetworkForIOSDevices (/Users/song/Desktop/nodejs/viber/viber/detect-ios-ip.ts:109:42)","timestamp":"2025-08-04T09:19:06.284Z"}
+{"level":"info","message":"  ✗ 192.168.0.2 - 不可访问","service":"DetectIOSIP","timestamp":"2025-08-04T09:19:06.284Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"Failed to connect to remote Appium server at 192.168.0.10:4723 fetch failed","service":"AppiumService","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AppiumService.testRemoteConnection (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:300:30)\n    at async scanNetworkForIOSDevices (/Users/song/Desktop/nodejs/viber/viber/detect-ios-ip.ts:109:42)","timestamp":"2025-08-04T09:19:16.783Z"}
+{"level":"info","message":"  ✗ 192.168.0.10 - 不可访问","service":"DetectIOSIP","timestamp":"2025-08-04T09:19:16.783Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"Failed to connect to remote Appium server at 192.168.0.100:4723 fetch failed","service":"AppiumService","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AppiumService.testRemoteConnection (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:300:30)\n    at async scanNetworkForIOSDevices (/Users/song/Desktop/nodejs/viber/viber/detect-ios-ip.ts:109:42)","timestamp":"2025-08-04T09:19:27.284Z"}
+{"level":"info","message":"  ✗ 192.168.0.100 - 不可访问","service":"DetectIOSIP","timestamp":"2025-08-04T09:19:27.284Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"Failed to connect to remote Appium server at 192.168.0.101:4723 fetch failed","service":"AppiumService","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AppiumService.testRemoteConnection (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:300:30)\n    at async scanNetworkForIOSDevices (/Users/song/Desktop/nodejs/viber/viber/detect-ios-ip.ts:109:42)","timestamp":"2025-08-04T09:19:37.786Z"}
+{"level":"info","message":"  ✗ 192.168.0.101 - 不可访问","service":"DetectIOSIP","timestamp":"2025-08-04T09:19:37.787Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"Failed to connect to remote Appium server at 192.168.0.254:4723 fetch failed","service":"AppiumService","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async AppiumService.testRemoteConnection (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:300:30)\n    at async scanNetworkForIOSDevices (/Users/song/Desktop/nodejs/viber/viber/detect-ios-ip.ts:109:42)","timestamp":"2025-08-04T09:19:48.289Z"}
+{"level":"info","message":"  ✗ 192.168.0.254 - 不可访问","service":"DetectIOSIP","timestamp":"2025-08-04T09:19:48.289Z"}
+{"level":"info","message":"=== 获取iOS设备IP地址 ===","service":"GetIOSIP","timestamp":"2025-08-04T09:22:24.011Z"}
+{"level":"info","message":"1. 使用 arp 命令查找iOS设备...","service":"GetIOSIP","timestamp":"2025-08-04T09:22:24.013Z"}
+{"level":"info","message":"2. 使用 ping 扫描查找iOS设备...","service":"GetIOSIP","timestamp":"2025-08-04T09:22:24.865Z"}
+{"level":"info","message":"✓ 192.168.0.186 - 设备在线","service":"GetIOSIP","timestamp":"2025-08-04T09:22:24.974Z"}
+{"level":"info","message":"3. 使用已知的iOS设备IP...","service":"GetIOSIP","timestamp":"2025-08-04T09:22:37.084Z"}
+{"level":"info","message":"✓ 192.168.0.186 - 已知iOS设备在线","service":"GetIOSIP","timestamp":"2025-08-04T09:22:37.159Z"}
+{"level":"info","message":"✓ iOS设备IP地址: 192.168.0.186","service":"GetIOSIP","timestamp":"2025-08-04T09:22:37.160Z"}
+{"level":"info","message":"=== 扫描网络中的设备 ===","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.126Z"}
+{"level":"info","message":"Mac IP: 192.168.0.123","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.141Z"}
+{"level":"info","message":"网络中的设备:","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.260Z"}
+{"level":"info","message":"  ? 192.168.0.1 (d8:32:14:25:de:90) ","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.260Z"}
+{"level":"info","message":"  ? 192.168.0.110 (6a:29:4c:a9:be:5) ","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.260Z"}
+{"level":"info","message":"  ? 192.168.0.121 (22:a7:26:ab:c4:fd) ","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.261Z"}
+{"level":"info","message":"  ? 192.168.0.157 (c6:ff:79:69:8b:72) ","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.261Z"}
+{"level":"info","message":"  ? 192.168.0.185 (12:44:66:23:2d:7e) ","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.261Z"}
+{"level":"info","message":"  ? 192.168.0.186 (c2:2b:8a:c2:53:21) ","service":"GetIOSIP","timestamp":"2025-08-04T09:22:42.261Z"}
+{"level":"info","message":"=== 测试iOS设备连接: 192.168.0.186 ===","service":"GetIOSIP","timestamp":"2025-08-04T09:22:52.009Z"}
+{"level":"info","message":"1. 测试网络连通性...","service":"GetIOSIP","timestamp":"2025-08-04T09:22:52.011Z"}
+{"level":"info","message":"✓ 网络连通性正常","service":"GetIOSIP","timestamp":"2025-08-04T09:22:54.044Z"}
+{"level":"info","message":"2. 测试Appium端口...","service":"GetIOSIP","timestamp":"2025-08-04T09:22:54.045Z"}
+{"level":"warn","message":"⚠ Appium服务器不可访问 (连接失败)","service":"GetIOSIP","timestamp":"2025-08-04T09:22:54.073Z"}
+{"level":"info","message":"3. 设置建议...","service":"GetIOSIP","timestamp":"2025-08-04T09:22:54.074Z"}
+{"level":"info","message":"要在iOS设备上运行Appium服务器，请执行以下步骤:","service":"GetIOSIP","timestamp":"2025-08-04T09:22:54.074Z"}
+{"level":"info","message":"  1. 在iOS设备上安装Appium","service":"GetIOSIP","timestamp":"2025-08-04T09:22:54.074Z"}
+{"level":"info","message":"  2. 启动Appium服务器: appium --host 0.0.0.0 --port 4723","service":"GetIOSIP","timestamp":"2025-08-04T09:22:54.074Z"}
+{"level":"info","message":"  3. 确保防火墙允许4723端口","service":"GetIOSIP","timestamp":"2025-08-04T09:22:54.074Z"}
+{"level":"info","message":"=== 测试iOS设备IP检测 ===","service":"TestIOSDetection","timestamp":"2025-08-04T09:25:45.611Z"}
+{"level":"info","message":"iOS设备IP: 192.168.0.186","service":"TestIOSDetection","timestamp":"2025-08-04T09:25:45.613Z"}
+{"level":"info","message":"✓ iOS设备网络连通性正常","service":"TestIOSDetection","timestamp":"2025-08-04T09:25:45.682Z"}
+{"level":"warn","message":"⚠ Appium服务器不可访问 (连接失败)","service":"TestIOSDetection","timestamp":"2025-08-04T09:25:45.700Z"}
+{"level":"info","message":"=== 获取iOS设备IP地址 ===","service":"GetIOSIP","timestamp":"2025-08-04T09:29:45.431Z"}
+{"level":"info","message":"1. 使用 arp 命令查找iOS设备...","service":"GetIOSIP","timestamp":"2025-08-04T09:29:45.433Z"}
+{"level":"info","message":"2. 使用 ping 扫描查找iOS设备...","service":"GetIOSIP","timestamp":"2025-08-04T09:29:45.445Z"}
+{"level":"info","message":"✓ 192.168.0.186 - 设备在线","service":"GetIOSIP","timestamp":"2025-08-04T09:29:45.477Z"}
+{"level":"info","message":"3. 使用已知的iOS设备IP...","service":"GetIOSIP","timestamp":"2025-08-04T09:29:57.581Z"}
+{"level":"info","message":"✓ 192.168.0.186 - 已知iOS设备在线","service":"GetIOSIP","timestamp":"2025-08-04T09:29:57.597Z"}
+{"level":"info","message":"✓ iOS设备IP地址: 192.168.0.186","service":"GetIOSIP","timestamp":"2025-08-04T09:29:57.597Z"}
+{"level":"info","message":"=== 测试整合后的网络功能 ===","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:34.149Z"}
+{"level":"info","message":"1. 测试获取当前设备IP...","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:34.151Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T09:30:34.160Z"}
+{"level":"info","message":"当前设备IP: 192.168.0.123","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:34.160Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:30:34.160Z"}
+{"level":"info","message":"=== 获取iOS设备IP地址 ===","service":"Network","timestamp":"2025-08-04T09:30:34.160Z"}
+{"level":"info","message":"1. 使用 arp 命令查找iOS设备...","service":"Network","timestamp":"2025-08-04T09:30:34.160Z"}
+{"level":"info","message":"2. 测试获取iOS设备IP...","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:34.160Z"}
+{"level":"info","message":"2. 使用 ping 扫描查找iOS设备...","service":"Network","timestamp":"2025-08-04T09:30:34.175Z"}
+{"level":"info","message":"✓ 192.168.0.186 - 设备在线","service":"Network","timestamp":"2025-08-04T09:30:34.186Z"}
+{"level":"info","message":"3. 使用已知的iOS设备IP...","service":"Network","timestamp":"2025-08-04T09:30:46.285Z"}
+{"level":"warn","message":"⚠ 192.168.0.186 - 已知iOS设备不可达","service":"Network","timestamp":"2025-08-04T09:30:48.309Z"}
+{"level":"info","message":"iOS设备IP: null","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.310Z"}
+{"level":"warn","message":"⚠ 未找到iOS设备IP地址","service":"Network","timestamp":"2025-08-04T09:30:48.310Z"}
+{"level":"info","message":"=== 扫描网络中的设备 ===","service":"Network","timestamp":"2025-08-04T09:30:48.310Z"}
+{"level":"info","message":"3. 测试扫描网络设备...","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.310Z"}
+{"level":"info","message":"Mac IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T09:30:48.317Z"}
+{"level":"info","message":"网络中的设备:","service":"Network","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"发现 6 个网络设备","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.1 (d8:32:14:25:de:90) ","service":"Network","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.110 (6a:29:4c:a9:be:5) ","service":"Network","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.121 (22:a7:26:ab:c4:fd) ","service":"Network","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.157 (c6:ff:79:69:8b:72) ","service":"Network","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.185 (12:44:66:23:2d:7e) ","service":"Network","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.186 (c2:2b:8a:c2:53:21) ","service":"Network","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"Starting automatic device discovery...","service":"Network","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"=== 获取iOS设备IP地址 ===","service":"Network","timestamp":"2025-08-04T09:30:48.334Z"}
+{"level":"info","message":"1. 使用 arp 命令查找iOS设备...","service":"Network","timestamp":"2025-08-04T09:30:48.334Z"}
+{"level":"info","message":"  ? 192.168.0.1 (d8:32:14:25:de:90) ","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.110 (6a:29:4c:a9:be:5) ","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.121 (22:a7:26:ab:c4:fd) ","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.157 (c6:ff:79:69:8b:72) ","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.185 (12:44:66:23:2d:7e) ","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"  ? 192.168.0.186 (c2:2b:8a:c2:53:21) ","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"5. 测试自动发现...","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:30:48.333Z"}
+{"level":"info","message":"2. 使用 ping 扫描查找iOS设备...","service":"Network","timestamp":"2025-08-04T09:30:48.345Z"}
+{"level":"info","message":"✓ 192.168.0.186 - 设备在线","service":"Network","timestamp":"2025-08-04T09:30:48.372Z"}
+{"level":"info","message":"3. 使用已知的iOS设备IP...","service":"Network","timestamp":"2025-08-04T09:31:00.463Z"}
+{"level":"info","message":"✓ 192.168.0.186 - 已知iOS设备在线","service":"Network","timestamp":"2025-08-04T09:31:00.536Z"}
+{"level":"info","message":"自动发现 1 个设备","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:31:00.536Z"}
+{"level":"info","message":"Found iOS device at IP: 192.168.0.186","service":"Network","timestamp":"2025-08-04T09:31:00.536Z"}
+{"level":"info","message":"Found 1 iOS devices","service":"Network","timestamp":"2025-08-04T09:31:00.536Z"}
+{"level":"info","message":"Auto-discovery completed. Found 1 devices","service":"Network","timestamp":"2025-08-04T09:31:00.536Z"}
+{"level":"info","message":"  - ios-192-168-0-186: 192.168.0.186:4723 (connected)","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:31:00.536Z"}
+{"level":"info","message":"✓ 整合后的网络功能测试完成","service":"TestIntegratedNetwork","timestamp":"2025-08-04T09:31:00.536Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:autoGrantPermissions":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone7p","appium:fullReset":false,"appium:launchTimeout":60000,"appium:newCommandTimeout":180,"appium:noReset":true,"appium:platformVersion":"15.8.2","appium:shouldTerminateApp":true,"appium:udid":"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","appium:webDriverAgentUrl":"http://192.168.0.186:4723","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"connectionRetryCount":10,"connectionRetryTimeout":60000,"hostname":"192.168.0.186","level":"info","message":"Initializing remote Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","path":"/","port":4723,"service":"AppiumService","timestamp":"2025-08-04T11:21:59.429Z","waitforInterval":1000,"waitforTimeout":30000}
+{"level":"error","message":"Appium server is not running at 192.168.0.186:4723. Please start Appium server first.","service":"AppiumService","timestamp":"2025-08-04T11:21:59.523Z"}
+{"level":"error","message":"startRegister error: Appium server is not accessible. Please ensure Appium is running at 192.168.0.186:4723","service":"Register","timestamp":"2025-08-04T11:21:59.525Z"}
+{"level":"info","message":"To start Appium server, run: appium","service":"AppiumService","timestamp":"2025-08-04T11:21:59.523Z"}
+{"level":"error","message":"Failed to initialize Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6 Appium server is not accessible. Please ensure Appium is running at 192.168.0.186:4723","service":"AppiumService","stack":"Error: Appium server is not accessible. Please ensure Appium is running at 192.168.0.186:4723\n    at AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:99:23)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async startRegister (/Users/song/Desktop/nodejs/viber/viber/src/flow/register.ts:29:22)","timestamp":"2025-08-04T11:21:59.525Z"}
+{"level":"info","message":"=== 更新Appium主机地址 ===","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:35.917Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T11:23:35.930Z"}
+{"level":"info","message":"当前设备IP: 192.168.0.123","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:35.930Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:23:35.930Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T11:23:35.939Z"}
+{"level":"info","message":"Updated device 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6 host to: 192.168.0.123","service":"AppiumService","timestamp":"2025-08-04T11:23:35.939Z"}
+{"level":"info","message":"✓ Appium主机地址已更新","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:35.939Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:23:35.939Z"}
+{"level":"info","message":"验证Appium服务器连接...","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:35.939Z"}
+{"cause":{"address":"192.168.0.123","code":"ECONNREFUSED","errno":-61,"port":4723,"syscall":"connect"},"level":"error","message":"✗ 无法连接到Appium服务器: fetch failed","service":"UpdateAppiumHost","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async updateAppiumHost (/Users/song/Desktop/nodejs/viber/viber/update-appium-host.ts:24:34)","timestamp":"2025-08-04T11:23:35.947Z"}
+{"level":"info","message":"请确保Appium服务器正在运行:","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:35.947Z"}
+{"level":"info","message":"npm run appium-remote","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:35.947Z"}
+{"level":"info","message":"=== 更新Appium主机地址 ===","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:51.565Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T11:23:51.576Z"}
+{"level":"info","message":"当前设备IP: 192.168.0.123","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:51.576Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:23:51.576Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T11:23:51.583Z"}
+{"level":"info","message":"Updated device 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6 host to: 192.168.0.123","service":"AppiumService","timestamp":"2025-08-04T11:23:51.583Z"}
+{"level":"info","message":"✓ Appium主机地址已更新","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:51.584Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:23:51.583Z"}
+{"level":"info","message":"验证Appium服务器连接...","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:51.584Z"}
+{"cause":{"address":"192.168.0.123","code":"ECONNREFUSED","errno":-61,"port":4723,"syscall":"connect"},"level":"error","message":"✗ 无法连接到Appium服务器: fetch failed","service":"UpdateAppiumHost","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async updateAppiumHost (/Users/song/Desktop/nodejs/viber/viber/update-appium-host.ts:24:34)","timestamp":"2025-08-04T11:23:51.591Z"}
+{"level":"info","message":"请确保Appium服务器正在运行:","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:51.591Z"}
+{"level":"info","message":"npm run appium-remote","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:23:51.591Z"}
+{"level":"info","message":"=== 更新Appium主机地址 ===","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:24:26.777Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T11:24:26.789Z"}
+{"level":"info","message":"当前设备IP: 192.168.0.123","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:24:26.789Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:24:26.789Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T11:24:26.797Z"}
+{"level":"info","message":"Updated device 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6 host to: 192.168.0.123","service":"AppiumService","timestamp":"2025-08-04T11:24:26.797Z"}
+{"level":"info","message":"✓ Appium主机地址已更新","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:24:26.797Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:24:26.797Z"}
+{"level":"info","message":"验证Appium服务器连接...","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:24:26.797Z"}
+{"level":"info","message":"✓ Appium服务器连接正常","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:24:26.807Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:autoGrantPermissions":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone7p","appium:fullReset":false,"appium:launchTimeout":60000,"appium:newCommandTimeout":180,"appium:noReset":true,"appium:platformVersion":"15.8.2","appium:shouldTerminateApp":true,"appium:udid":"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","appium:webDriverAgentUrl":"http://192.168.0.123:4723","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"connectionRetryCount":10,"connectionRetryTimeout":60000,"hostname":"192.168.0.123","level":"info","message":"Initializing remote Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","path":"/","port":4723,"service":"AppiumService","timestamp":"2025-08-04T11:24:32.560Z","waitforInterval":1000,"waitforTimeout":30000}
+{"level":"info","message":"=== 更新Appium主机地址 ===","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:27:13.446Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T11:27:13.457Z"}
+{"level":"info","message":"当前设备IP: 192.168.0.123","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:27:13.458Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:27:13.457Z"}
+{"0":{"ip":"192.168.0.123","name":"en0","type":"wifi"},"1":{"ip":"198.18.0.1","name":"utun7","type":"unknown"},"level":"info","message":"Found network interfaces:","service":"Network","timestamp":"2025-08-04T11:27:13.466Z"}
+{"level":"info","message":"Updated device 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6 host to: 192.168.0.123","service":"AppiumService","timestamp":"2025-08-04T11:27:13.467Z"}
+{"level":"info","message":"✓ Appium主机地址已更新","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:27:13.467Z"}
+{"level":"info","message":"Using WiFi IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:27:13.466Z"}
+{"level":"info","message":"验证Appium服务器连接...","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:27:13.467Z"}
+{"level":"info","message":"✓ Appium服务器连接正常","service":"UpdateAppiumHost","timestamp":"2025-08-04T11:27:13.476Z"}
+{"level":"info","message":"=== 扫描网络中的设备 ===","service":"Network","timestamp":"2025-08-04T11:27:18.062Z"}
+{"level":"info","message":"Mac IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:27:18.071Z"}
+{"level":"info","message":"网络中的设备:","service":"Network","timestamp":"2025-08-04T11:27:18.300Z"}
+{"level":"info","message":"  ? 192.168.0.1 (d8:32:14:25:de:90) ","service":"Network","timestamp":"2025-08-04T11:27:18.301Z"}
+{"level":"info","message":"  ? 192.168.0.110 (6a:29:4c:a9:be:5) ","service":"Network","timestamp":"2025-08-04T11:27:18.301Z"}
+{"level":"info","message":"  ? 192.168.0.121 (22:a7:26:ab:c4:fd) ","service":"Network","timestamp":"2025-08-04T11:27:18.301Z"}
+{"level":"info","message":"  ? 192.168.0.136 (12:c2:c3:78:f4:d3) ","service":"Network","timestamp":"2025-08-04T11:27:18.301Z"}
+{"level":"info","message":"  ? 192.168.0.157 (c6:ff:79:69:8b:72) ","service":"Network","timestamp":"2025-08-04T11:27:18.302Z"}
+{"level":"info","message":"  ? 192.168.0.186 (c2:2b:8a:c2:53:21) ","service":"Network","timestamp":"2025-08-04T11:27:18.302Z"}
+{"level":"info","message":"=== 扫描网络中的设备 ===","service":"Network","timestamp":"2025-08-04T11:28:18.227Z"}
+{"level":"info","message":"=== 配置远程设备连接 ===","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:18.225Z"}
+{"level":"info","message":"1. 扫描网络中的设备...","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:18.227Z"}
+{"level":"info","message":"Mac IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:28:18.235Z"}
+{"level":"info","message":"网络中的设备:","service":"Network","timestamp":"2025-08-04T11:28:23.247Z"}
+{"level":"info","message":"发现 2 个设备:","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.249Z"}
+{"level":"info","message":"  ? 192.168.0.1 (d8:32:14:25:de:90) ","service":"Network","timestamp":"2025-08-04T11:28:23.248Z"}
+{"level":"info","message":"  ? 192.168.0.121 (22:a7:26:ab:c4:fd) ","service":"Network","timestamp":"2025-08-04T11:28:23.248Z"}
+{"level":"info","message":"  - 192.168.0.1 (d8:32:14:25:de:90) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.249Z"}
+{"level":"info","message":"  - 192.168.0.121 (22:a7:26:ab:c4:fd) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.249Z"}
+{"level":"info","message":"2. 测试设备Appium连接...","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.250Z"}
+{"level":"info","message":"测试设备: 192.168.0.1","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.250Z"}
+{"level":"info","message":"✗ 192.168.0.1:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.267Z"}
+{"level":"info","message":"测试设备: 192.168.0.121","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.267Z"}
+{"level":"info","message":"✗ 192.168.0.121:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.273Z"}
+{"level":"warn","message":"⚠ 未发现可用的远程Appium服务器","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.273Z"}
+{"level":"info","message":"请确保远程设备上运行了Appium服务器:","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.273Z"}
+{"level":"info","message":"  appium --base-path / --address 0.0.0.0 --port 4723","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:28:23.273Z"}
+{"level":"info","message":"=== 扫描网络中的设备 ===","service":"Network","timestamp":"2025-08-04T11:36:19.211Z"}
+{"level":"info","message":"=== 配置远程设备连接 ===","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:19.209Z"}
+{"level":"info","message":"1. 扫描网络中的设备...","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:19.211Z"}
+{"level":"info","message":"Mac IP: 192.168.0.123","service":"Network","timestamp":"2025-08-04T11:36:19.218Z"}
+{"level":"info","message":"网络中的设备:","service":"Network","timestamp":"2025-08-04T11:36:29.266Z"}
+{"level":"info","message":"发现 7 个设备:","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.267Z"}
+{"level":"info","message":"  ? 192.168.0.1 (d8:32:14:25:de:90) ","service":"Network","timestamp":"2025-08-04T11:36:29.266Z"}
+{"level":"info","message":"  ? 192.168.0.110 (6a:29:4c:a9:be:5) ","service":"Network","timestamp":"2025-08-04T11:36:29.267Z"}
+{"level":"info","message":"  ? 192.168.0.121 (22:a7:26:ab:c4:fd) ","service":"Network","timestamp":"2025-08-04T11:36:29.267Z"}
+{"level":"info","message":"  ? 192.168.0.136 (12:c2:c3:78:f4:d3) ","service":"Network","timestamp":"2025-08-04T11:36:29.267Z"}
+{"level":"info","message":"  ? 192.168.0.157 (c6:ff:79:69:8b:72) ","service":"Network","timestamp":"2025-08-04T11:36:29.267Z"}
+{"level":"info","message":"  ? 192.168.0.186 (c2:2b:8a:c2:53:21) ","service":"Network","timestamp":"2025-08-04T11:36:29.267Z"}
+{"level":"info","message":"  ? 192.168.0.255 (ff:ff:ff:ff:ff:ff) ","service":"Network","timestamp":"2025-08-04T11:36:29.267Z"}
+{"level":"info","message":"  - 192.168.0.1 (d8:32:14:25:de:90) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.268Z"}
+{"level":"info","message":"  - 192.168.0.110 (6a:29:4c:a9:be:5) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.268Z"}
+{"level":"info","message":"  - 192.168.0.121 (22:a7:26:ab:c4:fd) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.268Z"}
+{"level":"info","message":"  - 192.168.0.136 (12:c2:c3:78:f4:d3) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.268Z"}
+{"level":"info","message":"  - 192.168.0.157 (c6:ff:79:69:8b:72) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.268Z"}
+{"level":"info","message":"  - 192.168.0.186 (c2:2b:8a:c2:53:21) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.268Z"}
+{"level":"info","message":"  - 192.168.0.255 (ff:ff:ff:ff:ff:ff) ","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.268Z"}
+{"level":"info","message":"2. 测试设备Appium连接...","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.268Z"}
+{"level":"info","message":"测试设备: 192.168.0.1","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.269Z"}
+{"level":"info","message":"✗ 192.168.0.1:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.281Z"}
+{"level":"info","message":"测试设备: 192.168.0.110","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:29.282Z"}
+{"level":"info","message":"✗ 192.168.0.110:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:32.282Z"}
+{"level":"info","message":"测试设备: 192.168.0.121","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:32.284Z"}
+{"level":"info","message":"✗ 192.168.0.121:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:32.295Z"}
+{"level":"info","message":"测试设备: 192.168.0.136","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:32.296Z"}
+{"level":"info","message":"✗ 192.168.0.136:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:35.298Z"}
+{"level":"info","message":"测试设备: 192.168.0.157","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:35.298Z"}
+{"level":"info","message":"✗ 192.168.0.157:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:38.300Z"}
+{"level":"info","message":"测试设备: 192.168.0.186","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:38.302Z"}
+{"level":"info","message":"✗ 192.168.0.186:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:38.393Z"}
+{"level":"info","message":"测试设备: 192.168.0.255","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:38.395Z"}
+{"level":"info","message":"✗ 192.168.0.255:4723 - 连接失败","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:38.397Z"}
+{"level":"warn","message":"⚠ 未发现可用的远程Appium服务器","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:38.397Z"}
+{"level":"info","message":"请确保远程设备上运行了Appium服务器:","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:38.398Z"}
+{"level":"info","message":"  appium --base-path / --address 0.0.0.0 --port 4723","service":"ConfigureRemoteDevice","timestamp":"2025-08-04T11:36:38.398Z"}
+{"level":"info","message":"=== 测试本地设备连接 ===","service":"TestLocalDevice","timestamp":"2025-08-04T11:38:54.302Z"}
+{"level":"info","message":"使用本地设备: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","service":"TestLocalDevice","timestamp":"2025-08-04T11:38:54.304Z"}
+{"level":"info","message":"Appium 服务器: 192.168.0.123:4723 (本地 Mac)","service":"TestLocalDevice","timestamp":"2025-08-04T11:38:54.304Z"}
+{"level":"info","message":"1. 测试 Appium 服务器连接...","service":"TestLocalDevice","timestamp":"2025-08-04T11:38:54.304Z"}
+{"level":"info","message":"✓ Appium 服务器连接正常","service":"TestLocalDevice","timestamp":"2025-08-04T11:38:54.314Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone7p","appium:noReset":true,"appium:platformVersion":"15.8.2","appium:udid":"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"iPhone7p","platformVersion":"15.8.2","udid":"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6"},"host":"192.168.0.123","level":"info","message":"Initializing local Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6","port":4723,"service":"AppiumService","timestamp":"2025-08-04T11:38:54.314Z"}
+{"level":"info","message":"2. 初始化本地设备驱动...","service":"TestLocalDevice","timestamp":"2025-08-04T11:38:54.314Z"}
+{"level":"error","message":"Failed to initialize Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6 WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone7p\",\"appium:platformVersion\":\"15.8.2\",\"appium:udid\":\"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"AppiumService","stack":"Error: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone7p\",\"appium:platformVersion\":\"15.8.2\",\"appium:udid\":\"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:101:28)\n    at async testLocalDevice (/Users/song/Desktop/nodejs/viber/viber/test-local-device.ts:37:28)","timestamp":"2025-08-04T11:39:24.539Z"}
+{"level":"error","message":"✗ 本地设备连接失败: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone7p\",\"appium:platformVersion\":\"15.8.2\",\"appium:udid\":\"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"TestLocalDevice","stack":"Error: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone7p\",\"appium:platformVersion\":\"15.8.2\",\"appium:udid\":\"2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:101:28)\n    at async testLocalDevice (/Users/song/Desktop/nodejs/viber/viber/test-local-device.ts:37:28)","timestamp":"2025-08-04T11:39:24.539Z"}
+{"level":"info","message":"请检查:","service":"TestLocalDevice","timestamp":"2025-08-04T11:39:24.539Z"}
+{"level":"info","message":"  1. iOS 设备是否已连接到 Mac","service":"TestLocalDevice","timestamp":"2025-08-04T11:39:24.540Z"}
+{"level":"info","message":"  2. 设备是否已解锁","service":"TestLocalDevice","timestamp":"2025-08-04T11:39:24.540Z"}
+{"level":"info","message":"  3. 是否信任了开发者证书","service":"TestLocalDevice","timestamp":"2025-08-04T11:39:24.540Z"}
+{"level":"info","message":"=== 测试本地设备连接 ===","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:09.569Z"}
+{"level":"info","message":"使用本地设备: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:09.571Z"}
+{"level":"info","message":"Appium 服务器: 192.168.0.123:4723 (本地 Mac)","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:09.571Z"}
+{"level":"info","message":"1. 测试 Appium 服务器连接...","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:09.571Z"}
+{"level":"info","message":"✓ Appium 服务器连接正常","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:09.582Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone 16 Pro","appium:noReset":true,"appium:platformVersion":"18.5","appium:udid":"0C87052D-A8E5-50CB-ABC2-608D32D80CE3","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"iPhone 16 Pro","platformVersion":"18.5","udid":"0C87052D-A8E5-50CB-ABC2-608D32D80CE3"},"host":"192.168.0.123","level":"info","message":"Initializing local Appium driver for device: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3","port":4723,"service":"AppiumService","timestamp":"2025-08-04T11:40:09.582Z"}
+{"level":"info","message":"2. 初始化本地设备驱动...","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:09.582Z"}
+{"level":"error","message":"Failed to initialize Appium driver for device: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3 WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unknown device or simulator UDID: '0C87052D-A8E5-50CB-ABC2-608D32D80CE3' when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"0C87052D-A8E5-50CB-ABC2-608D32D80CE3\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"AppiumService","stack":"Error: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unknown device or simulator UDID: '0C87052D-A8E5-50CB-ABC2-608D32D80CE3' when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"0C87052D-A8E5-50CB-ABC2-608D32D80CE3\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:101:28)\n    at async testLocalDevice (/Users/song/Desktop/nodejs/viber/viber/test-local-device.ts:37:28)","timestamp":"2025-08-04T11:40:17.930Z"}
+{"level":"error","message":"✗ 本地设备连接失败: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unknown device or simulator UDID: '0C87052D-A8E5-50CB-ABC2-608D32D80CE3' when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"0C87052D-A8E5-50CB-ABC2-608D32D80CE3\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"TestLocalDevice","stack":"Error: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unknown device or simulator UDID: '0C87052D-A8E5-50CB-ABC2-608D32D80CE3' when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"0C87052D-A8E5-50CB-ABC2-608D32D80CE3\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:101:28)\n    at async testLocalDevice (/Users/song/Desktop/nodejs/viber/viber/test-local-device.ts:37:28)","timestamp":"2025-08-04T11:40:17.931Z"}
+{"level":"info","message":"请检查:","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:17.931Z"}
+{"level":"info","message":"  1. iOS 设备是否已连接到 Mac","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:17.931Z"}
+{"level":"info","message":"  2. 设备是否已解锁","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:17.931Z"}
+{"level":"info","message":"  3. 是否信任了开发者证书","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:17.931Z"}
+{"level":"info","message":"=== 测试本地设备连接 ===","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:49.092Z"}
+{"level":"info","message":"使用本地设备: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:49.094Z"}
+{"level":"info","message":"Appium 服务器: 192.168.0.123:4723 (本地 Mac)","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:49.094Z"}
+{"level":"info","message":"1. 测试 Appium 服务器连接...","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:49.094Z"}
+{"cause":{"address":"192.168.0.123","code":"ECONNREFUSED","errno":-61,"port":4723,"syscall":"connect"},"level":"error","message":"✗ 无法连接到 Appium 服务器: fetch failed","service":"TestLocalDevice","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async testLocalDevice (/Users/song/Desktop/nodejs/viber/viber/test-local-device.ts:21:30)","timestamp":"2025-08-04T11:40:49.101Z"}
+{"level":"info","message":"请确保 Appium 服务器正在运行: npm run appium-remote","service":"TestLocalDevice","timestamp":"2025-08-04T11:40:49.101Z"}
+{"level":"info","message":"=== 测试本地设备连接 ===","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:32.229Z"}
+{"level":"info","message":"使用本地设备: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:32.231Z"}
+{"level":"info","message":"Appium 服务器: 192.168.0.123:4723 (本地 Mac)","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:32.231Z"}
+{"level":"info","message":"1. 测试 Appium 服务器连接...","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:32.231Z"}
+{"level":"info","message":"✓ Appium 服务器连接正常","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:32.245Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone 16 Pro","appium:noReset":true,"appium:platformVersion":"18.5","appium:udid":"0C87052D-A8E5-50CB-ABC2-608D32D80CE3","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"iPhone 16 Pro","platformVersion":"18.5","udid":"0C87052D-A8E5-50CB-ABC2-608D32D80CE3"},"host":"192.168.0.123","level":"info","message":"Initializing local Appium driver for device: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3","port":4723,"service":"AppiumService","timestamp":"2025-08-04T11:41:32.245Z"}
+{"level":"info","message":"2. 初始化本地设备驱动...","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:32.245Z"}
+{"level":"error","message":"Failed to initialize Appium driver for device: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3 WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unknown device or simulator UDID: '0C87052D-A8E5-50CB-ABC2-608D32D80CE3' when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"0C87052D-A8E5-50CB-ABC2-608D32D80CE3\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"AppiumService","stack":"Error: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unknown device or simulator UDID: '0C87052D-A8E5-50CB-ABC2-608D32D80CE3' when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"0C87052D-A8E5-50CB-ABC2-608D32D80CE3\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:101:28)\n    at async testLocalDevice (/Users/song/Desktop/nodejs/viber/viber/test-local-device.ts:37:28)","timestamp":"2025-08-04T11:41:40.541Z"}
+{"level":"error","message":"✗ 本地设备连接失败: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unknown device or simulator UDID: '0C87052D-A8E5-50CB-ABC2-608D32D80CE3' when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"0C87052D-A8E5-50CB-ABC2-608D32D80CE3\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"TestLocalDevice","stack":"Error: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Unknown device or simulator UDID: '0C87052D-A8E5-50CB-ABC2-608D32D80CE3' when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"0C87052D-A8E5-50CB-ABC2-608D32D80CE3\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:101:28)\n    at async testLocalDevice (/Users/song/Desktop/nodejs/viber/viber/test-local-device.ts:37:28)","timestamp":"2025-08-04T11:41:40.541Z"}
+{"level":"info","message":"请检查:","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:40.541Z"}
+{"level":"info","message":"  1. iOS 设备是否已连接到 Mac","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:40.541Z"}
+{"level":"info","message":"  2. 设备是否已解锁","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:40.541Z"}
+{"level":"info","message":"  3. 是否信任了开发者证书","service":"TestLocalDevice","timestamp":"2025-08-04T11:41:40.542Z"}
+{"level":"info","message":"=== 简单设备测试 ===","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:29.415Z"}
+{"level":"info","message":"1. 测试 Appium 服务器连接...","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:29.417Z"}
+{"level":"info","message":"✓ Appium 服务器连接正常","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:29.427Z"}
+{"level":"info","message":"2. 尝试连接设备（不指定 UDID）...","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:29.427Z"}
+{"level":"error","message":"✗ 设备连接失败: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:bundleId\":\"com.viber\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:autoGrantPermissions\":true},\"firstMatch\":[{}]}}\"","service":"TestSimpleDevice","stack":"Error: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:bundleId\":\"com.viber\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:autoGrantPermissions\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async testSimpleDevice (/Users/song/Desktop/nodejs/viber/viber/test-simple-device.ts:48:28)","timestamp":"2025-08-04T11:42:59.648Z"}
+{"level":"info","message":"可能的原因:","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:59.649Z"}
+{"level":"info","message":"  1. 设备未解锁","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:59.649Z"}
+{"level":"info","message":"  2. 未信任开发者证书","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:59.649Z"}
+{"level":"info","message":"  3. 设备连接不稳定","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:59.650Z"}
+{"level":"info","message":"  4. 需要手动在设备上信任开发者证书","service":"TestSimpleDevice","timestamp":"2025-08-04T11:42:59.650Z"}
+{"level":"info","message":"=== 使用 Safari 测试设备连接 ===","service":"TestSafari","timestamp":"2025-08-04T11:43:49.805Z"}
+{"level":"info","message":"1. 测试 Appium 服务器连接...","service":"TestSafari","timestamp":"2025-08-04T11:43:49.807Z"}
+{"level":"info","message":"✓ Appium 服务器连接正常","service":"TestSafari","timestamp":"2025-08-04T11:43:49.816Z"}
+{"level":"info","message":"2. 尝试连接设备并使用 Safari...","service":"TestSafari","timestamp":"2025-08-04T11:43:49.817Z"}
+{"level":"error","message":"✗ 设备连接失败: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:bundleId\":\"com.apple.mobilesafari\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:autoGrantPermissions\":true},\"firstMatch\":[{}]}}\"","service":"TestSafari","stack":"Error: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:bundleId\":\"com.apple.mobilesafari\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:autoGrantPermissions\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async testSafari (/Users/song/Desktop/nodejs/viber/viber/test-safari.ts:48:28)","timestamp":"2025-08-04T11:44:20.092Z"}
+{"level":"info","message":"请检查:","service":"TestSafari","timestamp":"2025-08-04T11:44:20.092Z"}
+{"level":"info","message":"  1. 设备是否已解锁","service":"TestSafari","timestamp":"2025-08-04T11:44:20.093Z"}
+{"level":"info","message":"  2. 是否信任了开发者证书","service":"TestSafari","timestamp":"2025-08-04T11:44:20.093Z"}
+{"level":"info","message":"  3. 设备连接是否稳定","service":"TestSafari","timestamp":"2025-08-04T11:44:20.093Z"}
+{"level":"error","message":"startRegister error: Device config not found for deviceId: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6. Available devices: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3","service":"Register","timestamp":"2025-08-04T12:00:58.174Z"}
+{"level":"error","message":"Failed to initialize Appium driver for device: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6 Device config not found for deviceId: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6. Available devices: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3","service":"AppiumService","stack":"Error: Device config not found for deviceId: 2fcc54c4ab7082f8192fda979eb8758a3bfeb0f6. Available devices: 0C87052D-A8E5-50CB-ABC2-608D32D80CE3\n    at AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:55:23)\n    at startRegister (/Users/song/Desktop/nodejs/viber/viber/src/flow/register.ts:29:42)\n    at Object.<anonymous> (/Users/song/Desktop/nodejs/viber/viber/src/flow/register.ts:121:5)\n    at Module._compile (node:internal/modules/cjs/loader:1692:14)\n    at Module.m._compile (/Users/song/Desktop/nodejs/viber/viber/node_modules/ts-node/src/index.ts:1618:23)\n    at node:internal/modules/cjs/loader:1824:10\n    at Object.require.extensions.<computed> [as .ts] (/Users/song/Desktop/nodejs/viber/viber/node_modules/ts-node/src/index.ts:1621:12)\n    at Module.load (node:internal/modules/cjs/loader:1427:32)\n    at Module._load (node:internal/modules/cjs/loader:1250:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)","timestamp":"2025-08-04T12:00:58.172Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:autoGrantPermissions":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone 16 Pro","appium:fullReset":false,"appium:launchTimeout":60000,"appium:newCommandTimeout":180,"appium:noReset":true,"appium:platformVersion":"18.5","appium:shouldTerminateApp":true,"appium:udid":"00008101-00026C982160001E","appium:webDriverAgentUrl":"http://192.168.0.123:4723","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"connectionRetryCount":10,"connectionRetryTimeout":60000,"hostname":"192.168.0.123","level":"info","message":"Initializing remote Appium driver for device: 00008101-00026C982160001E","path":"/","port":4723,"service":"AppiumService","timestamp":"2025-08-04T12:16:30.633Z","waitforInterval":1000,"waitforTimeout":30000}
+{"level":"error","message":"Failed to initialize Appium driver for device: 00008101-00026C982160001E WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:webDriverAgentUrl\":\"http://192.168.0.123:4723\",\"appium:autoGrantPermissions\":true,\"appium:fullReset\":false,\"appium:newCommandTimeout\":180,\"appium:launchTimeout\":60000,\"appium:shouldTerminateApp\":true},\"firstMatch\":[{}]}}\"","service":"AppiumService","stack":"Error: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:webDriverAgentUrl\":\"http://192.168.0.123:4723\",\"appium:autoGrantPermissions\":true,\"appium:fullReset\":false,\"appium:newCommandTimeout\":180,\"appium:launchTimeout\":60000,\"appium:shouldTerminateApp\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:101:28)\n    at async startRegister (/Users/song/Desktop/nodejs/viber/viber/src/flow/register.ts:29:22)","timestamp":"2025-08-04T12:17:31.064Z"}
+{"level":"error","message":"startRegister error: WebDriverError: The operation was aborted due to timeout when running \"http://192.168.0.123:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true,\"appium:webDriverAgentUrl\":\"http://192.168.0.123:4723\",\"appium:autoGrantPermissions\":true,\"appium:fullReset\":false,\"appium:newCommandTimeout\":180,\"appium:launchTimeout\":60000,\"appium:shouldTerminateApp\":true},\"firstMatch\":[{}]}}\"","service":"Register","timestamp":"2025-08-04T12:17:31.065Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"iPhone 16 Pro","appium:noReset":true,"appium:platformVersion":"18.5","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-04T12:18:48.345Z"}
+{"level":"error","message":"Failed to initialize Appium driver for device: 00008101-00026C982160001E WebDriverError: The operation was aborted due to timeout when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"AppiumService","stack":"Error: WebDriverError: The operation was aborted due to timeout when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:100:28)\n    at async startRegister (/Users/song/Desktop/nodejs/viber/viber/src/flow/register.ts:29:22)","timestamp":"2025-08-04T12:19:18.571Z"}
+{"level":"error","message":"startRegister error: WebDriverError: The operation was aborted due to timeout when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"iPhone 16 Pro\",\"appium:platformVersion\":\"18.5\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"Register","timestamp":"2025-08-04T12:19:18.571Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-04T12:20:13.164Z"}
+{"level":"error","message":"Failed to initialize Appium driver for device: 00008101-00026C982160001E WebDriverError: The operation was aborted due to timeout when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"lianxinxi\",\"appium:platformVersion\":\"18.3.2\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"AppiumService","stack":"Error: WebDriverError: The operation was aborted due to timeout when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"lianxinxi\",\"appium:platformVersion\":\"18.3.2\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"\n    at startWebDriverSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1066:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _WebDriver.newSession (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriver/build/node.js:1484:41)\n    at async remote (file:///Users/song/Desktop/nodejs/viber/viber/node_modules/webdriverio/build/node.js:8806:20)\n    at async AppiumService.initializeDriver (/Users/song/Desktop/nodejs/viber/viber/src/services/appium.service.ts:100:28)\n    at async startRegister (/Users/song/Desktop/nodejs/viber/viber/src/flow/register.ts:29:22)","timestamp":"2025-08-04T12:20:43.399Z"}
+{"level":"error","message":"startRegister error: WebDriverError: The operation was aborted due to timeout when running \"http://localhost:4723/session\" with method \"POST\" and args \"{\"capabilities\":{\"alwaysMatch\":{\"platformName\":\"iOS\",\"appium:automationName\":\"XCUITest\",\"appium:deviceName\":\"lianxinxi\",\"appium:platformVersion\":\"18.3.2\",\"appium:udid\":\"00008101-00026C982160001E\",\"appium:bundleId\":\"com.viber\",\"appium:xcodeOrgId\":\"K8Z622FY3F\",\"appium:noReset\":true,\"appium:autoAcceptAlerts\":true},\"firstMatch\":[{}]}}\"","service":"Register","timestamp":"2025-08-04T12:20:43.399Z"}
+{"level":"info","message":"使用设备: 00008101-00026C982160001E","service":"DebugElements","timestamp":"2025-08-04T12:50:19.413Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-04T12:50:19.415Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-04T12:50:33.569Z"}
+{"level":"info","message":"Appium驱动初始化成功","service":"DebugElements","timestamp":"2025-08-04T12:50:33.570Z"}
+{"level":"info","message":"检查应用状态...","service":"AppStateManager","timestamp":"2025-08-04T12:50:33.570Z"}
+{"level":"info","message":"检查应用状态...","service":"DebugElements","timestamp":"2025-08-04T12:50:33.570Z"}
+{"level":"error","message":"获取应用信息失败: Error: Malformed type for \"args\" parameter of command executeScript\nExpected: (string|object|number|boolean|null|undefined)[]\nActual: (object)[]\n\nFor more info see https://w3c.github.io/webdriver/#dfn-execute-script\n","service":"AppStateManager","timestamp":"2025-08-04T12:50:33.571Z"}
+{"hasVisibleElements":true,"isActive":true,"isInAppSwitcher":false,"isInForeground":true,"level":"info","mainWindowIndex":0,"message":"应用状态分析结果:","service":"AppStateManager","timestamp":"2025-08-04T12:50:34.367Z"}
+{"hasVisibleElements":true,"isActive":true,"isInAppSwitcher":false,"isInForeground":true,"level":"info","mainWindowIndex":0,"message":"当前应用状态:","service":"AppStateManager","timestamp":"2025-08-04T12:50:34.368Z"}
+{"hasVisibleElements":true,"isActive":true,"isInAppSwitcher":false,"isInForeground":true,"level":"info","mainWindowIndex":0,"message":"应用状态分析结果:","service":"AppStateManager","timestamp":"2025-08-04T12:50:34.989Z"}
+{"level":"info","message":"应用已完全加载","service":"AppStateManager","timestamp":"2025-08-04T12:50:34.989Z"}
+{"hasVisibleElements":true,"isActive":true,"isInAppSwitcher":false,"isInForeground":true,"level":"info","mainWindowIndex":0,"message":"应用状态分析结果:","service":"AppStateManager","timestamp":"2025-08-04T12:50:35.614Z"}
+{"level":"info","message":"等待应用完全加载...","service":"DebugElements","timestamp":"2025-08-04T12:50:35.614Z"}
+{"level":"info","message":"应用状态正常","service":"AppStateManager","timestamp":"2025-08-04T12:50:35.614Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-04T12:50:36.239Z"}
+{"level":"info","message":"开始分析页面结构...","service":"DebugElements","timestamp":"2025-08-04T12:50:36.240Z"}
+{"level":"info","message":"=== 页面结构分析 ===","service":"ElementDebugger","timestamp":"2025-08-04T12:50:36.872Z"}
+{"level":"info","message":"找到 1 个应用元素","service":"ElementDebugger","timestamp":"2025-08-04T12:50:36.873Z"}
+{"level":"info","message":"找到 32 个Other类型元素","service":"ElementDebugger","timestamp":"2025-08-04T12:50:36.873Z"}
+{"Application":1,"Button":1,"Cell":2,"Image":1,"Key":12,"Keyboard":1,"NavigationBar":1,"Other":32,"StaticText":7,"Table":1,"TextField":2,"TextView":1,"Window":3,"level":"info","message":"元素类型统计:","service":"ElementDebugger","timestamp":"2025-08-04T12:50:36.873Z"}
+{"level":"info","message":"找到 5 个可交互元素","service":"ElementDebugger","timestamp":"2025-08-04T12:50:36.874Z"}
+{"level":"info","message":"找到 1 个XCUIElementTypeApplication元素","service":"DebugElements","timestamp":"2025-08-04T12:50:37.519Z"}
+{"level":"info","message":"找到 32 个XCUIElementTypeOther元素","service":"DebugElements","timestamp":"2025-08-04T12:50:37.520Z"}
+{"level":"info","message":"元素类型统计:","service":"DebugElements","timestamp":"2025-08-04T12:50:37.522Z"}
+{"level":"info","message":"  Other: 32","service":"DebugElements","timestamp":"2025-08-04T12:50:37.522Z"}
+{"level":"info","message":"  Key: 12","service":"DebugElements","timestamp":"2025-08-04T12:50:37.523Z"}
+{"level":"info","message":"  StaticText: 7","service":"DebugElements","timestamp":"2025-08-04T12:50:37.523Z"}
+{"level":"info","message":"  Window: 3","service":"DebugElements","timestamp":"2025-08-04T12:50:37.523Z"}
+{"level":"info","message":"  Cell: 2","service":"DebugElements","timestamp":"2025-08-04T12:50:37.524Z"}
+{"level":"info","message":"  TextField: 2","service":"DebugElements","timestamp":"2025-08-04T12:50:37.524Z"}
+{"level":"info","message":"  Application: 1","service":"DebugElements","timestamp":"2025-08-04T12:50:37.524Z"}
+{"level":"info","message":"  NavigationBar: 1","service":"DebugElements","timestamp":"2025-08-04T12:50:37.525Z"}
+{"level":"info","message":"  Table: 1","service":"DebugElements","timestamp":"2025-08-04T12:50:37.525Z"}
+{"level":"info","message":"  TextView: 1","service":"DebugElements","timestamp":"2025-08-04T12:50:37.525Z"}
+{"level":"info","message":"  Image: 1","service":"DebugElements","timestamp":"2025-08-04T12:50:37.526Z"}
+{"level":"info","message":"  Keyboard: 1","service":"DebugElements","timestamp":"2025-08-04T12:50:37.526Z"}
+{"level":"info","message":"  Button: 1","service":"DebugElements","timestamp":"2025-08-04T12:50:37.526Z"}
+{"level":"info","message":"可交互元素:","service":"DebugElements","timestamp":"2025-08-04T12:50:37.527Z"}
+{"level":"info","message":"  XCUIElementTypeButton: 1 个","service":"DebugElements","timestamp":"2025-08-04T12:50:37.527Z"}
+{"level":"info","message":"    1. <XCUIElementTypeButton type=\"XCUIElementTypeButton\" name=\"dictation\" label=\"听写\" enabled=\"false\" visible=\"true\" accessible=\"false\" x=\"313\" y=\"775\" width=\"69\" height=\"70\" index=\"0\" traits=\"KeyboardKey, NotEnabled, Button\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.527Z"}
+{"level":"info","message":"  XCUIElementTypeTextField: 2 个","service":"DebugElements","timestamp":"2025-08-04T12:50:37.527Z"}
+{"level":"info","message":"    1. <XCUIElementTypeTextField type=\"XCUIElementTypeTextField\" value=\"+1\" name=\"国家代码\" label=\"国家代码\" enabled=\"true\" visible=\"true\" accessible=\"true\" x=\"0\" y=\"175\" width=\"77\" height=\"44\" index=\"0\" placeholderValue=\"\" traits=\"StaticText\"/>","service":"DebugElements","timestamp":"2025-08-04T12:50:37.528Z"}
+{"level":"info","message":"    2. <XCUIElementTypeTextField type=\"XCUIElementTypeTextField\" value=\"电话号码\" label=\"\" enabled=\"true\" visible=\"true\" accessible=\"true\" x=\"100\" y=\"175\" width=\"290\" height=\"44\" index=\"2\" placeholderValue=\"电话号码\" traits=\"StaticText\"/>","service":"DebugElements","timestamp":"2025-08-04T12:50:37.528Z"}
+{"level":"info","message":"  XCUIElementTypeStaticText: 7 个","service":"DebugElements","timestamp":"2025-08-04T12:50:37.528Z"}
+{"level":"info","message":"    1. <XCUIElementTypeStaticText type=\"XCUIElementTypeStaticText\" value=\"Viber 设置\" name=\"Viber 设置\" label=\"Viber 设置\" enabled=\"true\" visible=\"true\" accessible=\"true\" x=\"155\" y=\"58\" width=\"81\" height=\"21\" index=\"0\" traits=\"Header\"/>","service":"DebugElements","timestamp":"2025-08-04T12:50:37.528Z"}
+{"level":"info","message":"    2. <XCUIElementTypeStaticText type=\"XCUIElementTypeStaticText\" value=\"🇺🇸 美国\" name=\"🇺🇸 美国\" label=\"🇺🇸 美国\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"23\" y=\"130\" width=\"304\" height=\"45\" index=\"3\" traits=\"StaticText\"/>","service":"DebugElements","timestamp":"2025-08-04T12:50:37.528Z"}
+{"level":"info","message":"    3. <XCUIElementTypeStaticText type=\"XCUIElementTypeStaticText\" value=\"继续\" name=\"继续\" label=\"继续\" enabled=\"true\" visible=\"true\" accessible=\"true\" x=\"116\" y=\"236\" width=\"158\" height=\"44\" index=\"3\" traits=\"StaticText\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.528Z"}
+{"level":"info","message":"  XCUIElementTypeCell: 2 个","service":"DebugElements","timestamp":"2025-08-04T12:50:37.529Z"}
+{"level":"info","message":"    1. <XCUIElementTypeCell type=\"XCUIElementTypeCell\" name=\"🇺🇸 美国\" label=\"🇺🇸 美国\" enabled=\"true\" visible=\"true\" accessible=\"true\" x=\"0\" y=\"130\" width=\"390\" height=\"45\" index=\"1\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.529Z"}
+{"level":"info","message":"    2. <XCUIElementTypeCell type=\"XCUIElementTypeCell\" enabled=\"true\" visible=\"true\" accessible=\"true\" x=\"0\" y=\"175\" width=\"390\" height=\"44\" index=\"2\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.529Z"}
+{"level":"info","message":"  XCUIElementTypeNavigationBar: 1 个","service":"DebugElements","timestamp":"2025-08-04T12:50:37.529Z"}
+{"level":"info","message":"    1. <XCUIElementTypeNavigationBar type=\"XCUIElementTypeNavigationBar\" name=\"Viber 设置\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"47\" width=\"390\" height=\"44\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.529Z"}
+{"level":"info","message":"  XCUIElementTypeTable: 1 个","service":"DebugElements","timestamp":"2025-08-04T12:50:37.529Z"}
+{"level":"info","message":"    1. <XCUIElementTypeTable type=\"XCUIElementTypeTable\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"91\" width=\"390\" height=\"753\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.529Z"}
+{"level":"info","message":"可见元素:","service":"DebugElements","timestamp":"2025-08-04T12:50:37.530Z"}
+{"level":"info","message":"找到 47 个可见元素","service":"DebugElements","timestamp":"2025-08-04T12:50:37.530Z"}
+{"level":"info","message":"  1. <XCUIElementTypeApplication type=\"XCUIElementTypeApplication\" name=\"Viber\" label=\"Viber\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"0\" width=\"390\" height=\"844\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.530Z"}
+{"level":"info","message":"  2. <XCUIElementTypeWindow type=\"XCUIElementTypeWindow\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"0\" width=\"390\" height=\"844\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.530Z"}
+{"level":"info","message":"  3. <XCUIElementTypeOther type=\"XCUIElementTypeOther\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"0\" width=\"390\" height=\"844\" index=\"1\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.530Z"}
+{"level":"info","message":"  4. <XCUIElementTypeOther type=\"XCUIElementTypeOther\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"0\" width=\"390\" height=\"844\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.530Z"}
+{"level":"info","message":"  5. <XCUIElementTypeOther type=\"XCUIElementTypeOther\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"0\" width=\"390\" height=\"844\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.530Z"}
+{"level":"info","message":"  6. <XCUIElementTypeNavigationBar type=\"XCUIElementTypeNavigationBar\" name=\"Viber 设置\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"47\" width=\"390\" height=\"44\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.531Z"}
+{"level":"info","message":"  7. <XCUIElementTypeStaticText type=\"XCUIElementTypeStaticText\" value=\"Viber 设置\" name=\"Viber 设置\" label=\"Viber 设置\" enabled=\"true\" visible=\"true\" accessible=\"true\" x=\"155\" y=\"58\" width=\"81\" height=\"21\" index=\"0\" traits=\"Header\"/>","service":"DebugElements","timestamp":"2025-08-04T12:50:37.531Z"}
+{"level":"info","message":"  8. <XCUIElementTypeOther type=\"XCUIElementTypeOther\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"0\" width=\"390\" height=\"844\" index=\"1\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.531Z"}
+{"level":"info","message":"  9. <XCUIElementTypeOther type=\"XCUIElementTypeOther\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"0\" width=\"390\" height=\"844\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.531Z"}
+{"level":"info","message":"  10. <XCUIElementTypeOther type=\"XCUIElementTypeOther\" enabled=\"true\" visible=\"true\" accessible=\"false\" x=\"0\" y=\"91\" width=\"390\" height=\"753\" index=\"0\" traits=\"\">","service":"DebugElements","timestamp":"2025-08-04T12:50:37.531Z"}
+{"level":"info","message":"查找特定文本的元素:","service":"DebugElements","timestamp":"2025-08-04T12:50:37.531Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@name, \"继续\")]","service":"ElementDebugger","timestamp":"2025-08-04T12:50:47.051Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@value, \"继续\")]","service":"ElementDebugger","timestamp":"2025-08-04T12:50:47.657Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@label, \"继续\")]","service":"ElementDebugger","timestamp":"2025-08-04T12:50:48.291Z"}
+{"level":"info","message":"  \"继续\" 的定位器:","service":"DebugElements","timestamp":"2025-08-04T12:50:48.639Z"}
+{"level":"info","message":"    //XCUIElementTypeAny[contains(@name, \"继续\")]","service":"DebugElements","timestamp":"2025-08-04T12:50:48.640Z"}
+{"level":"info","message":"    //XCUIElementTypeAny[contains(@value, \"继续\")]","service":"DebugElements","timestamp":"2025-08-04T12:50:48.641Z"}
+{"level":"info","message":"    //XCUIElementTypeAny[contains(@label, \"继续\")]","service":"DebugElements","timestamp":"2025-08-04T12:50:48.641Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@name, \"Viber\")]","service":"ElementDebugger","timestamp":"2025-08-04T12:50:51.958Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@value, \"Viber\")]","service":"ElementDebugger","timestamp":"2025-08-04T12:50:52.443Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@label, \"Viber\")]","service":"ElementDebugger","timestamp":"2025-08-04T12:50:52.823Z"}
+{"level":"info","message":"  \"Viber\" 的定位器:","service":"DebugElements","timestamp":"2025-08-04T12:50:53.107Z"}
+{"level":"info","message":"    //XCUIElementTypeAny[contains(@name, \"Viber\")]","service":"DebugElements","timestamp":"2025-08-04T12:50:53.108Z"}
+{"level":"info","message":"    //XCUIElementTypeAny[contains(@value, \"Viber\")]","service":"DebugElements","timestamp":"2025-08-04T12:50:53.108Z"}
+{"level":"info","message":"    //XCUIElementTypeAny[contains(@label, \"Viber\")]","service":"DebugElements","timestamp":"2025-08-04T12:50:53.108Z"}
+{"level":"info","message":"检查应用状态...","service":"DebugElements","timestamp":"2025-08-04T12:50:53.108Z"}
+{"level":"error","message":"获取应用状态失败: unknown error: WebDriverError: An unknown server-side error occurred while processing the command. Original error: Cannot use 'in' operator to search for 'elementId' in com.viber when running \"execute/sync\" with method \"POST\" and args \"mobile: queryAppState\"","service":"DebugElements","timestamp":"2025-08-04T12:51:00.644Z"}
+{"level":"info","message":"检查WebDriverAgent状态...","service":"DebugElements","timestamp":"2025-08-04T12:51:00.645Z"}
+{"level":"info","message":"设备时间: 2025-08-04T20:51:01+08:00","service":"DebugElements","timestamp":"2025-08-04T12:51:00.817Z"}
+{"hasVisibleElements":true,"isActive":true,"isInAppSwitcher":false,"isInForeground":true,"level":"info","mainWindowIndex":0,"message":"应用状态分析结果:","service":"AppStateManager","timestamp":"2025-08-04T12:51:01.642Z"}
+{"hasVisibleElements":true,"isActive":true,"isInAppSwitcher":false,"isInForeground":true,"level":"info","mainWindowIndex":0,"message":"最终应用状态:","service":"DebugElements","timestamp":"2025-08-04T12:51:01.643Z"}
+{"level":"info","message":"应用状态正常，尝试查找UI元素...","service":"DebugElements","timestamp":"2025-08-04T12:51:01.644Z"}
+{"level":"info","message":"找到 1 个 //XCUIElementTypeButton 元素","service":"DebugElements","timestamp":"2025-08-04T12:51:01.883Z"}
+{"level":"info","message":"  元素 1: 可见=true, 启用=false, 名称=\"dictation\"","service":"DebugElements","timestamp":"2025-08-04T12:51:02.126Z"}
+{"level":"info","message":"找到 2 个 //XCUIElementTypeTextField 元素","service":"DebugElements","timestamp":"2025-08-04T12:51:02.558Z"}
+{"level":"info","message":"  元素 1: 可见=true, 启用=true, 名称=\"国家代码\"","service":"DebugElements","timestamp":"2025-08-04T12:51:02.845Z"}
+{"level":"info","message":"  元素 2: 可见=true, 启用=true, 名称=\"无名称\"","service":"DebugElements","timestamp":"2025-08-04T12:51:03.105Z"}
+{"level":"info","message":"找到 6 个 //XCUIElementTypeStaticText 元素","service":"DebugElements","timestamp":"2025-08-04T12:51:03.755Z"}
+{"level":"info","message":"  元素 1: 可见=true, 启用=true, 名称=\"Viber 设置\"","service":"DebugElements","timestamp":"2025-08-04T12:51:04.021Z"}
+{"level":"info","message":"  元素 2: 可见=false, 启用=true, 名称=\"无名称\"","service":"DebugElements","timestamp":"2025-08-04T12:51:04.293Z"}
+{"level":"info","message":"  元素 3: 可见=true, 启用=true, 名称=\"继续\"","service":"DebugElements","timestamp":"2025-08-04T12:51:04.616Z"}
+{"level":"info","message":"找到 1 个 //XCUIElementTypeNavigationBar 元素","service":"DebugElements","timestamp":"2025-08-04T12:51:05.103Z"}
+{"level":"info","message":"  元素 1: 可见=true, 启用=true, 名称=\"Viber 设置\"","service":"DebugElements","timestamp":"2025-08-04T12:51:05.392Z"}
+{"level":"info","message":"Driver closed for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-04T12:51:05.406Z"}
+{"level":"info","message":"Created data directory: /Users/song/Desktop/nodejs/viber/viber/data","service":"FileManager","timestamp":"2025-08-06T03:05:18.552Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T03:05:18.599Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T03:05:31.795Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T03:05:36.226Z"}
+{"level":"error","message":"刷新页面结构失败: Error: Malformed type for \"args\" parameter of command executeScript\nExpected: (string|object|number|boolean|null|undefined)[]\nActual: (object)[]\n\nFor more info see https://w3c.github.io/webdriver/#dfn-execute-script\n","service":"ElementDebugger","timestamp":"2025-08-06T03:05:36.555Z"}
+{"level":"error","message":"刷新页面结构失败: Error: Malformed type for \"args\" parameter of command executeScript\nExpected: (string|object|number|boolean|null|undefined)[]\nActual: (object)[]\n\nFor more info see https://w3c.github.io/webdriver/#dfn-execute-script\n","service":"ElementDebugger","timestamp":"2025-08-06T03:05:38.957Z"}
+{"level":"error","message":"查找TextField失败: 电话号码, 错误: Error: 元素未找到: //XCUIElementTypeTextField[contains(@name, \"电话号码\")]","service":"FindElement","timestamp":"2025-08-06T03:05:41.376Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@name, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T03:05:42.730Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T03:05:43.325Z"}
+{"level":"info","message":"有效定位器: //XCUIElementTypeAny[contains(@label, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T03:05:43.891Z"}
+{"level":"info","message":"通过备用定位器找到TextField: //XCUIElementTypeAny[contains(@name, \"电话号码\")]","service":"FindElement","timestamp":"2025-08-06T03:05:44.875Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T03:12:13.731Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T03:12:14.301Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T03:12:18.686Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T03:12:19.178Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T03:16:24.909Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T03:16:34.893Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T03:16:39.398Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T03:16:39.950Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/viber/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T03:16:48.867Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T03:16:58.895Z"}
+{"level":"error","message":"错误信息: AxiosError: timeout of 10000ms exceeded","service":"Phone","timestamp":"2025-08-06T03:16:58.896Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/viber/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 2 / 10)","service":"Phone","timestamp":"2025-08-06T03:17:03.898Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T03:17:13.907Z"}
+{"level":"error","message":"错误信息: AxiosError: timeout of 10000ms exceeded","service":"Phone","timestamp":"2025-08-06T03:17:13.908Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/viber/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 3 / 10)","service":"Phone","timestamp":"2025-08-06T03:17:18.911Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T03:20:51.220Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T03:20:51.780Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T03:20:56.317Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T03:20:56.894Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T03:20:59.195Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T03:21:09.225Z"}
+{"level":"error","message":"错误信息: AxiosError: timeout of 10000ms exceeded","service":"Phone","timestamp":"2025-08-06T03:21:09.226Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 2 / 10)","service":"Phone","timestamp":"2025-08-06T03:21:14.229Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T06:20:56.382Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T06:20:56.982Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T06:21:01.451Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T06:21:01.918Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:11.129Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:11.159Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:11.160Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 2 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:16.162Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:16.181Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:16.182Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 3 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:21.185Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:21.206Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:21.207Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 4 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:26.208Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:26.224Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:26.224Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 5 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:31.226Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:31.237Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:31.238Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 6 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:36.240Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:36.256Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:36.256Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 7 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:41.259Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:41.280Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:41.281Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 8 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:46.283Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:46.304Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:46.305Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 9 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:51.307Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:21:51.337Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:51.338Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 10 / 10)","service":"Phone","timestamp":"2025-08-06T06:21:56.342Z"}
+{"level":"error","message":"获取号码失败，已达到最大重试次数: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:21:56.357Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T06:30:52.270Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T06:30:52.862Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T06:30:57.337Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T06:30:57.841Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T06:30:58.147Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:30:58.189Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:30:58.189Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&service=viber&maxPrice=10 (尝试 2 / 10)","service":"Phone","timestamp":"2025-08-06T06:31:03.191Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T06:31:03.211Z"}
+{"level":"error","message":"错误信息: AxiosError: Request failed with status code 404","service":"Phone","timestamp":"2025-08-06T06:31:03.212Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:05:25.574Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:05:26.167Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T07:05:30.654Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T07:05:31.166Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&maxPrice=10 (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T07:05:31.439Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T07:05:32.655Z"}
+{"level":"error","message":"错误信息: Error: HTTP status {\"success\":true,\"message\":\"Phone request successful\",\"parsedData\":{\"pkey\":\"A4C7619248419CA5C05A1C7C9F25568FF35CA257827DFE22\",\"extractTime\":\"2025-08-06T15:05:32\",\"countryCode\":\"phl\",\"countryAreaCode\":\"63\",\"location\":\"89630324212002047239-515039350196271\",\"portNumber\":\"COM69\",\"phoneNumber\":\"9128044652\",\"dockCode\":\"phl-1064-9194r\"}}","service":"Phone","timestamp":"2025-08-06T07:05:32.657Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&maxPrice=10 (尝试 2 / 10)","service":"Phone","timestamp":"2025-08-06T07:05:37.660Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T07:05:38.390Z"}
+{"level":"error","message":"错误信息: Error: HTTP status {\"success\":true,\"message\":\"Phone request successful\",\"parsedData\":{\"pkey\":\"A4C7619248419CA51FA0010C3467EBD353B3241346FF5799\",\"extractTime\":\"2025-08-06T15:05:38\",\"countryCode\":\"phl\",\"countryAreaCode\":\"63\",\"location\":\"89634243526510310197-515026551309325\",\"portNumber\":\"COM52\",\"phoneNumber\":\"9953844789\",\"dockCode\":\"phl-1064-611c7\"}}","service":"Phone","timestamp":"2025-08-06T07:05:38.392Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone?country=phl&maxPrice=10 (尝试 3 / 10)","service":"Phone","timestamp":"2025-08-06T07:05:43.394Z"}
+{"level":"info","message":"获取号码失败，等待 5 秒后重试...","service":"Phone","timestamp":"2025-08-06T07:05:44.261Z"}
+{"level":"error","message":"错误信息: Error: HTTP status {\"success\":true,\"message\":\"Phone request successful\",\"parsedData\":{\"pkey\":\"A4C7619248419CA51FA0010C3467EBD3D0DD16E267E7141C\",\"extractTime\":\"2025-08-06T15:05:44\",\"countryCode\":\"phl\",\"countryAreaCode\":\"63\",\"location\":\"89634243526510310775-515026551309383\",\"portNumber\":\"COM55\",\"phoneNumber\":\"9953844863\",\"dockCode\":\"phl-1064-611c7\"}}","service":"Phone","timestamp":"2025-08-06T07:05:44.262Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:08:29.125Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:08:29.715Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T07:08:34.225Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T07:08:34.797Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T07:08:35.100Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:09:11.398Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:09:11.968Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T07:09:16.315Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T07:09:16.785Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T07:09:17.105Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:17:02.536Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:17:03.133Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T07:17:07.682Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T07:17:08.257Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T07:17:08.549Z"}
+{"level":"info","message":"成功获取号码: [object Object]","service":"Phone","timestamp":"2025-08-06T07:17:24.206Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:17:43.426Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:17:44.071Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T07:17:48.488Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T07:17:49.018Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T07:17:49.306Z"}
+{"level":"info","message":"成功获取号码: {\"pkey\":\"A4C7619248419CA51FA0010C3467EBD3E31EAF529C03261F\",\"maxPrice\":\"10\",\"country\":\"phl\",\"phoneNumber\":\"9953844867\",\"countryCode\":\"63\",\"originalPhoneNumber\":\"+639953844867\"}","service":"Phone","timestamp":"2025-08-06T07:17:53.591Z"}
+{"level":"info","message":"File saved successfully: number.json","service":"FileManager","timestamp":"2025-08-06T07:17:59.966Z"}
+{"level":"error","message":"等待应用加载时出错: invalid session id: WebDriverError: A session is either terminated or not started when running \"source\" with method \"GET\"","service":"ElementDebugger","timestamp":"2025-08-06T07:19:28.416Z"}
+{"level":"error","message":"第 1 次尝试失败: invalid session id: WebDriverError: A session is either terminated or not started when running \"element\" with method \"POST\" and args \"{\"using\":\"xpath\",\"value\":\"//XCUIElementTypeTextField[contains(@name, \\\"国家代码\\\")]\"}\"","service":"ElementDebugger","timestamp":"2025-08-06T07:19:35.962Z"}
+{"level":"error","message":"第 2 次尝试失败: invalid session id: WebDriverError: A session is either terminated or not started when running \"element\" with method \"POST\" and args \"{\"using\":\"xpath\",\"value\":\"//XCUIElementTypeTextField[contains(@name, \\\"国家代码\\\")]\"}\"","service":"ElementDebugger","timestamp":"2025-08-06T07:19:43.530Z"}
+{"level":"error","message":"第 3 次尝试失败: invalid session id: WebDriverError: A session is either terminated or not started when running \"element\" with method \"POST\" and args \"{\"using\":\"xpath\",\"value\":\"//XCUIElementTypeTextField[contains(@name, \\\"国家代码\\\")]\"}\"","service":"ElementDebugger","timestamp":"2025-08-06T07:19:51.087Z"}
+{"level":"error","message":"查找TextField失败: 国家代码, 错误: invalid session id: WebDriverError: A session is either terminated or not started when running \"element\" with method \"POST\" and args \"{\"using\":\"xpath\",\"value\":\"//XCUIElementTypeTextField[contains(@name, \\\"国家代码\\\")]\"}\"","service":"FindElement","timestamp":"2025-08-06T07:19:51.088Z"}
+{"level":"error","message":"查找元素定位器失败: invalid session id: WebDriverError: A session is either terminated or not started when running \"source\" with method \"GET\"","service":"ElementDebugger","timestamp":"2025-08-06T07:19:58.640Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:22:59.855Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:23:00.517Z"}
+{"level":"info","message":"应用已完全加载","service":"ElementDebugger","timestamp":"2025-08-06T07:23:04.994Z"}
+{"level":"info","message":"元素找到: //XCUIElementTypeTextField[contains(@value, \"电话号码\")]","service":"ElementDebugger","timestamp":"2025-08-06T07:23:05.496Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T07:23:05.765Z"}
+{"level":"info","message":"成功获取号码: {\"pkey\":\"A4C7619248419CA5F3F6955DD804A9F3DAB993BF05FB4BB4\",\"maxPrice\":\"10\",\"country\":\"phl\",\"phoneNumber\":\"9514889407\",\"countryCode\":\"63\",\"originalPhoneNumber\":\"+639514889407\"}","service":"Phone","timestamp":"2025-08-06T07:23:10.206Z"}
+{"level":"info","message":"File saved successfully: number.json","service":"FileManager","timestamp":"2025-08-06T07:23:10.208Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:37:34.390Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:37:34.986Z"}
+{"level":"info","message":"找到TextFieldWithValue: 电话号码","service":"FindElement","timestamp":"2025-08-06T07:37:39.273Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T07:37:39.591Z"}
+{"level":"info","message":"成功获取号码: {\"pkey\":\"A4C7619248419CA5668AA56E4B4E1BBE8C0143D7A0395722\",\"maxPrice\":\"10\",\"country\":\"phl\",\"phoneNumber\":\"9953852254\",\"countryCode\":\"63\",\"originalPhoneNumber\":\"+639953852254\"}","service":"Phone","timestamp":"2025-08-06T07:37:40.634Z"}
+{"level":"info","message":"File saved successfully: number.json","service":"FileManager","timestamp":"2025-08-06T07:37:40.636Z"}
+{"level":"info","message":"找到TextFieldWithName: 国家代码","service":"FindElement","timestamp":"2025-08-06T07:37:44.078Z"}
+{"level":"info","message":"输入国家/地区代码: 63","service":"CheckPage","timestamp":"2025-08-06T07:38:07.328Z"}
+{"level":"info","message":"找到TextFieldWithValue: 电话号码","service":"FindElement","timestamp":"2025-08-06T07:38:09.341Z"}
+{"level":"info","message":"输入电话号码: 9953852254","service":"CheckPage","timestamp":"2025-08-06T07:38:19.627Z"}
+{"level":"info","message":"找到StaticText: 继续","service":"FindElement","timestamp":"2025-08-06T07:38:23.754Z"}
+{"level":"info","message":"点击下一步按钮","service":"CheckPage","timestamp":"2025-08-06T07:38:34.700Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:40:14.209Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:40:14.798Z"}
+{"level":"error","message":"查找TextFieldWithValue失败: 电话号码","service":"FindElement","timestamp":"2025-08-06T07:40:18.929Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:40:51.060Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:40:54.649Z"}
+{"level":"info","message":"找到TextFieldWithValue: 电话号码","service":"FindElement","timestamp":"2025-08-06T07:40:58.831Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T07:40:59.144Z"}
+{"level":"info","message":"成功获取号码: {\"pkey\":\"A4C7619248419CA53C0CCF66B5242F65F0B4AB67D15784B2\",\"maxPrice\":\"10\",\"country\":\"phl\",\"phoneNumber\":\"9109441432\",\"countryCode\":\"63\",\"originalPhoneNumber\":\"+639109441432\"}","service":"Phone","timestamp":"2025-08-06T07:40:59.963Z"}
+{"level":"info","message":"File saved successfully: number.json","service":"FileManager","timestamp":"2025-08-06T07:40:59.964Z"}
+{"level":"info","message":"找到TextFieldWithName: 国家代码","service":"FindElement","timestamp":"2025-08-06T07:41:03.487Z"}
+{"level":"info","message":"输入国家/地区代码: 63","service":"CheckPage","timestamp":"2025-08-06T07:41:12.039Z"}
+{"level":"info","message":"找到TextFieldWithValue: 电话号码","service":"FindElement","timestamp":"2025-08-06T07:41:12.740Z"}
+{"level":"info","message":"输入电话号码: 9109441432","service":"CheckPage","timestamp":"2025-08-06T07:41:14.197Z"}
+{"level":"info","message":"找到StaticText: 继续","service":"FindElement","timestamp":"2025-08-06T07:41:14.958Z"}
+{"level":"info","message":"点击下一步按钮","service":"CheckPage","timestamp":"2025-08-06T07:41:16.108Z"}
+{"level":"info","message":"找到Button: 是","service":"FindElement","timestamp":"2025-08-06T07:41:16.630Z"}
+{"level":"info","message":"点击确认按钮","service":"CheckPage","timestamp":"2025-08-06T07:41:20.208Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:44:58.048Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:44:58.626Z"}
+{"level":"info","message":"找到Button: 打电话给我","service":"FindElement","timestamp":"2025-08-06T07:45:02.232Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:45:26.153Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:45:26.764Z"}
+{"level":"info","message":"找到Button: 打电话给我","service":"FindElement","timestamp":"2025-08-06T07:45:30.256Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:47:24.186Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:47:24.748Z"}
+{"level":"error","message":"WebDriver session error: invalid session id: WebDriverError: A session is either terminated or not started when running \"source\" with method \"GET\"","service":"CheckPage","timestamp":"2025-08-06T07:48:59.982Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:53:21.741Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:53:31.772Z"}
+{"level":"info","message":"找到Button: 打电话给我","service":"FindElement","timestamp":"2025-08-06T07:53:47.017Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T07:54:37.913Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T07:54:38.489Z"}
+{"level":"info","message":"找到Button: 打电话给我","service":"FindElement","timestamp":"2025-08-06T07:54:49.736Z"}
+{"level":"info","message":"找到Button: 打电话给我","service":"FindElement","timestamp":"2025-08-06T07:55:08.373Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T08:21:54.610Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T08:22:08.639Z"}
+{"level":"info","message":"通过部分匹配找到StaticText: 请您所收到来电号码的后 4 位","service":"FindElement","timestamp":"2025-08-06T08:22:13.041Z"}
+{"level":"info","message":"输入第1位验证码: 1","service":"CheckPage","timestamp":"2025-08-06T08:22:34.991Z"}
+{"level":"info","message":"输入第2位验证码: 2","service":"CheckPage","timestamp":"2025-08-06T08:22:37.726Z"}
+{"level":"info","message":"输入第3位验证码: 3","service":"CheckPage","timestamp":"2025-08-06T08:22:40.427Z"}
+{"level":"error","message":"输入第4位验证码失败: Error: The setValue/addValue command only take string or number values. If you like to use special characters, use the \"keys\" command.","service":"CheckPage","timestamp":"2025-08-06T08:22:42.566Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T08:29:58.756Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T08:29:59.357Z"}
+{"level":"info","message":"通过部分匹配找到StaticText: 请您所收到来电号码的后 4 位","service":"FindElement","timestamp":"2025-08-06T08:30:04.222Z"}
+{"level":"info","message":"通过部分匹配找到StaticText: 请您所收到来电号码的后 4 位","service":"FindElement","timestamp":"2025-08-06T08:30:10.475Z"}
+{"level":"info","message":"输入第1位验证码: 1","service":"CheckPage","timestamp":"2025-08-06T08:30:15.183Z"}
+{"level":"info","message":"输入第2位验证码: 2","service":"CheckPage","timestamp":"2025-08-06T08:30:17.541Z"}
+{"level":"info","message":"输入第3位验证码: 3","service":"CheckPage","timestamp":"2025-08-06T08:30:19.841Z"}
+{"level":"error","message":"输入第4位验证码失败: Error: The setValue/addValue command only take string or number values. If you like to use special characters, use the \"keys\" command.","service":"CheckPage","timestamp":"2025-08-06T08:30:21.317Z"}
+{"level":"info","message":"输入第1位验证码: 1","service":"CheckPage","timestamp":"2025-08-06T08:30:23.913Z"}
+{"level":"info","message":"输入第2位验证码: 2","service":"CheckPage","timestamp":"2025-08-06T08:30:26.805Z"}
+{"level":"info","message":"输入第3位验证码: 3","service":"CheckPage","timestamp":"2025-08-06T08:30:29.746Z"}
+{"level":"error","message":"输入第4位验证码失败: Error: The setValue/addValue command only take string or number values. If you like to use special characters, use the \"keys\" command.","service":"CheckPage","timestamp":"2025-08-06T08:30:31.766Z"}
+{"level":"info","message":"输入第1位验证码: 1","service":"CheckPage","timestamp":"2025-08-06T08:30:34.382Z"}
+{"level":"info","message":"输入第2位验证码: 2","service":"CheckPage","timestamp":"2025-08-06T08:30:37.370Z"}
+{"level":"info","message":"输入第3位验证码: 3","service":"CheckPage","timestamp":"2025-08-06T08:30:40.263Z"}
+{"level":"error","message":"输入第4位验证码失败: Error: The setValue/addValue command only take string or number values. If you like to use special characters, use the \"keys\" command.","service":"CheckPage","timestamp":"2025-08-06T08:30:42.372Z"}
+{"level":"error","message":"输入验证码失败","service":"CheckPage","timestamp":"2025-08-06T08:33:19.329Z"}
+{"capabilities":{"appium:autoAcceptAlerts":true,"appium:automationName":"XCUITest","appium:bundleId":"com.viber","appium:deviceName":"lianxinxi","appium:noReset":true,"appium:platformVersion":"18.3.2","appium:udid":"00008101-00026C982160001E","appium:xcodeOrgId":"K8Z622FY3F","platformName":"iOS"},"deviceConfig":{"bundleId":"com.viber","deviceName":"lianxinxi","platformVersion":"18.3.2","udid":"00008101-00026C982160001E"},"host":"localhost","level":"info","message":"Initializing local Appium driver for device: 00008101-00026C982160001E","port":4723,"service":"AppiumService","timestamp":"2025-08-06T08:33:34.159Z"}
+{"level":"info","message":"Appium driver initialized successfully for device: 00008101-00026C982160001E","service":"AppiumService","timestamp":"2025-08-06T08:33:36.729Z"}
+{"level":"info","message":"找到TextFieldWithValue: 电话号码","service":"FindElement","timestamp":"2025-08-06T08:33:41.105Z"}
+{"level":"info","message":"正在获取号码...请求URL: http://192.168.1.175:5200/api/firefox/phone (尝试 1 / 10)","service":"Phone","timestamp":"2025-08-06T08:33:41.409Z"}
+{"level":"info","message":"成功获取号码: {\"pkey\":\"A4C7619248419CA59BC18775595C6842BCEEAE1FEA05A545\",\"maxPrice\":\"10\",\"country\":\"phl\",\"phoneNumber\":\"9512815345\",\"countryCode\":\"63\",\"originalPhoneNumber\":\"+639512815345\"}","service":"Phone","timestamp":"2025-08-06T08:33:42.552Z"}
+{"level":"info","message":"File saved successfully: number.json","service":"FileManager","timestamp":"2025-08-06T08:33:42.555Z"}
+{"level":"info","message":"找到TextFieldWithName: 国家代码","service":"FindElement","timestamp":"2025-08-06T08:33:50.612Z"}
+{"level":"info","message":"输入国家/地区代码: 63","service":"CheckPage","timestamp":"2025-08-06T08:33:52.244Z"}
+{"level":"info","message":"找到TextFieldWithValue: 电话号码","service":"FindElement","timestamp":"2025-08-06T08:33:52.950Z"}
+{"level":"info","message":"输入电话号码: 9512815345","service":"CheckPage","timestamp":"2025-08-06T08:33:54.465Z"}
+{"level":"info","message":"找到StaticText: 继续","service":"FindElement","timestamp":"2025-08-06T08:33:55.244Z"}
+{"level":"info","message":"点击下一步按钮","service":"CheckPage","timestamp":"2025-08-06T08:33:56.440Z"}
+{"level":"info","message":"找到Button: 是","service":"FindElement","timestamp":"2025-08-06T08:33:56.993Z"}
+{"level":"info","message":"点击确认按钮","service":"CheckPage","timestamp":"2025-08-06T08:34:01.121Z"}
+{"level":"error","message":"查找TextFieldWithValue失败: 电话号码","service":"FindElement","timestamp":"2025-08-06T08:34:05.109Z"}

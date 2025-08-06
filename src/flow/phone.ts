@@ -1,36 +1,36 @@
 import axios from 'axios';
 import { EnvConfig } from '../env';
 import { Logger } from '../utils/logger';
-import fs from 'fs';
-import path from 'path';
+import { fileManager } from '../utils/file.manager';
+
+const logger = new Logger('Phone');
 
 // Interfaces
 export interface SmsResponse {
     success: boolean;
-    data: {
-        sms?: {
-            code?: string;
-        } | null;
-    };
+    code: string;
+    message: string;
+    fullMessage: string;
 }
 
 export interface NumberResponse {
-    activationId: string;
-    phoneNumber: string;
     success: boolean;
-    data: {
-        activationId: string;
+    parsedData: {
+        pkey: string;
+        iid: string;
+        countryCode: string;
         phoneNumber: string;
+        countryAreaCode: string;
     };
 }
 
 export interface PhoneNumberData {
+    pkey: string;
+    iid?: string;
     country?: string;
-    service?: string;
     maxPrice?: string;
     phoneNumber: string;
     countryCode: string;
-    activationId: string;
     originalPhoneNumber: string;
 }
 
@@ -40,18 +40,17 @@ export interface ParsedPhoneNumber {
 }
 
 // Configuration interface
-interface PhoneServiceConfig {
+export interface PhoneServiceConfig {
+    iid: string;
     country: string;
-    service: string;
     maxPrice: string;
 }
 
 // Utility functions
 function saveFile(filename: string, data: any): void {
     try {
-        const filePath = path.join(process.cwd(), filename);
-        fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-        console.log(`File saved: ${filePath}`);
+        fileManager.saveFile(filename, data);
+        console.log(`File saved: ${fileManager.getFilePath(filename)}`);
     } catch (error) {
         console.error(`Error saving file ${filename}:`, error);
     }
@@ -79,77 +78,50 @@ function parsePhone(phoneNumber: string): ParsedPhoneNumber | null {
     }
 }
 
-// Get phone service configuration from environment variables
-function getPhoneServiceConfig(): PhoneServiceConfig {
-    return {
-        country: process.env.PHONE_COUNTRY || '',
-        service: process.env.PHONE_SERVICE || '',
-        maxPrice: process.env.PHONE_MAX_PRICE || ''
-    };
-}
-
-const logger = new Logger('RequestPhone');
-
 /**
  * Get a phone number from the API
+ * @param config - The phone service configuration
  * @returns Promise<PhoneNumberData | null>
  */
-export async function getNumber(): Promise<PhoneNumberData | null> {
+export async function getNumber(config: Partial<PhoneServiceConfig>): Promise<PhoneNumberData | null> {
     const maxRetries = 10;
     const retryDelay = 5000;
     let retryCount = 0;
-    const config = getPhoneServiceConfig();
-    
     while (retryCount < maxRetries) {
         try {
-            const apiUrl = new URL(EnvConfig.getNumberUrl());
+            const params: Record<string, string> = {};
             if (config.country && config.country.trim() !== '') {
-                apiUrl.searchParams.append('country', config.country);
+                params.country = config.country;
             }
-            if (config.service && config.service.trim() !== '') {
-                apiUrl.searchParams.append('service', config.service);
+            if (config.iid && config.iid.trim() !== '') {
+                params.iid = config.iid;
             }
             if (config.maxPrice && config.maxPrice.trim() !== '') {
-                apiUrl.searchParams.append('maxPrice', config.maxPrice);
+                params.maxPrice = config.maxPrice;
             }
-            
-            const url = apiUrl.toString();
-            logger.info(`正在获取号码...请求URL: ${url} (尝试 ${retryCount + 1} / ${maxRetries})`);
-            
-            const response = await axios.get<NumberResponse>(url, { timeout: 10000 });
-            
-            if (!response.data.success || !response.data.data) {
+            logger.info(`正在获取号码...请求URL: ${EnvConfig.getNumberUrl()} (尝试 ${retryCount + 1} / ${maxRetries})`);
+            const response = await axios.post<NumberResponse>(EnvConfig.getNumberUrl(), params, { 
+                timeout: 10000,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + EnvConfig.getToken()
+                }
+            });
+            if (!response.data.success) {
                 throw new Error(`HTTP status ${JSON.stringify(response.data)}`);
             }
-            
-            const responseData = response.data.data;
-            const activationId = responseData.activationId;
-            const phoneNumber = responseData.phoneNumber;
-            
-            if (!activationId || !phoneNumber) {
-                throw new Error(`response data: ${JSON.stringify(response.data)}`);
-            }
-            
-            const parsedPhoneNumber = parsePhone(phoneNumber);
-            if (!parsedPhoneNumber) {
-                throw new Error(`解析手机号失败: ${phoneNumber}`);
-            }
-            
-            const number = parsedPhoneNumber.nationalNumber.toString();
-            const countryCode = parsedPhoneNumber.countryCode.replace('+', '');
-            
-            logger.info(`成功获取号码: phoneNumber: ${phoneNumber} - activationId: ${activationId}`);
-            
+            const parsedData = response.data.parsedData;
             const res: PhoneNumberData = {
-                country: config.country,
-                service: config.service,
+                pkey: parsedData.pkey,
+                iid: parsedData.iid,
                 maxPrice: config.maxPrice,
-                phoneNumber: number,
-                countryCode: countryCode,
-                activationId: activationId,
-                originalPhoneNumber: phoneNumber
+                country: parsedData.countryCode,
+                phoneNumber: parsedData.phoneNumber,
+                countryCode: parsedData.countryAreaCode,
+                originalPhoneNumber: `+${parsedData.countryAreaCode}${parsedData.phoneNumber}`,
             };
-            
+            logger.info(`成功获取号码: ${JSON.stringify(res)}`);
             saveFile('number.json', res);
             return res;
         } catch (error) {
@@ -167,35 +139,34 @@ export async function getNumber(): Promise<PhoneNumberData | null> {
 }
 
 /**
- * Get SMS code for the given activation ID
- * @param activationId - The activation ID to get SMS for
+ * Get SMS code for the given pkey
+ * @param pkey - The pkey to get SMS for
  * @returns Promise<string | null>
  */
-export async function getSms(activationId: string): Promise<string | null> {
+export async function getSms(pkey: string): Promise<string | null> {
     const maxRetries = 12;
     const retryDelay = 5000;
     let retryCount = 0;
-
     while (retryCount < maxRetries) {
         try {
-            const apiUrl = new URL(EnvConfig.getSmsUrl());
-            apiUrl.searchParams.append('activationId', activationId);
-            const url = apiUrl.toString();
-            
-            logger.info(`正在获取验证码...请求URL: ${url} (尝试 ${retryCount + 1} / ${maxRetries})`);
-            
-            const response = await axios.get<SmsResponse>(url, { timeout: 10000 });
-            
-            if (!response.data.success || !response.data.data) {
+            const params: Record<string, string> = {"pkey": pkey};
+            logger.info(`正在获取验证码...请求URL: ${EnvConfig.getSmsUrl()} (尝试 ${retryCount + 1} / ${maxRetries})`);
+            const response = await axios.post<SmsResponse>(EnvConfig.getSmsUrl(), params, {
+                timeout: 10000,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + EnvConfig.getToken()
+                }
+            });
+            if (!response.data.success) {
                 throw new Error(`HTTP status ${JSON.stringify(response.data)}`);
             }
-            
-            const smsCode = response.data.data.sms?.code;
+            const smsCode = response.data.code;
             if (smsCode) {
                 logger.info(`成功获取验证码: ${smsCode}`);
                 return smsCode;
             }
-            
             logger.info(`验证码获取失败，等待 ${retryDelay / 1000} 秒后重试...`);
             logger.error(`错误信息: ${JSON.stringify(response.data)}`);
             await new Promise(resolve => setTimeout(resolve, retryDelay));
@@ -213,3 +184,11 @@ export async function getSms(activationId: string): Promise<string | null> {
     }
     return null;
 } 
+
+// let result = getNumber({
+//     country: 'phl',
+//     service: 'viber',
+//     maxPrice: '10'
+// });
+
+// console.log(result);

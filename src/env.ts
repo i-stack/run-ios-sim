@@ -4,7 +4,7 @@ export class EnvConfig {
     static WIN = 'windows';
 
     static getEnv() {
-        return EnvConfig.PROD;
+        return EnvConfig.WIN;
     }
 
     static getPort() {
@@ -17,14 +17,14 @@ export class EnvConfig {
             case EnvConfig.PROD:
                 return 'https://ccss.yhyuanma.com';
             case EnvConfig.WIN:
-                return `http://192.168.1.139:${this.getPort()}`;
+                return `http://192.168.1.175:${this.getPort()}`;
             default:
                 return `http://localhost:${this.getPort()}`;
         }
     }
 
     static baseUrl() {
-        return `${this.baseHost()}/api/viber`;
+        return `${this.baseHost()}/api`;
     }
 
     static getNumberUrl() {
@@ -45,5 +45,9 @@ export class EnvConfig {
             default:
                 return `ws://localhost:${this.getPort()}/ws`;
         }
+    }
+
+    static getToken() {
+        return '496e586927875f8a55524ac5076efc9f92012eb535f7eb5df2ac59ec1b3eb725';
     }
 } 
