@@ -391,7 +391,7 @@ export async function handleVerificationCodePage(driver: WebdriverIO.Browser, ve
     }
 }
 
-async function reinstallViber(driver: WebdriverIO.Browser) {
+export async function reinstallViber(driver: WebdriverIO.Browser) {
     try {
         logger.info('开始重新安装 Viber...');
         logger.info('终止 Viber 应用...');
