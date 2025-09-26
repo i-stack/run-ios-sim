@@ -2,3 +2,179 @@
 {"level":"info","message":"WebSocket client disconnected","service":"WebSocketService","timestamp":"2025-07-31T07:08:32.145Z"}
 {"level":"info","message":"Shutting down Appium Automation Server...","service":"AppiumAutomationServer","timestamp":"2025-07-31T08:30:04.184Z"}
 {"level":"info","message":"WebSocket server closed","service":"WebSocketService","timestamp":"2025-07-31T08:30:04.186Z"}
+{"level":"info","message":"🚀 开始越狱设备测试...","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:16:47.142Z"}
+{"level":"info","message":"Added jailbroken device configuration: jailbroken_device_1","service":"JailbrokenDeviceService","timestamp":"2025-07-31T10:16:47.144Z"}
+{"level":"info","message":"✅ 设备配置已添加: jailbroken_device_1","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:16:47.145Z"}
+{"level":"info","message":"🔍 检查设备连接...","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:16:47.145Z"}
+{"level":"info","message":"📱 尝试连接到越狱设备...","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:16:47.145Z"}
+{"level":"info","message":"🧪 开始执行 Viber 注册测试...","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:16:47.146Z"}
+{"level":"info","message":"Starting jailbroken Viber registration test for device: jailbroken_device_1","service":"JailbrokenDeviceService","timestamp":"2025-07-31T10:16:47.146Z"}
+{"level":"info","message":"Connecting to jailbroken device: jailbroken_device_1","service":"JailbrokenDeviceService","timestamp":"2025-07-31T10:16:47.146Z"}
+{"host":"localhost","level":"info","message":"Creating session for jailbroken device: jailbroken_device_1","port":4723,"service":"JailbrokenDeviceService","timestamp":"2025-07-31T10:16:47.146Z","udid":"2FCC54C4AB7082F8192FDA979EB8758A3BFEB0F6"}
+{"level":"error","message":"Failed to connect to jailbroken device: jailbroken_device_1 Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource","service":"JailbrokenDeviceService","stack":"Error: Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource\n    at startWebDriverSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/utils.js:69:15)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async WebDriver.newSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/index.js:19:45)\n    at async remote (file:///E:/zm/viber/viber/node_modules/webdriverio/build/index.js:46:22)\n    at async JailbrokenDeviceService.connectToJailbrokenDevice (E:\\zm\\viber\\viber\\src\\services\\jailbroken-device.service.ts:43:29)\n    at async JailbrokenDeviceService.performJailbrokenViberRegistration (E:\\zm\\viber\\viber\\src\\services\\jailbroken-device.service.ts:65:23)\n    at async testJailbrokenDevice (E:\\zm\\viber\\viber\\src\\scripts\\test-jailbroken-device.ts:47:24)","timestamp":"2025-07-31T10:16:47.707Z"}
+{"level":"error","message":"❌ 越狱设备测试失败!","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:16:47.708Z"}
+{"level":"info","message":"🚀 开始简化越狱设备测试...","service":"SimpleJailbrokenTest","timestamp":"2025-07-31T10:18:37.547Z"}
+{"level":"info","message":"📱 尝试连接到越狱设备...","service":"SimpleJailbrokenTest","timestamp":"2025-07-31T10:18:37.549Z"}
+{"deviceName":"iPhone 7 Plus","level":"info","message":"🔧 设备配置:","platformVersion":"15.8.2","service":"SimpleJailbrokenTest","timestamp":"2025-07-31T10:18:37.550Z","udid":"2FCC54C4AB7082F8192FDA979EB8758A3BFEB0F6"}
+{"level":"info","message":"🔌 连接到 Appium 服务器...","service":"SimpleJailbrokenTest","timestamp":"2025-07-31T10:18:37.550Z"}
+{"level":"error","message":"💥 简化越狱设备测试失败: Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource","service":"SimpleJailbrokenTest","stack":"Error: Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource\n    at startWebDriverSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/utils.js:69:15)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async WebDriver.newSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/index.js:19:45)\n    at async remote (file:///E:/zm/viber/viber/node_modules/webdriverio/build/index.js:46:22)\n    at async simpleJailbrokenTest (E:\\zm\\viber\\viber\\src\\scripts\\simple-jailbroken-test.ts:46:25)","timestamp":"2025-07-31T10:18:38.100Z"}
+{"level":"info","message":"🚀 开始简化越狱设备测试...","service":"SimpleJailbrokenTest","timestamp":"2025-07-31T10:19:26.121Z"}
+{"level":"info","message":"📱 尝试连接到越狱设备...","service":"SimpleJailbrokenTest","timestamp":"2025-07-31T10:19:26.124Z"}
+{"deviceName":"iPhone 7 Plus","level":"info","message":"🔧 设备配置:","platformVersion":"15.8.2","service":"SimpleJailbrokenTest","timestamp":"2025-07-31T10:19:26.124Z","udid":"2FCC54C4AB7082F8192FDA979EB8758A3BFEB0F6"}
+{"level":"info","message":"🔌 连接到 Appium 服务器...","service":"SimpleJailbrokenTest","timestamp":"2025-07-31T10:19:26.124Z"}
+{"level":"error","message":"💥 简化越狱设备测试失败: Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource","service":"SimpleJailbrokenTest","stack":"Error: Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource\n    at startWebDriverSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/utils.js:69:15)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async WebDriver.newSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/index.js:19:45)\n    at async remote (file:///E:/zm/viber/viber/node_modules/webdriverio/build/index.js:46:22)\n    at async simpleJailbrokenTest (E:\\zm\\viber\\viber\\src\\scripts\\simple-jailbroken-test.ts:46:25)","timestamp":"2025-07-31T10:19:26.735Z"}
+{"level":"info","message":"🔍 开始诊断 Appium 连接问题...","service":"AppiumDebug","timestamp":"2025-07-31T10:19:58.400Z"}
+{"level":"info","message":"📡 检查 Appium 服务器状态...","service":"AppiumDebug","timestamp":"2025-07-31T10:19:58.403Z"}
+{"level":"info","message":"✅ Appium 服务器状态:","service":"AppiumDebug","timestamp":"2025-07-31T10:19:58.461Z","value":{"build":{"version":"2.19.0"},"message":"The server is ready to accept new connections","ready":true}}
+{"level":"info","message":"🔧 检查可用驱动...","service":"AppiumDebug","timestamp":"2025-07-31T10:19:58.462Z"}
+{"level":"error","message":"❌ 无法获取驱动信息","service":"AppiumDebug","timestamp":"2025-07-31T10:19:58.466Z"}
+{"level":"info","message":"🧪 尝试创建测试会话...","service":"AppiumDebug","timestamp":"2025-07-31T10:19:58.466Z"}
+{"level":"error","message":"❌ 测试会话创建失败:","service":"AppiumDebug","timestamp":"2025-07-31T10:19:58.492Z"}
+{"level":"info","message":"🚀 开始越狱设备测试...","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:21:26.289Z"}
+{"level":"info","message":"Added jailbroken device configuration: jailbroken_device_1","service":"JailbrokenDeviceService","timestamp":"2025-07-31T10:21:26.291Z"}
+{"level":"info","message":"✅ 设备配置已添加: jailbroken_device_1","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:21:26.292Z"}
+{"level":"info","message":"🔍 检查设备连接...","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:21:26.292Z"}
+{"level":"info","message":"📱 尝试连接到越狱设备...","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:21:26.292Z"}
+{"level":"info","message":"Starting jailbroken Viber registration test for device: jailbroken_device_1","service":"JailbrokenDeviceService","timestamp":"2025-07-31T10:21:26.293Z"}
+{"level":"info","message":"🧪 开始执行 Viber 注册测试...","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:21:26.293Z"}
+{"level":"info","message":"Connecting to jailbroken device: jailbroken_device_1","service":"JailbrokenDeviceService","timestamp":"2025-07-31T10:21:26.293Z"}
+{"host":"localhost","level":"info","message":"Creating session for jailbroken device: jailbroken_device_1","port":4723,"service":"JailbrokenDeviceService","timestamp":"2025-07-31T10:21:26.293Z","udid":"2FCC54C4AB7082F8192FDA979EB8758A3BFEB0F6"}
+{"level":"error","message":"Failed to connect to jailbroken device: jailbroken_device_1 Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource","service":"JailbrokenDeviceService","stack":"Error: Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource\n    at startWebDriverSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/utils.js:69:15)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async WebDriver.newSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/index.js:19:45)\n    at async remote (file:///E:/zm/viber/viber/node_modules/webdriverio/build/index.js:46:22)\n    at async JailbrokenDeviceService.connectToJailbrokenDevice (E:\\zm\\viber\\viber\\src\\services\\jailbroken-device.service.ts:43:29)\n    at async JailbrokenDeviceService.performJailbrokenViberRegistration (E:\\zm\\viber\\viber\\src\\services\\jailbroken-device.service.ts:65:23)\n    at async testJailbrokenDevice (E:\\zm\\viber\\viber\\src\\scripts\\test-jailbroken-device.ts:47:24)","timestamp":"2025-07-31T10:21:26.862Z"}
+{"level":"error","message":"❌ 越狱设备测试失败!","service":"JailbrokenDeviceTest","timestamp":"2025-07-31T10:21:26.863Z"}
+{"level":"info","message":"🔍 开始诊断 Appium 连接问题...","service":"AppiumDebug","timestamp":"2025-07-31T10:21:50.852Z"}
+{"level":"info","message":"📡 检查 Appium 服务器状态...","service":"AppiumDebug","timestamp":"2025-07-31T10:21:50.855Z"}
+{"level":"info","message":"✅ Appium 服务器状态:","service":"AppiumDebug","timestamp":"2025-07-31T10:21:50.904Z","value":{"build":{"version":"2.19.0"},"message":"The server is ready to accept new connections","ready":true}}
+{"level":"info","message":"🔧 检查可用驱动...","service":"AppiumDebug","timestamp":"2025-07-31T10:21:50.905Z"}
+{"level":"error","message":"❌ 无法获取驱动信息","service":"AppiumDebug","timestamp":"2025-07-31T10:21:50.914Z"}
+{"level":"info","message":"🧪 尝试创建测试会话...","service":"AppiumDebug","timestamp":"2025-07-31T10:21:50.915Z"}
+{"level":"error","message":"❌ 测试会话创建失败:","service":"AppiumDebug","timestamp":"2025-07-31T10:21:50.942Z"}
+{"level":"info","message":"🔍 开始诊断 Appium 连接问题...","service":"AppiumDebug","timestamp":"2025-07-31T10:22:51.329Z"}
+{"level":"info","message":"📡 检查 Appium 服务器状态...","service":"AppiumDebug","timestamp":"2025-07-31T10:22:51.332Z"}
+{"level":"info","message":"✅ Appium 服务器状态:","service":"AppiumDebug","timestamp":"2025-07-31T10:22:51.381Z","value":{"build":{"version":"2.19.0"},"message":"The server is ready to accept new connections","ready":true}}
+{"level":"info","message":"🔧 检查可用驱动...","service":"AppiumDebug","timestamp":"2025-07-31T10:22:51.381Z"}
+{"level":"error","message":"❌ 无法获取驱动信息","service":"AppiumDebug","timestamp":"2025-07-31T10:22:51.390Z"}
+{"level":"info","message":"🧪 尝试创建测试会话...","service":"AppiumDebug","timestamp":"2025-07-31T10:22:51.390Z"}
+{"level":"error","message":"❌ 测试会话创建失败:","service":"AppiumDebug","timestamp":"2025-07-31T10:22:51.397Z"}
+{"level":"info","message":"🔍 开始详细诊断...","service":"DetailedDebug","timestamp":"2025-07-31T10:25:03.772Z"}
+{"level":"info","message":"📡 检查 Appium 状态...","service":"DetailedDebug","timestamp":"2025-07-31T10:25:03.775Z"}
+{"level":"info","message":"状态响应:","ok":true,"service":"DetailedDebug","status":200,"statusText":"OK","timestamp":"2025-07-31T10:25:03.823Z"}
+{"level":"info","message":"✅ 服务器状态:","service":"DetailedDebug","timestamp":"2025-07-31T10:25:03.826Z","value":{"build":{"version":"2.19.0"},"message":"The server is ready to accept new connections","ready":true}}
+{"level":"info","message":"📋 尝试获取会话列表...","service":"DetailedDebug","timestamp":"2025-07-31T10:25:03.826Z"}
+{"level":"info","message":"会话响应:","ok":true,"service":"DetailedDebug","status":200,"statusText":"OK","timestamp":"2025-07-31T10:25:03.837Z"}
+{"level":"info","message":"✅ 会话列表:","service":"DetailedDebug","timestamp":"2025-07-31T10:25:03.838Z","value":[]}
+{"level":"info","message":"🧪 尝试创建测试会话...","service":"DetailedDebug","timestamp":"2025-07-31T10:25:03.838Z"}
+{"level":"info","message":"📤 发送数据:","service":"DetailedDebug","timestamp":"2025-07-31T10:25:03.838Z"}
+{"level":"info","message":"📥 创建会话响应:","ok":false,"service":"DetailedDebug","status":500,"statusText":"Internal Server Error","timestamp":"2025-07-31T10:25:03.844Z"}
+{"level":"info","message":"🚀 开始 W3C 标准兼容测试...","service":"W3CCompliantTest","timestamp":"2025-07-31T10:25:44.559Z"}
+{"level":"info","message":"📱 尝试连接到越狱设备...","service":"W3CCompliantTest","timestamp":"2025-07-31T10:25:44.562Z"}
+{"deviceName":"iPhone 7 Plus","level":"info","message":"🔧 设备配置:","platformVersion":"15.8.2","service":"W3CCompliantTest","timestamp":"2025-07-31T10:25:44.562Z","udid":"2FCC54C4AB7082F8192FDA979EB8758A3BFEB0F6"}
+{"level":"info","message":"🔌 连接到 Appium 服务器...","service":"W3CCompliantTest","timestamp":"2025-07-31T10:25:44.562Z"}
+{"level":"error","message":"💥 W3C 标准兼容测试失败: Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource","service":"W3CCompliantTest","stack":"Error: Failed to create session.\nThe requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource\n    at startWebDriverSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/utils.js:69:15)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async WebDriver.newSession (file:///E:/zm/viber/viber/node_modules/webdriver/build/index.js:19:45)\n    at async remote (file:///E:/zm/viber/viber/node_modules/webdriverio/build/index.js:46:22)\n    at async w3cCompliantTest (E:\\zm\\viber\\viber\\src\\scripts\\w3c-compliant-test.ts:48:25)","timestamp":"2025-07-31T10:25:45.101Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:30:00.618Z"}
+{"deviceIp":"192.168.1.100","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:30:00.621Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.1.100:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:30:00.621Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:24:34)","timestamp":"2025-07-31T10:30:11.268Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:32:18.061Z"}
+{"deviceIp":"192.168.1.100","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:32:18.064Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.1.100:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:32:18.064Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:24:34)","timestamp":"2025-07-31T10:32:28.665Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:34:14.361Z"}
+{"deviceIp":"192.168.1.100","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:34:14.363Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.1.100:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:34:14.364Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:24:34)","timestamp":"2025-07-31T10:34:24.968Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:35:01.972Z"}
+{"deviceIp":"192.168.0.186","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:35:01.974Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.0.186:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-07-31T10:35:01.975Z"}
+{"cause":{"address":"192.168.0.186","code":"ECONNREFUSED","errno":-4078,"port":8100,"syscall":"connect"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:28:34)","timestamp":"2025-07-31T10:35:04.523Z"}
+{"level":"info","message":"🔍 测试设备连通性: 192.168.0.186","service":"PingDevice","timestamp":"2025-07-31T10:35:37.258Z"}
+{"level":"info","message":"🌐 测试基本网络连通性...","service":"PingDevice","timestamp":"2025-07-31T10:35:37.260Z"}
+{"cause":{"address":"192.168.0.186","code":"ECONNREFUSED","errno":-4078,"port":8100,"syscall":"connect"},"level":"error","message":"❌ 设备连接失败: fetch failed","service":"PingDevice","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async pingDevice (E:\\zm\\viber\\viber\\src\\scripts\\ping-device.ts:20:30)","timestamp":"2025-07-31T10:35:39.853Z"}
+{"level":"info","message":"🔍 验证 WebDriverAgent 安装...","service":"VerifyWDA","timestamp":"2025-07-31T10:36:34.981Z"}
+{"level":"info","message":"📱 设备 IP: 192.168.0.186","service":"VerifyWDA","timestamp":"2025-07-31T10:36:34.983Z"}
+{"level":"info","message":"🔧 测试端口 8100...","service":"VerifyWDA","timestamp":"2025-07-31T10:36:34.983Z"}
+{"level":"info","message":"❌ 端口 8100 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T10:36:37.504Z"}
+{"level":"info","message":"🔧 测试端口 8101...","service":"VerifyWDA","timestamp":"2025-07-31T10:36:37.504Z"}
+{"level":"info","message":"❌ 端口 8101 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T10:36:39.857Z"}
+{"level":"info","message":"🔧 测试端口 8102...","service":"VerifyWDA","timestamp":"2025-07-31T10:36:39.857Z"}
+{"level":"info","message":"❌ 端口 8102 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T10:36:42.312Z"}
+{"level":"info","message":"🔧 测试端口 8103...","service":"VerifyWDA","timestamp":"2025-07-31T10:36:42.312Z"}
+{"level":"info","message":"❌ 端口 8103 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T10:36:44.570Z"}
+{"level":"info","message":"🔍 测试替代端口和自动化工具...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:18.198Z"}
+{"level":"info","message":"📱 设备 IP: 192.168.0.186","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:18.201Z"}
+{"level":"info","message":"🔧 测试 WebDriverAgent (端口 8100)...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:18.201Z"}
+{"level":"info","message":"❌ WebDriverAgent 端口 8100 连接失败","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:20.755Z"}
+{"level":"info","message":"🔧 测试 WDA Alternative (端口 8101)...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:20.756Z"}
+{"level":"info","message":"❌ WDA Alternative 端口 8101 连接失败","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:23.236Z"}
+{"level":"info","message":"🔧 测试 Appium (端口 4723)...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:23.236Z"}
+{"level":"info","message":"❌ Appium 端口 4723 连接失败","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:25.652Z"}
+{"level":"info","message":"🔧 测试 Selenium (端口 4444)...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:25.652Z"}
+{"level":"info","message":"❌ Selenium 端口 4444 连接失败","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:28.114Z"}
+{"level":"info","message":"🔧 测试 HTTP Server (端口 8080)...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:28.114Z"}
+{"level":"info","message":"❌ HTTP Server 端口 8080 连接失败","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:30.569Z"}
+{"level":"info","message":"🔧 测试 Node.js Server (端口 3000)...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:30.570Z"}
+{"level":"info","message":"❌ Node.js Server 端口 3000 连接失败","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:33.025Z"}
+{"level":"info","message":"🔧 测试 Flask Server (端口 5000)...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:33.026Z"}
+{"level":"info","message":"❌ Flask Server 端口 5000 连接失败","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:35.485Z"}
+{"level":"info","message":"🔧 测试 Django Server (端口 8000)...","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:35.486Z"}
+{"level":"info","message":"❌ Django Server 端口 8000 连接失败","service":"TestAlternativePorts","timestamp":"2025-07-31T10:40:37.944Z"}
+{"level":"info","message":"🔍 验证 WebDriverAgent 安装...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:19.470Z"}
+{"level":"info","message":"📱 设备 IP: 192.168.0.186","service":"VerifyWDA","timestamp":"2025-07-31T11:54:19.473Z"}
+{"level":"info","message":"🔧 测试端口 8100...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:19.473Z"}
+{"level":"info","message":"❌ 端口 8100 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T11:54:22.008Z"}
+{"level":"info","message":"🔧 测试端口 8101...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:22.009Z"}
+{"level":"info","message":"❌ 端口 8101 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T11:54:24.460Z"}
+{"level":"info","message":"🔧 测试端口 8102...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:24.460Z"}
+{"level":"info","message":"❌ 端口 8102 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T11:54:26.817Z"}
+{"level":"info","message":"🔧 测试端口 8103...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:26.817Z"}
+{"level":"info","message":"❌ 端口 8103 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T11:54:29.083Z"}
+{"level":"info","message":"🔍 验证 WebDriverAgent 安装...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:36.270Z"}
+{"level":"info","message":"📱 设备 IP: 192.168.0.186","service":"VerifyWDA","timestamp":"2025-07-31T11:54:36.273Z"}
+{"level":"info","message":"🔧 测试端口 8100...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:36.273Z"}
+{"level":"info","message":"❌ 端口 8100 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T11:54:38.803Z"}
+{"level":"info","message":"🔧 测试端口 8101...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:38.804Z"}
+{"level":"info","message":"❌ 端口 8101 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T11:54:41.156Z"}
+{"level":"info","message":"🔧 测试端口 8102...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:41.157Z"}
+{"level":"info","message":"❌ 端口 8102 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T11:54:43.611Z"}
+{"level":"info","message":"🔧 测试端口 8103...","service":"VerifyWDA","timestamp":"2025-07-31T11:54:43.612Z"}
+{"level":"info","message":"❌ 端口 8103 连接失败","service":"VerifyWDA","timestamp":"2025-07-31T11:54:46.067Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:04:46.241Z"}
+{"deviceIp":"192.168.0.186","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:04:46.243Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.0.186:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:04:46.244Z"}
+{"cause":{"address":"192.168.0.186","code":"ECONNREFUSED","errno":-4078,"port":8100,"syscall":"connect"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:28:34)","timestamp":"2025-08-01T08:04:48.696Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:06:34.747Z"}
+{"deviceIp":"192.168.0.186","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:06:34.749Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.0.186:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:06:34.750Z"}
+{"cause":{"address":"192.168.0.186","code":"ECONNREFUSED","errno":-4078,"port":8100,"syscall":"connect"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:28:34)","timestamp":"2025-08-01T08:06:37.251Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:12:45.933Z"}
+{"deviceIp":"192.168.1.100","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:12:45.936Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.1.100:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:12:45.936Z"}
+{"cause":{"code":"UND_ERR_CONNECT_TIMEOUT","name":"ConnectTimeoutError"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:28:34)","timestamp":"2025-08-01T08:12:56.584Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:13:55.723Z"}
+{"DEVICE_IP":"192.168.0.186","WDA_LOCAL_PORT":"8100","level":"info","message":"🔍 环境变量调试:","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:13:55.726Z"}
+{"deviceIp":"192.168.0.186","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:13:55.726Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.0.186:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:13:55.726Z"}
+{"cause":{"address":"192.168.0.186","code":"ECONNREFUSED","errno":-4078,"port":8100,"syscall":"connect"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:35:34)","timestamp":"2025-08-01T08:13:58.299Z"}
+{"level":"info","message":"🚀 启动 Appium 服务器...","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.572Z"}
+{"host":"localhost","level":"info","message":"📋 Appium 配置:","port":"4723","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.575Z"}
+{"level":"info","message":"🔍 检查 Appium 安装...","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.575Z"}
+{"level":"info","message":"✅ Appium 服务器启动中...","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.578Z"}
+{"level":"info","message":"📱 服务器地址: http://localhost:4723","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.578Z"}
+{"level":"info","message":"🔧 配置选项:","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.578Z"}
+{"level":"info","message":"   - 端口: 4723","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.578Z"}
+{"level":"info","message":"   - 插件: inspector","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.579Z"}
+{"level":"info","message":"   - CORS: 已启用","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.579Z"}
+{"level":"info","message":"   - 日志级别: info","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.579Z"}
+{"level":"info","message":"🎉 Appium 服务器启动完成!","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.579Z"}
+{"level":"info","message":"💡 提示: 按 Ctrl+C 停止服务器","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.580Z"}
+{"level":"error","message":"💥 Appium 启动失败:","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.580Z"}
+{"level":"error","message":"请检查:","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.581Z"}
+{"level":"error","message":"1. Appium 是否已安装: npm install -g appium","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.581Z"}
+{"level":"error","message":"2. Node.js 版本是否兼容","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.581Z"}
+{"level":"error","message":"3. 端口 4723 是否被占用","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.581Z"}
+{"level":"error","message":"❌ Appium 服务器异常退出，退出码: -4058","service":"AppiumServer","timestamp":"2025-08-01T08:29:25.593Z"}
+{"level":"warn","message":"⚠️ 无法连接到 Appium 服务器，可能还在启动中","service":"AppiumServer","timestamp":"2025-08-01T08:29:30.616Z"}
+{"level":"info","message":"🔍 检查远程越狱设备连接...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:30:04.964Z"}
+{"DEVICE_IP":"192.168.0.186","WDA_LOCAL_PORT":"8100","level":"info","message":"🔍 环境变量调试:","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:30:04.967Z"}
+{"deviceIp":"192.168.0.186","level":"info","message":"📱 设备信息:","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:30:04.967Z","wdaPort":"8100","webDriverAgentUrl":"http://192.168.0.186:8100"}
+{"level":"info","message":"🌐 检查网络连通性...","service":"RemoteConnectionCheck","timestamp":"2025-08-01T08:30:04.967Z"}
+{"cause":{"address":"192.168.0.186","code":"ECONNREFUSED","errno":-4078,"port":8100,"syscall":"connect"},"level":"error","message":"❌ 网络连接失败: fetch failed","service":"RemoteConnectionCheck","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:15422:13\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async checkRemoteConnection (E:\\zm\\viber\\viber\\src\\scripts\\check-remote-connection.ts:35:34)","timestamp":"2025-08-01T08:30:07.515Z"}
