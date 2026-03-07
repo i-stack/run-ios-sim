@@ -6,6 +6,7 @@
 	"scripts": {
 		"build": "tsc",
 		"start": "node dist/index.js",
+<<<<<<< Updated upstream
 		"dev": "ts-node src/index.ts",
 		"websocket": "ts-node src/index.ts",
 		"test": "jest",
@@ -39,10 +40,32 @@
 		"guide:xcode-wda": "ts-node src/scripts/xcode-wda-guide.ts",
 		"diagnose:wda": "ts-node src/scripts/diagnose-wda.ts",
 		"start:appium": "ts-node src/scripts/start-appium-server.ts"
+=======
+		"dev": "npx ts-node src/index.ts",
+		"test": "npx ts-node src/flow/register.ts",
+		"setup": "node setup.js",
+		"appium": "appium server --port 4723 --use-plugins=inspector --allow-cors",
+		"appium-remote": "appium --base-path / --address 0.0.0.0 --port 4723 --allow-insecure chromedriver_autodownload",
+		"setup-remote-device": "chmod +x setup-remote-device.sh && ./setup-remote-device.sh",
+		"install-cert": "npx ts-node src/scripts/certificate.installer.ts",
+		"install-cert-device": "npx ts-node src/scripts/certificate.installer.ts",
+		"reinstall-cert": "npx ts-node src/scripts/certificate.installer.ts --force",
+		"check-appium": "npx ts-node check-appium.ts",
+		"list-devices": "npx ts-node list-devices.ts",
+		"list-devices-detailed": "npx ts-node list-devices-detailed.ts",
+		"setup-device": "npx ts-node setup-device.ts",
+		"test-connection": "npx ts-node test-appium-connection.ts",
+		"troubleshoot": "npx ts-node troubleshoot-appium.ts",
+		"start-appium": "npx ts-node start-appium.ts",
+		"fix-wda": "npx ts-node fix-wda-timeout.ts",
+		"check-device": "npx ts-node check-device.ts",
+		"test-session": "npx ts-node test-session.ts"
+>>>>>>> Stashed changes
 	},
 	"dependencies": {
 		"appium": "^2.2.3",
 		"cors": "^2.8.5",
+<<<<<<< Updated upstream
 		"dotenv": "^16.3.1",
 		"express": "^4.18.2",
 		"node-fetch": "^3.3.2",
@@ -61,6 +84,28 @@
 		"ts-node": "^10.9.1",
 		"typescript": "^5.2.2",
 		"vitepress": "^1.2.2"
+=======
+		"dotenv": "^17.2.1",
+		"express": "^5.1.0",
+		"node-fetch": "^3.3.2",
+		"webdriverio": "^9.18.4",
+		"winston": "^3.17.0",
+		"ws": "^8.18.3"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.3",
+		"@types/jest": "^30.0.0",
+		"@types/node": "^24.1.0",
+		"@types/ws": "^8.18.1",
+		"@wdio/globals": "^9.17.0",
+		"appium-xcuitest-driver": "^9.10.4",
+		"jest": "^30.0.5",
+		"npm-check-updates": "^18.0.2",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.2",
+		"vitepress": "^1.6.3"
+>>>>>>> Stashed changes
 	},
 	"keywords": [
 		"appium",

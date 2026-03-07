@@ -1,12 +1,18 @@
 import { remote, RemoteOptions } from 'webdriverio';
 import { AppiumConfigManager } from '../config/appium.config';
 import { Logger } from '../utils/logger';
+<<<<<<< Updated upstream
 import { TestResult, ApiResponse } from '../types';
 import { NetworkCaptureService } from './network.capture.service';
+=======
+import { ApiResponse } from '../types';
+import { getCurrentDeviceIP, getAllAvailableIPs, getIOSDeviceIP, autoDiscoverRemoteDevices, DeviceConnection, scanNetworkForDevices, testIOSDeviceConnection } from '../utils/network';
+>>>>>>> Stashed changes
 import path from 'path';
 import fs from 'fs';
 
 export class AppiumService {
+<<<<<<< Updated upstream
 	private configManager: AppiumConfigManager;
 	private logger: Logger;
 	private networkCapture: NetworkCaptureService;
@@ -79,6 +85,101 @@ export class AppiumService {
 			await this.networkCapture.stopCapture(deviceId);
 		}
 	}
+=======
+    private logger: Logger;
+    private configManager: AppiumConfigManager;
+    private activeDrivers: Map<string, WebdriverIO.Browser> = new Map();
+
+    constructor() {
+        this.configManager = AppiumConfigManager.getInstance();
+        this.logger = new Logger('AppiumService');
+        this.initializeDeviceConfigs();
+    }
+
+    private async initializeDeviceConfigs(): Promise<void> {
+        try {
+            this.logger.info('Auto-detecting and configuring devices...');
+            await this.configManager.detectAndConfigureDevices();
+            const availableDevices = this.configManager.getAvailableDevices();
+            this.logger.info(`Found ${availableDevices.length} available devices: ${availableDevices.join(', ')}`);
+        } catch (error) {
+            this.logger.error('Failed to auto-detect devices:', error);
+        }
+    }
+
+    public async initializeDriver(deviceId: string, useRemoteConnection: boolean = false): Promise<WebdriverIO.Browser> {
+        try {
+            if (this.configManager.getAvailableDevices().length === 0) {
+                this.logger.info('No device configurations found, auto-detecting devices...');
+                await this.configManager.detectAndConfigureDevices();
+            }
+            const config = this.configManager.getDeviceConfig(deviceId);
+            if (!config) {
+                throw new Error(`Device config not found for deviceId: ${deviceId}. Available devices: ${this.configManager.getAvailableDevices().join(', ')}`);
+            }
+            let options;
+            if (useRemoteConnection) {
+                options = {
+                    hostname: config.host,
+                    port: config.port,
+                    path: '/',
+                    capabilities: {
+                        ...config.capabilities,
+                        'appium:webDriverAgentUrl': `http://${config.host}:${config.port}`,
+                        'appium:autoAcceptAlerts': true,
+                        'appium:autoGrantPermissions': true,
+                        'appium:noReset': true,
+                        'appium:fullReset': false,
+                        'appium:newCommandTimeout': 300,
+                        'appium:launchTimeout': 180000,
+                        'appium:shouldTerminateApp': true,
+                        'appium:useNewWDA': true,
+                        'appium:usePrebuiltWDA': false,
+                        'appium:derivedDataPath': '/tmp/WebDriverAgent',
+                        'appium:showXcodeLog': true,
+                        'appium:showIOSLog': true
+                    },
+                    connectionRetryCount: 15,
+                    connectionRetryTimeout: 120000,
+                    waitforTimeout: 60000,
+                    waitforInterval: 2000
+                };
+                this.logger.info(`Initializing remote Appium driver for device: ${deviceId}`, options);
+            } else {
+                options = {
+                    hostname: config.host,
+                    port: config.port,
+                    path: '/',
+                    capabilities: config.capabilities,
+                };
+                this.logger.info(`Initializing local Appium driver for device: ${deviceId}`, config);
+            }
+            try {
+                const response = await fetch(`http://${config.host}:${config.port}/status`);
+                if (!response.ok) {
+                    throw new Error(`Appium server is not responding at ${config.host}:${config.port}`);
+                }
+            } catch (serverError) {
+                this.logger.error(`Appium server is not running at ${config.host}:${config.port}. Please start Appium server first.`);
+                throw new Error(`Appium server is not accessible. Please ensure Appium is running at ${config.host}:${config.port}`);
+            }
+            let driver;
+            try {
+                driver = await remote(options);
+            } catch (sessionError: any) {
+                this.logger.error(`Session creation failed for device: ${deviceId}`, sessionError);
+                throw sessionError;
+            }
+            this.activeDrivers.set(deviceId, driver);
+            this.configManager.registerSession(deviceId, driver);
+            this.logger.info(`Appium driver initialized successfully for device: ${deviceId}`);
+            return driver;
+        } catch (error) {
+            this.logger.error(`Failed to initialize Appium driver for device: ${deviceId}`, error);
+            throw error;
+        }
+    }
+>>>>>>> Stashed changes
 
 	private async executeRegistrationFlow(driver: any, phoneNumber: string): Promise<void> {
 		this.logger.info('Executing Viber registration flow');
