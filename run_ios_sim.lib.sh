@@ -8,7 +8,7 @@
 #
 # 说明: 本库不依赖自身所在位置，而是通过向上查找 pubspec.yaml 定位 Flutter 工程根
 #        （含 .fvmrc / ios/），因此可放在子目录（submodule / vendor）中；
-#        运行配置保存到工程根目录 .run_ios_sim.conf，并自动加入 .gitignore。
+#        运行配置保存到工程根目录 .run_ios_sim.conf，并自动加入 Git 仓库根 .gitignore。
 
 # ---------- 路径（自动向上查找 Flutter 工程根目录 pubspec.yaml）----------
 # 库可能被放在子目录（git submodule / vendor），因此不能依赖自身位置定位工程根，
@@ -23,7 +23,7 @@ find_project_root() {
   return 1
 }
 
-PROJECT_ROOT="$(find_project_root "$PWD" || find_project_root "${RUN_IOS_SIM_SCRIPT_DIR:-$PWD}" || echo "$PWD")"
+PROJECT_ROOT=""
 CONFIG_FILE=""
 
 # ---------- 默认/运行时变量 ----------
@@ -62,12 +62,16 @@ configure_config_paths() {
 }
 
 ensure_config_ignored() {
-  local ignore_file="$PROJECT_ROOT/.gitignore"
-  local config_name=".run_ios_sim.conf"
+  local git_root prefix ignore_file config_pattern
+  git_root="$(git -C "$PROJECT_ROOT" rev-parse --show-toplevel 2>/dev/null)" || return 0
+  prefix="$(git -C "$PROJECT_ROOT" rev-parse --show-prefix 2>/dev/null || true)"
+  ignore_file="$git_root/.gitignore"
+  config_pattern="/${prefix}.run_ios_sim.conf"
+
   if [ -f "$ignore_file" ]; then
-    grep -qxF "$config_name" "$ignore_file" || printf '\n%s\n' "$config_name" >> "$ignore_file"
+    grep -qxF "$config_pattern" "$ignore_file" || printf '\n%s\n' "$config_pattern" >> "$ignore_file"
   else
-    printf '%s\n' "$config_name" > "$ignore_file"
+    printf '%s\n' "$config_pattern" > "$ignore_file"
   fi
 }
 
@@ -451,7 +455,7 @@ run-ios-sim — 通用 iOS 运行脚本（模拟器 / 真机）
 
 说明:
   • 首次运行若未配置 UUID，会自动列出当前可用的模拟器或真机，
-    在控制台选择后保存到工程根目录 .run_ios_sim.conf，并自动加入 .gitignore。
+    在控制台选择后保存到工程根目录 .run_ios_sim.conf，并自动加入 Git 仓库根 .gitignore。
   • 每次成功选择设备都会保留到历史配置；可用 --profiles 查看，用 --profile 切换。
   • 可随时用 --reselect / --reselect-flutter 更改当前默认选择。
   • 兼容旧用法: ./run_ios_sim.sh <UUID>  等同于 --device <UUID>。

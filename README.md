@@ -115,7 +115,7 @@ npm 全局安装后，等价命令为 `run-ios-sim`。
 首次运行若未配置 UUID，会自动列出设备并在选择后保存到 Flutter 工程根目录的 `.run_ios_sim.conf`：
 
 - 优先级：**命令行参数 > `.run_ios_sim.conf`（自动保存） > 项目 `.fvmrc` / 交互选择**
-- 该文件含本机 UUID，生成或更新时会自动加入工程根目录 `.gitignore`
+- 该文件含本机 UUID，生成或更新时会自动加入 Git 仓库根目录 `.gitignore`
 - 该文件是本机配置，不应提交入库
 
 ### 2. 配置档案（profiles）
