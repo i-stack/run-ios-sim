@@ -7,8 +7,8 @@
 #     select_device / select_flutter / menu_select / show_help ...
 #
 # 说明: 本库不依赖自身所在位置，而是通过向上查找 pubspec.yaml 定位 Flutter 工程根
-#        （含 .fvmrc / .run_ios_sim.conf / ios/），因此可放在子目录（submodule / vendor）
-#        中，run_ios_sim_main 会在内部 cd 到工程根，无论从何处 source 都能正确运行。
+#        （含 .fvmrc / ios/），因此可放在子目录（submodule / vendor）中；
+#        运行配置保存到工程根目录 .run_ios_sim.conf，并自动加入 .gitignore。
 
 # ---------- 路径（自动向上查找 Flutter 工程根目录 pubspec.yaml）----------
 # 库可能被放在子目录（git submodule / vendor），因此不能依赖自身位置定位工程根，
@@ -24,7 +24,7 @@ find_project_root() {
 }
 
 PROJECT_ROOT="$(find_project_root "$PWD" || find_project_root "${RUN_IOS_SIM_SCRIPT_DIR:-$PWD}" || echo "$PWD")"
-CONFIG_FILE="$PROJECT_ROOT/.run_ios_sim.conf"
+CONFIG_FILE=""
 
 # ---------- 默认/运行时变量 ----------
 DEVICE_TYPE=""          # sim | real
@@ -41,12 +41,6 @@ PROFILE_SELECTOR=""
 PROFILE_APPLIED=0
 FLUTTER_ARGS=()
 
-# ---------- 用户默认配置（可直接在此写死，无需 .conf 也能用）----------
-# 优先级: 命令行参数 > .run_ios_sim.conf(自动保存) > 以下默认值
-DEFAULT_DEVICE_TYPE=""      # sim | real（留空则首次运行交互选择）
-DEFAULT_DEVICE_UUID=""      # 设备 UUID（模拟器或真机），留空则自动列出选择
-DEFAULT_FLUTTER_VERSION=""  # Flutter 版本（如 3.41.7 / system），留空则用项目锁定版本
-
 # 正则表达式（放入变量，配合 [[ $x =~ $RE ]] 使用，规避 bash 3.2 字面量正则解析陷阱）
 SIM_RE='^[[:space:]]+(.+)\ \(([0-9A-Fa-f-]{36})\)\ \((.+)\)[[:space:]]*$'
 REAL_RE='^(.+)\ \([0-9]+(\.[0-9]+)*\)\ \(([^)]+)\)[[:space:]]*$'
@@ -57,13 +51,26 @@ SAVED_DEVICE_TYPE=""
 SAVED_DEVICE_UUID=""
 SAVED_DEVICE_LABEL=""
 SAVED_FLUTTER_VERSION=""
-PROFILE_COUNT=0
 PROFILE_LABELS=()
 PROFILE_DEVICE_TYPES=()
 PROFILE_DEVICE_UUIDS=()
 PROFILE_FLUTTER_VERSIONS=()
 
 # ---------- 配置读写 ----------
+configure_config_paths() {
+  CONFIG_FILE="$PROJECT_ROOT/.run_ios_sim.conf"
+}
+
+ensure_config_ignored() {
+  local ignore_file="$PROJECT_ROOT/.gitignore"
+  local config_name=".run_ios_sim.conf"
+  if [ -f "$ignore_file" ]; then
+    grep -qxF "$config_name" "$ignore_file" || printf '\n%s\n' "$config_name" >> "$ignore_file"
+  else
+    printf '%s\n' "$config_name" > "$ignore_file"
+  fi
+}
+
 conf_value() {
   local name="$1"
   printf '%s' "${!name-}"
@@ -111,8 +118,9 @@ set_config_value() {
 }
 
 read_config_file() {
+  local file="$1"
   local line key raw value
-  [ -f "$CONFIG_FILE" ] || return 0
+  [ -f "$file" ] || return 0
   while IFS= read -r line || [ -n "$line" ]; do
     line="${line%$'\r'}"
     [[ "$line" =~ ^[[:space:]]*$ ]] && continue
@@ -122,7 +130,7 @@ read_config_file() {
     raw="${line#*=}"
     value="$(decode_config_value "$raw")"
     set_config_value "$key" "$value"
-  done < "$CONFIG_FILE"
+  done < "$file"
 }
 
 reset_runtime_state() {
@@ -228,13 +236,12 @@ apply_profile() {
 }
 
 load_config() {
-  # 先以脚本内的默认值为底，再让 .conf 覆盖（.conf 优先级高于 DEFAULT_*）
-  SAVED_DEVICE_TYPE="$DEFAULT_DEVICE_TYPE"
-  SAVED_DEVICE_UUID="$DEFAULT_DEVICE_UUID"
-  SAVED_DEVICE_LABEL="$DEFAULT_DEVICE_UUID"
-  SAVED_FLUTTER_VERSION="$DEFAULT_FLUTTER_VERSION"
+  SAVED_DEVICE_TYPE=""
+  SAVED_DEVICE_UUID=""
+  SAVED_DEVICE_LABEL=""
+  SAVED_FLUTTER_VERSION=""
   if [ -f "$CONFIG_FILE" ]; then
-    read_config_file
+    read_config_file "$CONFIG_FILE"
     [ -n "$DEVICE_TYPE" ] && SAVED_DEVICE_TYPE="$DEVICE_TYPE"
     [ -n "$DEVICE_UUID" ] && SAVED_DEVICE_UUID="$DEVICE_UUID"
     [ -n "${DEVICE_LABEL:-}" ] && SAVED_DEVICE_LABEL="$DEVICE_LABEL"
@@ -248,8 +255,10 @@ load_config() {
 save_config() {
   profile_upsert "$SAVED_DEVICE_LABEL" "$SAVED_DEVICE_TYPE" "$SAVED_DEVICE_UUID" "$SAVED_FLUTTER_VERSION"
   profile_upsert "$DEVICE_LABEL" "$DEVICE_TYPE" "$DEVICE_UUID" "$FLUTTER_VERSION"
+  ensure_config_ignored
   {
-    echo "# 由 run_ios_sim.sh 自动生成，可手动修改，建议加入 .gitignore"
+    echo "# 由 run_ios_sim.sh 自动生成，可手动修改，已自动加入 .gitignore"
+    write_assignment "PROJECT_ROOT" "$PROJECT_ROOT"
     write_assignment "DEVICE_TYPE" "$DEVICE_TYPE"
     write_assignment "DEVICE_UUID" "$DEVICE_UUID"
     write_assignment "DEVICE_LABEL" "$DEVICE_LABEL"
@@ -441,10 +450,8 @@ run-ios-sim — 通用 iOS 运行脚本（模拟器 / 真机）
   -h, --help               显示本帮助
 
 说明:
-  • 可直接在 run_ios_sim.lib.sh 顶部的 DEFAULT_DEVICE_TYPE / DEFAULT_DEVICE_UUID /
-    DEFAULT_FLUTTER_VERSION 中写死默认值，无需 .conf 也能运行。
   • 首次运行若未配置 UUID，会自动列出当前可用的模拟器或真机，
-    在控制台选择后保存到 .run_ios_sim.conf（优先级高于脚本默认值，建议加入 .gitignore）。
+    在控制台选择后保存到工程根目录 .run_ios_sim.conf，并自动加入 .gitignore。
   • 每次成功选择设备都会保留到历史配置；可用 --profiles 查看，用 --profile 切换。
   • 可随时用 --reselect / --reselect-flutter 更改当前默认选择。
   • 兼容旧用法: ./run_ios_sim.sh <UUID>  等同于 --device <UUID>。
@@ -458,7 +465,7 @@ prepare_project_context() {
     exit 1
   }
   cd "$PROJECT_ROOT"   # 确保后续 flutter 等命令在 Flutter 工程根目录执行
-  CONFIG_FILE="$PROJECT_ROOT/.run_ios_sim.conf"
+  configure_config_paths
   load_config
 }
 

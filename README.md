@@ -10,7 +10,7 @@
 
 - 📱 自动列出可用 **模拟器** 与 **真机**，交互选择设备 UUID
 - 🔧 自动识别 **fvm** 缓存版本或系统 `flutter`，也可手动指定版本
-- 💾 把每次选择保存到 `.run_ios_sim.conf`，下次直接复用
+- 💾 把每次选择保存到工程根目录 `.run_ios_sim.conf`，下次直接复用
 - 🗂️ 多套 **配置档案（profiles）**：为不同设备/版本起名，随时切换
 - 🧹 `--clean` 一键清理 `Podfile.lock` 与 Flutter ephemeral 缓存
 - 📦 既可作为命令行工具，也可 `source` 作为函数库复用
@@ -55,7 +55,6 @@ curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh
 
 1. 下载 `run_ios_sim.lib.sh`（纯函数库）与 `run_ios_sim.sh`（封装入口）
 2. 给封装脚本加可执行权限
-3. 把 `.run_ios_sim.conf` 追加进 `.gitignore`（配置含本机 UUID，不应入库）
 
 ### 方式三：作为 git submodule / vendor 目录
 
@@ -111,24 +110,15 @@ npm 全局安装后，等价命令为 `run-ios-sim`。
 
 ## 配置
 
-### 1. 写死默认值（无需 `.conf`）
+### 1. 自动保存的项目配置
 
-编辑 `run_ios_sim.lib.sh` 顶部：
+首次运行若未配置 UUID，会自动列出设备并在选择后保存到 Flutter 工程根目录的 `.run_ios_sim.conf`：
 
-```bash
-DEFAULT_DEVICE_TYPE="sim"          # sim | real
-DEFAULT_DEVICE_UUID=""             # 设备 UUID，留空则自动列出选择
-DEFAULT_FLUTTER_VERSION=""         # 如 3.41.7 / system，留空用项目锁定版本
-```
+- 优先级：**命令行参数 > `.run_ios_sim.conf`（自动保存） > 项目 `.fvmrc` / 交互选择**
+- 该文件含本机 UUID，生成或更新时会自动加入工程根目录 `.gitignore`
+- 该文件是本机配置，不应提交入库
 
-### 2. 自动保存的 `.run_ios_sim.conf`
-
-首次运行若未配置 UUID，会自动列出设备并在选择后保存到 `.run_ios_sim.conf`：
-
-- 优先级：**命令行参数 > `.run_ios_sim.conf`（自动保存） > 脚本默认值**
-- 该文件含本机 UUID，**已默认加入 `.gitignore`**，不应提交入库
-
-### 3. 配置档案（profiles）
+### 2. 配置档案（profiles）
 
 每次成功选择的设备都会保留到历史配置：
 

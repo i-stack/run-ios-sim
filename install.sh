@@ -17,8 +17,7 @@
 # 说明:
 #   1) 下载 run_ios_sim.lib.sh（纯函数库）与 run_ios_sim.sh（封装入口）到目标目录
 #   2) 给封装脚本加可执行权限
-#   3) 把 .run_ios_sim.conf 追加进 .gitignore（配置含本机 UUID，不应入库）
-#   4) 之后即可 ./run_ios_sim.sh 运行，或 source run_ios_sim.lib.sh 复用其内部函数
+#   3) 之后即可 ./run_ios_sim.sh 运行，或 source run_ios_sim.lib.sh 复用其内部函数
 
 set -euo pipefail
 
@@ -33,14 +32,6 @@ echo "▶ 正在从 $REPO_RAW 安装 run-ios-sim (ref=$REF) 到 $TARGET ..."
 curl -fsSL "$REPO_RAW/run_ios_sim.lib.sh" -o "$TARGET/run_ios_sim.lib.sh"
 curl -fsSL "$REPO_RAW/run_ios_sim.sh"    -o "$TARGET/run_ios_sim.sh"
 chmod +x "$TARGET/run_ios_sim.sh"
-
-# 把本机配置文件加入 .gitignore（幂等）
-CONF_IGNORE=".run_ios_sim.conf"
-if [ -f "$TARGET/.gitignore" ]; then
-  grep -qxF "$CONF_IGNORE" "$TARGET/.gitignore" || echo "$CONF_IGNORE" >> "$TARGET/.gitignore"
-else
-  echo "$CONF_IGNORE" > "$TARGET/.gitignore"
-fi
 
 echo
 echo "✅ 安装完成！"
