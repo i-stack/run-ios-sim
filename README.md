@@ -31,7 +31,7 @@
 ### 方式一：npm 全局安装（推荐）
 
 ```bash
-npm install -g flutter-ios-sim-runner
+npm install -g flutter-ios-sim-launcher
 ```
 
 安装后即可在任意 Flutter 工程目录使用 `run-ios-sim` 命令。
@@ -47,8 +47,8 @@ curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh
 可指定目标目录与版本（标签/分支）：
 
 ```bash
-# 安装到 ./tools 目录，并锁定 v1.0.1
-curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh | bash -s -- ./tools v1.0.1
+# 安装到 ./tools 目录，并锁定 v1.0.0
+curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh | bash -s -- ./tools v1.0.0
 ```
 
 安装内容：

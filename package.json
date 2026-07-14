@@ -1,6 +1,6 @@
 {
-  "name": "flutter-ios-sim-runner",
-  "version": "1.0.1",
+  "name": "flutter-ios-sim-launcher",
+  "version": "1.0.0",
   "description": "Run Flutter iOS apps on a simulator or device with saved local profiles.",
   "bin": {
     "run-ios-sim": "bin/run-ios-sim"
