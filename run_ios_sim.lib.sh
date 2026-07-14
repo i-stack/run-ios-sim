@@ -566,7 +566,9 @@ boot_simulator_if_needed() {
     fi
     sleep 1
   done
-  [ "$booted" -eq 0 ] && echo "⚠️  模拟器可能未完全启动，继续尝试运行…"
+  if [ "$booted" -eq 0 ]; then
+    echo "⚠️  模拟器可能未完全启动，继续尝试运行…"
+  fi
 }
 
 clean_ios_artifacts_if_requested() {
