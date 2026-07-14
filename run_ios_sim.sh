@@ -15,6 +15,7 @@ set -euo pipefail
 
 # 定位本脚本所在目录，并 source 同目录下的函数库
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+RUN_IOS_SIM_SCRIPT_DIR="$SCRIPT_DIR"
 # shellcheck disable=SC1090
 source "$SCRIPT_DIR/run_ios_sim.lib.sh"
 
