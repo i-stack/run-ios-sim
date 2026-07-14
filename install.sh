@@ -4,10 +4,15 @@
 #
 # 用法:
 #   curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh | bash
-#   curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh | bash -s -- /path/to/project
+#   curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh | bash -s -- <目标目录> [<ref>]
 #
-# 环境变量:
-#   RUN_IOS_SIM_RAW  可指定 raw 基址（默认 main 分支，建议改为某个 release tag 以锁定版本）
+# 例（锁定 v1.0.0）:
+#   curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh | bash -s -- . v1.0.0
+#
+# 参数:
+#   $1  目标目录（默认 .）
+#   $2  ref / 标签（默认 main），决定下载的 run_ios_sim.* 版本
+# 环境变量 RUN_IOS_SIM_RAW 可强制指定 raw 基址（最高优先级）
 #
 # 说明:
 #   1) 下载 run_ios_sim.lib.sh（纯函数库）与 run_ios_sim.sh（封装入口）到目标目录
@@ -17,12 +22,13 @@
 
 set -euo pipefail
 
-REPO_RAW="${RUN_IOS_SIM_RAW:-https://raw.githubusercontent.com/i-stack/run-ios-sim/main}"
+REF="${2:-main}"
+REPO_RAW="${RUN_IOS_SIM_RAW:-https://raw.githubusercontent.com/i-stack/run-ios-sim/$REF}"
 TARGET="${1:-.}"
 
 mkdir -p "$TARGET"
 
-echo "▶ 正在从 $REPO_RAW 安装 run-ios-sim 到 $TARGET ..."
+echo "▶ 正在从 $REPO_RAW 安装 run-ios-sim (ref=$REF) 到 $TARGET ..."
 
 curl -fsSL "$REPO_RAW/run_ios_sim.lib.sh" -o "$TARGET/run_ios_sim.lib.sh"
 curl -fsSL "$REPO_RAW/run_ios_sim.sh"    -o "$TARGET/run_ios_sim.sh"
