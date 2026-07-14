@@ -47,8 +47,8 @@ curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh
 可指定目标目录与版本（标签/分支）：
 
 ```bash
-# 安装到 ./tools 目录，并锁定 v1.0.0
-curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh | bash -s -- ./tools v1.0.0
+# 安装到 ./tools 目录，并锁定 v1.0.1
+curl -fsSL https://raw.githubusercontent.com/i-stack/run-ios-sim/main/install.sh | bash -s -- ./tools v1.0.1
 ```
 
 安装内容：
