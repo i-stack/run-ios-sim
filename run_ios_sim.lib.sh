@@ -44,7 +44,6 @@ FLUTTER_ARGS=()
 # 正则表达式（放入变量，配合 [[ $x =~ $RE ]] 使用，规避 bash 3.2 字面量正则解析陷阱）
 SIM_RE='^[[:space:]]+(.+)\ \(([0-9A-Fa-f-]{36})\)\ \((.+)\)[[:space:]]*$'
 REAL_RE='^(.+)\ \([0-9]+(\.[0-9]+)*\)\ \(([^)]+)\)[[:space:]]*$'
-UUID_RE='^[0-9A-Fa-f-]{25,}$'
 
 # 从配置读取的“上次保存”值
 SAVED_DEVICE_TYPE=""
@@ -69,7 +68,11 @@ ensure_config_ignored() {
   config_pattern="/${prefix}.run_ios_sim.conf"
 
   if [ -f "$ignore_file" ]; then
-    grep -qxF "$config_pattern" "$ignore_file" || printf '\n%s\n' "$config_pattern" >> "$ignore_file"
+    grep -qxF "$config_pattern" "$ignore_file" && return 0
+    if [ -z "$prefix" ] && grep -qxF ".run_ios_sim.conf" "$ignore_file"; then
+      return 0
+    fi
+    printf '\n%s\n' "$config_pattern" >> "$ignore_file"
   else
     printf '%s\n' "$config_pattern" > "$ignore_file"
   fi
@@ -90,9 +93,6 @@ write_assignment() {
 decode_config_value() {
   local raw="$1"
   local out="" i ch len
-
-  # 兼容旧版本 printf %q 为 empty string 写出的 ''。
-  [ "$raw" = "''" ] && { printf '%s' ""; return 0; }
 
   len=${#raw}
   for ((i = 0; i < len; i++)); do
@@ -458,7 +458,6 @@ run-ios-sim — 通用 iOS 运行脚本（模拟器 / 真机）
     在控制台选择后保存到工程根目录 .run_ios_sim.conf，并自动加入 Git 仓库根 .gitignore。
   • 每次成功选择设备都会保留到历史配置；可用 --profiles 查看，用 --profile 切换。
   • 可随时用 --reselect / --reselect-flutter 更改当前默认选择。
-  • 兼容旧用法: ./run_ios_sim.sh <UUID>  等同于 --device <UUID>。
   • 其余未识别的参数会原样透传给 `flutter run`（如 --release）。
 EOF
 }
@@ -474,11 +473,6 @@ prepare_project_context() {
 }
 
 parse_args() {
-  # 兼容旧用法: 第一个非选项参数若是 UUID，则视为 --device
-  if [[ $# -gt 0 && "$1" =~ $UUID_RE && "$1" != -* ]]; then
-    ARG_DEVICE_UUID="$1"; shift
-  fi
-
   while [ $# -gt 0 ]; do
     case "$1" in
       -d|--device)

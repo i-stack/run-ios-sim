@@ -80,9 +80,6 @@ git submodule add https://github.com/i-stack/run-ios-sim.git tools/run-ios-sim
 # 直接指定设备 UUID
 ./run_ios_sim.sh --device 497AEB7D-0C98-4F13-A597-0DF8162897E5
 
-# 兼容旧写法：直接跟 UUID
-./run_ios_sim.sh 497AEB7D-0C98-4F13-A597-0DF8162897E5
-
 # 运行前清理缓存
 ./run_ios_sim.sh --clean
 
