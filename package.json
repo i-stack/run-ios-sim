@@ -11,7 +11,7 @@
     "run_ios_sim.lib.sh"
   ],
   "scripts": {
-    "test": "bash -n run_ios_sim.sh && bash -n run_ios_sim.lib.sh && npm pack --dry-run"
+    "test": "bash -n run_ios_sim.sh && bash -n run_ios_sim.lib.sh && bash test/run_ios_sim_lib_tests.sh && npm_config_cache=${TMPDIR:-/tmp}/run-ios-sim-npm-cache npm pack --dry-run"
   },
   "keywords": [
     "flutter",

@@ -314,7 +314,7 @@ list_real_devices() {
 fvm_cache_dir() {
   local d=""
   if command -v fvm >/dev/null 2>&1; then
-    d="$(fvm list 2>/dev/null | grep -i 'Cache Directory' | head -1 | sed -E 's/^[^:]*:[[:space:]]*//')"
+    d="$(fvm list 2>/dev/null | grep -i 'Cache Directory' | head -1 | sed -E 's/^[^:]*:[[:space:]]*//' || true)"
   fi
   if [ -z "$d" ] && [ -n "${FVM_DIR:-}" ]; then d="$FVM_DIR/versions"; fi
   if [ -z "$d" ] && [ -d "$HOME/.fvm/versions" ]; then d="$HOME/.fvm/versions"; fi
@@ -336,7 +336,7 @@ list_flutter_versions() {
 default_flutter_version() {
   [ -f "$PROJECT_ROOT/.fvmrc" ] || return 0
   grep -o '"flutter"[[:space:]]*:[[:space:]]*"[^"]*"' "$PROJECT_ROOT/.fvmrc" 2>/dev/null \
-    | sed -E 's/.*:"([^"]*)".*/\1/'
+    | sed -E 's/.*:[[:space:]]*"([^"]*)".*/\1/'
 }
 
 # 根据版本解析出可执行的 flutter 命令（写入全局数组 FLUTTER_CMD）
