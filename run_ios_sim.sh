@@ -13,8 +13,19 @@
 # 详细选项见 ./run_ios_sim.sh --help
 set -euo pipefail
 
-# 定位本脚本所在目录，并 source 同目录下的函数库
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# 定位本脚本真实目录，并 source 同目录下的函数库。
+# npm bin 会创建符号链接，因此这里不能直接使用 BASH_SOURCE[0] 的 dirname。
+SOURCE_PATH="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE_PATH" ]; do
+  SOURCE_DIR="$(cd "$(dirname "$SOURCE_PATH")" && pwd)"
+  LINK_TARGET="$(readlink "$SOURCE_PATH")"
+  if [[ "$LINK_TARGET" = /* ]]; then
+    SOURCE_PATH="$LINK_TARGET"
+  else
+    SOURCE_PATH="$SOURCE_DIR/$LINK_TARGET"
+  fi
+done
+SCRIPT_DIR="$(cd "$(dirname "$SOURCE_PATH")" && pwd)"
 RUN_IOS_SIM_SCRIPT_DIR="$SCRIPT_DIR"
 # shellcheck disable=SC1090
 source "$SCRIPT_DIR/run_ios_sim.lib.sh"

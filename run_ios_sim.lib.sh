@@ -38,6 +38,7 @@ RESELECT_DEVICE=0
 RESELECT_FLUTTER=0
 LIST_PROFILES=0
 PROFILE_SELECTOR=""
+PROFILE_APPLIED=0
 FLUTTER_ARGS=()
 
 # ---------- 用户默认配置（可直接在此写死，无需 .conf 也能用）----------
@@ -71,8 +72,73 @@ conf_value() {
 write_assignment() {
   local key="$1"
   local value="$2"
-  printf '%s=' "$key"
-  printf '%q\n' "$value"
+  local escaped="${value//\\/\\\\}"
+  printf '%s=%s\n' "$key" "$escaped"
+}
+
+decode_config_value() {
+  local raw="$1"
+  local out="" i ch len
+
+  # 兼容旧版本 printf %q 为 empty string 写出的 ''。
+  [ "$raw" = "''" ] && { printf '%s' ""; return 0; }
+
+  len=${#raw}
+  for ((i = 0; i < len; i++)); do
+    ch="${raw:i:1}"
+    if [ "$ch" = "\\" ] && [ $((i + 1)) -lt "$len" ]; then
+      i=$((i + 1))
+      out+="${raw:i:1}"
+    else
+      out+="$ch"
+    fi
+  done
+  printf '%s' "$out"
+}
+
+set_config_value() {
+  local key="$1"
+  local value="$2"
+  case "$key" in
+    DEVICE_TYPE|DEVICE_UUID|DEVICE_LABEL|FLUTTER_VERSION|PROFILE_COUNT)
+      printf -v "$key" '%s' "$value"
+      ;;
+    PROFILE_*_LABEL|PROFILE_*_DEVICE_TYPE|PROFILE_*_DEVICE_UUID|PROFILE_*_FLUTTER_VERSION)
+      [[ "$key" =~ ^PROFILE_[0-9]+_(LABEL|DEVICE_TYPE|DEVICE_UUID|FLUTTER_VERSION)$ ]] || return 0
+      printf -v "$key" '%s' "$value"
+      ;;
+  esac
+}
+
+read_config_file() {
+  local line key raw value
+  [ -f "$CONFIG_FILE" ] || return 0
+  while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%$'\r'}"
+    [[ "$line" =~ ^[[:space:]]*$ ]] && continue
+    [[ "$line" =~ ^[[:space:]]*# ]] && continue
+    [[ "$line" == *=* ]] || continue
+    key="${line%%=*}"
+    raw="${line#*=}"
+    value="$(decode_config_value "$raw")"
+    set_config_value "$key" "$value"
+  done < "$CONFIG_FILE"
+}
+
+reset_runtime_state() {
+  DEVICE_TYPE=""
+  DEVICE_UUID=""
+  DEVICE_LABEL=""
+  FLUTTER_VERSION=""
+  ARG_DEVICE_TYPE=""
+  ARG_DEVICE_UUID=""
+  CLEAN=0
+  RESELECT_DEVICE=0
+  RESELECT_FLUTTER=0
+  LIST_PROFILES=0
+  PROFILE_SELECTOR=""
+  PROFILE_APPLIED=0
+  FLUTTER_ARGS=()
 }
 
 load_profiles_from_config() {
@@ -158,6 +224,7 @@ apply_profile() {
   DEVICE_TYPE="${PROFILE_DEVICE_TYPES[$idx]}"
   DEVICE_UUID="${PROFILE_DEVICE_UUIDS[$idx]}"
   FLUTTER_VERSION="${PROFILE_FLUTTER_VERSIONS[$idx]}"
+  PROFILE_APPLIED=1
 }
 
 load_config() {
@@ -167,8 +234,7 @@ load_config() {
   SAVED_DEVICE_LABEL="$DEFAULT_DEVICE_UUID"
   SAVED_FLUTTER_VERSION="$DEFAULT_FLUTTER_VERSION"
   if [ -f "$CONFIG_FILE" ]; then
-    # shellcheck disable=SC1090
-    source "$CONFIG_FILE"
+    read_config_file
     [ -n "$DEVICE_TYPE" ] && SAVED_DEVICE_TYPE="$DEVICE_TYPE"
     [ -n "$DEVICE_UUID" ] && SAVED_DEVICE_UUID="$DEVICE_UUID"
     [ -n "${DEVICE_LABEL:-}" ] && SAVED_DEVICE_LABEL="$DEVICE_LABEL"
@@ -264,6 +330,14 @@ default_flutter_version() {
 resolve_flutter_cmd() {
   local ver="$1"
   local cache="${2:-}"
+  if [ -z "$ver" ]; then
+    if command -v fvm >/dev/null 2>&1; then
+      FLUTTER_CMD=(fvm flutter)
+    else
+      FLUTTER_CMD=(flutter)
+    fi
+    return
+  fi
   if [ "$ver" = "system" ]; then
     FLUTTER_CMD=("$(command -v flutter)")
     return
@@ -348,16 +422,17 @@ select_flutter() {
 # ---------- 帮助 ----------
 show_help() {
   cat <<'EOF'
-run_ios_sim.sh — 通用 iOS 运行脚本（模拟器 / 真机）
+run-ios-sim — 通用 iOS 运行脚本（模拟器 / 真机）
 
 用法:
+  run-ios-sim [选项] [flutter run 透传参数...]
   ./run_ios_sim.sh [选项] [flutter run 透传参数...]
 
 选项:
   -d, --device <UUID>      直接指定设备 UUID（模拟器或真机）
       --sim                使用模拟器（默认倾向）
       --real               使用已连接的真机
-  -c, --clean              运行前清理 Pod 缓存并重新 pod install
+  -c, --clean              运行前删除 Podfile.lock 与 Flutter ephemeral 缓存
       --reselect           重新选择设备 UUID（忽略已保存配置）
       --reselect-flutter   重新选择 Flutter 版本
       --profiles           查看已保存的设备配置
@@ -377,6 +452,136 @@ run_ios_sim.sh — 通用 iOS 运行脚本（模拟器 / 真机）
 EOF
 }
 
+prepare_project_context() {
+  PROJECT_ROOT="$(find_project_root "$PWD" || find_project_root "${RUN_IOS_SIM_SCRIPT_DIR:-$PWD}")" || {
+    echo "未找到 Flutter 工程根目录（需要 pubspec.yaml）。请在工程目录内运行，或把脚本放在工程目录/子目录中。" >&2
+    exit 1
+  }
+  cd "$PROJECT_ROOT"   # 确保后续 flutter 等命令在 Flutter 工程根目录执行
+  CONFIG_FILE="$PROJECT_ROOT/.run_ios_sim.conf"
+  load_config
+}
+
+parse_args() {
+  # 兼容旧用法: 第一个非选项参数若是 UUID，则视为 --device
+  if [[ $# -gt 0 && "$1" =~ $UUID_RE && "$1" != -* ]]; then
+    ARG_DEVICE_UUID="$1"; shift
+  fi
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      -d|--device)
+        [ $# -ge 2 ] && [[ "$2" != -* ]] || { echo "$1 需要设备 UUID 参数。" >&2; exit 1; }
+        ARG_DEVICE_UUID="$2"; shift 2;;
+      --sim)       ARG_DEVICE_TYPE="sim"; shift;;
+      --real)      ARG_DEVICE_TYPE="real"; shift;;
+      -c|--clean)  CLEAN=1; shift;;
+      --reselect)  RESELECT_DEVICE=1; shift;;
+      --reselect-flutter) RESELECT_FLUTTER=1; shift;;
+      --profiles)  LIST_PROFILES=1; shift;;
+      --profile)
+        [ $# -ge 2 ] && [[ "$2" != -* ]] || { echo "$1 需要配置编号、UUID 或名称参数。" >&2; exit 1; }
+        PROFILE_SELECTOR="$2"; shift 2;;
+      -h|--help)   show_help; exit 0;;
+      *)           FLUTTER_ARGS+=("$1"); shift;;
+    esac
+  done
+}
+
+apply_requested_profile_and_device() {
+  if [ "$LIST_PROFILES" -eq 1 ]; then
+    list_saved_profiles
+    exit 0
+  fi
+
+  [ -n "$PROFILE_SELECTOR" ] && apply_profile "$PROFILE_SELECTOR"
+  [ -n "$ARG_DEVICE_TYPE" ] && DEVICE_TYPE="$ARG_DEVICE_TYPE"
+  if [ -n "$ARG_DEVICE_UUID" ]; then
+    DEVICE_UUID="$ARG_DEVICE_UUID"
+    DEVICE_LABEL="$ARG_DEVICE_UUID"
+  fi
+}
+
+choose_device_type() {
+  if [ -z "$DEVICE_TYPE" ] && [ -n "$SAVED_DEVICE_TYPE" ]; then
+    DEVICE_TYPE="$SAVED_DEVICE_TYPE"
+  fi
+  if [ -z "$DEVICE_TYPE" ]; then
+    menu_select "请选择运行目标 (1=模拟器, 2=真机) [1]: " $'模拟器|sim\n真机|real'
+    DEVICE_TYPE="$SELECTED_VALUE"
+  fi
+}
+
+choose_device_uuid() {
+  if [ -z "$DEVICE_UUID" ] && [ "$DEVICE_TYPE" = "$SAVED_DEVICE_TYPE" ] && [ -n "$SAVED_DEVICE_UUID" ]; then
+    DEVICE_UUID="$SAVED_DEVICE_UUID"
+  fi
+  if [ -z "$DEVICE_UUID" ] || [ "$RESELECT_DEVICE" -eq 1 ]; then
+    select_device
+  fi
+}
+
+choose_flutter_version() {
+  local locked_version
+  locked_version="$(default_flutter_version)"
+
+  if [ -z "$FLUTTER_VERSION" ] && [ "$PROFILE_APPLIED" -eq 0 ] && [ -n "$SAVED_FLUTTER_VERSION" ]; then
+    FLUTTER_VERSION="$SAVED_FLUTTER_VERSION"
+  fi
+  if [ "$RESELECT_FLUTTER" -eq 1 ]; then
+    select_flutter
+  elif [ -z "$FLUTTER_VERSION" ] && [ "$PROFILE_APPLIED" -eq 0 ] && [ -n "$locked_version" ]; then
+    FLUTTER_VERSION="$locked_version"
+  elif [ -z "$FLUTTER_VERSION" ] && [ "$PROFILE_APPLIED" -eq 0 ]; then
+    select_flutter
+  fi
+}
+
+print_run_summary() {
+  local device_type_desc="模拟器"
+  [ "$DEVICE_TYPE" = "real" ] && device_type_desc="真机"
+
+  echo "============================================"
+  echo " 运行目标 : $device_type_desc"
+  echo " 设备 UUID : $DEVICE_UUID"
+  echo " Flutter   : ${FLUTTER_VERSION:-项目锁定}"
+  echo "============================================"
+}
+
+boot_simulator_if_needed() {
+  [ "$DEVICE_TYPE" = "sim" ] || return 0
+  local booted=0
+
+  open -a Simulator
+  xcrun simctl boot "$DEVICE_UUID" 2>/dev/null || true
+  echo "等待模拟器启动: $DEVICE_UUID"
+  for _ in $(seq 1 30); do
+    if xcrun simctl list devices 2>/dev/null | grep -q "$DEVICE_UUID.*Booted"; then
+      echo "模拟器已就绪 ✓"; booted=1; break
+    fi
+    sleep 1
+  done
+  [ "$booted" -eq 0 ] && echo "⚠️  模拟器可能未完全启动，继续尝试运行…"
+}
+
+clean_ios_artifacts_if_requested() {
+  [ "$CLEAN" -eq 1 ] || return 0
+
+  echo "删除 Podfile.lock 与 Flutter ephemeral 缓存…"
+  rm -f ios/Podfile.lock
+  rm -rf ios/Flutter/ephemeral/Packages
+}
+
+run_flutter_app() {
+  resolve_flutter_cmd "$FLUTTER_VERSION"
+  echo "▶ 启动 Flutter 运行: ${FLUTTER_CMD[*]}"
+  if [ ${#FLUTTER_ARGS[@]} -gt 0 ]; then
+    "${FLUTTER_CMD[@]}" run -d "$DEVICE_UUID" "${FLUTTER_ARGS[@]}"
+  else
+    "${FLUTTER_CMD[@]}" run -d "$DEVICE_UUID"
+  fi
+}
+
 # ---------- 主流程（库导入入口）----------
 # 以库形式使用时: source run_ios_sim.lib.sh 后调用 run_ios_sim_main "$@"
 run_ios_sim_main() {
@@ -385,118 +590,16 @@ run_ios_sim_main() {
     exit 0
   fi
 
-  PROJECT_ROOT="$(find_project_root "$PWD" || find_project_root "${RUN_IOS_SIM_SCRIPT_DIR:-$PWD}")" || {
-    echo "未找到 Flutter 工程根目录（需要 pubspec.yaml）。请在工程目录内运行，或把脚本放在工程目录/子目录中。" >&2
-    exit 1
-  }
-  cd "$PROJECT_ROOT"   # 确保后续 flutter 等命令在 Flutter 工程根目录执行
-  CONFIG_FILE="$PROJECT_ROOT/.run_ios_sim.conf"
-  load_config
-
-# 兼容旧用法: 第一个非选项参数若是 UUID，则视为 --device
-if [[ $# -gt 0 && "$1" =~ $UUID_RE && "$1" != -* ]]; then
-  ARG_DEVICE_UUID="$1"; shift
-fi
-
-while [ $# -gt 0 ]; do
-  case "$1" in
-    -d|--device)
-      [ $# -ge 2 ] && [[ "$2" != -* ]] || { echo "$1 需要设备 UUID 参数。" >&2; exit 1; }
-      ARG_DEVICE_UUID="$2"; shift 2;;
-    --sim)       ARG_DEVICE_TYPE="sim"; shift;;
-    --real)      ARG_DEVICE_TYPE="real"; shift;;
-    -c|--clean)  CLEAN=1; shift;;
-    --reselect)  RESELECT_DEVICE=1; shift;;
-    --reselect-flutter) RESELECT_FLUTTER=1; shift;;
-    --profiles)  LIST_PROFILES=1; shift;;
-    --profile)
-      [ $# -ge 2 ] && [[ "$2" != -* ]] || { echo "$1 需要配置编号、UUID 或名称参数。" >&2; exit 1; }
-      PROFILE_SELECTOR="$2"; shift 2;;
-    -h|--help)   show_help; exit 0;;
-    *)           FLUTTER_ARGS+=("$1"); shift;;
-  esac
-done
-
-if [ "$LIST_PROFILES" -eq 1 ]; then
-  list_saved_profiles
-  exit 0
-fi
-
-if [ -n "$PROFILE_SELECTOR" ]; then
-  apply_profile "$PROFILE_SELECTOR"
-fi
-if [ -n "$ARG_DEVICE_TYPE" ]; then
-  DEVICE_TYPE="$ARG_DEVICE_TYPE"
-fi
-if [ -n "$ARG_DEVICE_UUID" ]; then
-  DEVICE_UUID="$ARG_DEVICE_UUID"
-  DEVICE_LABEL="$ARG_DEVICE_UUID"
-fi
-
-# ---------- 决定运行目标类型 ----------
-if [ -z "$DEVICE_TYPE" ] && [ -n "$SAVED_DEVICE_TYPE" ]; then
-  DEVICE_TYPE="$SAVED_DEVICE_TYPE"
-fi
-if [ -z "$DEVICE_TYPE" ]; then
-  menu_select "请选择运行目标 (1=模拟器, 2=真机) [1]: " $'模拟器|sim\n真机|real'
-  DEVICE_TYPE="$SELECTED_VALUE"
-fi
-
-# ---------- 决定设备 UUID ----------
-if [ -z "$DEVICE_UUID" ] && [ "$DEVICE_TYPE" = "$SAVED_DEVICE_TYPE" ] && [ -n "$SAVED_DEVICE_UUID" ]; then
-  DEVICE_UUID="$SAVED_DEVICE_UUID"
-fi
-if [ -z "$DEVICE_UUID" ] || [ "$RESELECT_DEVICE" -eq 1 ]; then
-  select_device
-fi
-
-# ---------- 决定 Flutter 版本 ----------
-if [ -z "$FLUTTER_VERSION" ] && [ -n "$SAVED_FLUTTER_VERSION" ]; then
-  FLUTTER_VERSION="$SAVED_FLUTTER_VERSION"
-fi
-if [ -z "$FLUTTER_VERSION" ] || [ "$RESELECT_FLUTTER" -eq 1 ]; then
-  select_flutter
-fi
-
-# 保存本次选择
-save_config
-
-DEVICE_TYPE_DESC="模拟器"; [ "$DEVICE_TYPE" = "real" ] && DEVICE_TYPE_DESC="真机"
-
-echo "============================================"
-echo " 运行目标 : $DEVICE_TYPE_DESC"
-echo " 设备 UUID : $DEVICE_UUID"
-echo " Flutter   : ${FLUTTER_VERSION:-项目锁定}"
-echo "============================================"
-
-# ---------- 启动模拟器（真机无需 boot） ----------
-if [ "$DEVICE_TYPE" = "sim" ]; then
-  open -a Simulator
-  xcrun simctl boot "$DEVICE_UUID" 2>/dev/null || true
-  echo "等待模拟器启动: $DEVICE_UUID"
-  booted=0
-  for _ in $(seq 1 30); do
-    if xcrun simctl list devices 2>/dev/null | grep -q "$DEVICE_UUID.*Booted"; then
-      echo "模拟器已就绪 ✓"; booted=1; break
-    fi
-    sleep 1
-  done
-  [ "$booted" -eq 0 ] && echo "⚠️  模拟器可能未完全启动，继续尝试运行…"
-fi
-
-# ---------- 运行 Flutter ----------
-resolve_flutter_cmd "$FLUTTER_VERSION"
-
-if [ "$CLEAN" -eq 1 ]; then
-  echo "清理 Pod 缓存并重新安装…"
-  rm -f ios/Podfile.lock
-  rm -rf ios/Flutter/ephemeral/Packages
-fi
-
-echo "▶ 启动 Flutter 运行: ${FLUTTER_CMD[*]}"
-if [ ${#FLUTTER_ARGS[@]} -gt 0 ]; then
-  "${FLUTTER_CMD[@]}" run -d "$DEVICE_UUID" "${FLUTTER_ARGS[@]}"
-else
-  "${FLUTTER_CMD[@]}" run -d "$DEVICE_UUID"
-fi
+  reset_runtime_state
+  prepare_project_context
+  parse_args "$@"
+  apply_requested_profile_and_device
+  choose_device_type
+  choose_device_uuid
+  choose_flutter_version
+  save_config
+  print_run_summary
+  boot_simulator_if_needed
+  clean_ios_artifacts_if_requested
+  run_flutter_app
 }

@@ -1,0 +1,26 @@
+{
+  "name": "flutter-ios-sim-runner",
+  "version": "1.0.0",
+  "description": "Run Flutter iOS apps on a simulator or device with saved local profiles.",
+  "bin": {
+    "run-ios-sim": "./bin/run-ios-sim"
+  },
+  "files": [
+    "bin/run-ios-sim",
+    "run_ios_sim.sh",
+    "run_ios_sim.lib.sh"
+  ],
+  "scripts": {
+    "test": "bash -n run_ios_sim.sh && bash -n run_ios_sim.lib.sh && npm pack --dry-run"
+  },
+  "keywords": [
+    "flutter",
+    "ios",
+    "simulator",
+    "xcode"
+  ],
+  "os": [
+    "darwin"
+  ],
+  "license": "MIT"
+}
